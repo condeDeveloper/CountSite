@@ -1146,6 +1146,14 @@ font-size: clamp(0.9rem, 3vw, 1rem);
 .footer__logo { height: 26px; width: auto; }
 .footer__copy { font-size: 0.8rem; color: var(--text-dim); }
 
+.footer__visits {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  opacity: 0.7;
+}
+
+.footer__visits span { color: var(--primary); font-weight: 700; }
+
 /* ============================================================
    FADE-IN ANIMATION
 ============================================================ */

@@ -51,3 +51,14 @@ document.querySelectorAll(
   el.classList.add('fade-in');
   observer.observe(el);
 });
+
+// ============================================================
+//   CONTADOR DE VISITAS
+// ============================================================
+fetch('/api/count')
+  .then((res) => res.json())
+  .then((data) => {
+    const el = document.getElementById('visit-count');
+    if (el) el.textContent = data.count.toLocaleString('pt-BR');
+  })
+  .catch(() => {});
