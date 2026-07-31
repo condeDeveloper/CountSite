@@ -1,0 +1,47 @@
+[
+  {
+    "title": "Organizando seu GitHub para emprego",
+    "category": "Git & GitHub",
+    "tag": "novo"
+  },
+  {
+    "title": "Conversor de Moedas (HTML + CSS + JS + API)",
+    "category": "Projetos Full Stack",
+    "tag": "novo"
+  },
+  {
+    "title": "Gerador de QRCode em Python",
+    "category": "Python",
+    "tag": "novo"
+  },
+  {
+    "title": "Gerador de senhas em Java",
+    "category": "Java",
+    "tag": "novo"
+  },
+  {
+    "title": "Login em C#",
+    "category": "C#",
+    "tag": "novo"
+  },
+  {
+    "title": "Manual Definitivo do Dev",
+    "category": "Manual",
+    "tag": null
+  },
+  {
+    "title": "Página de produto em HTML + CSS",
+    "category": "HTML & CSS",
+    "tag": null
+  },
+  {
+    "title": "Página de restaurante em HTML + CSS",
+    "category": "HTML & CSS",
+    "tag": null
+  },
+  {
+    "title": "Palíndromo em JavaScript",
+    "category": "JavaScript",
+    "tag": null
+  }
+]

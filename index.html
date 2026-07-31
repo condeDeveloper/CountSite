@@ -3,359 +3,553 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aprenda Programação do Zero by Conde</title>
+  <title>CondeClub — Biblioteca Dev para Quem Está Começando</title>
+  <meta name="description" content="Guias visuais, projetos práticos e o Manual Definitivo do Dev em uma biblioteca organizada para iniciantes. Acesse por R$ 12,90 por mês." />
+  <link rel="canonical" href="https://condecount.pages.dev/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="CondeClub — Biblioteca Dev para Quem Está Começando" />
+  <meta property="og:description" content="Guias visuais, projetos práticos e o Manual Definitivo do Dev em uma biblioteca organizada para iniciantes. Acesse por R$ 12,90 por mês." />
+  <meta property="og:url" content="https://condecount.pages.dev/" />
+  <meta property="og:image" content="https://condecount.pages.dev/assets/condeclub-hero-capa.png" />
+  <meta property="og:locale" content="pt_BR" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="CondeClub — Biblioteca Dev para Quem Está Começando" />
+  <meta name="twitter:description" content="Guias visuais, projetos práticos e o Manual Definitivo do Dev em uma biblioteca organizada para iniciantes." />
+  <meta name="twitter:image" content="https://condecount.pages.dev/assets/condeclub-hero-capa.png" />
+
   <link rel="icon" type="image/png" href="assets/logo.png" />
   <link rel="stylesheet" href="style.css" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <link rel="preload" as="image" href="assets/condeclub-hero-capa.webp" fetchpriority="high" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Product",
+        "name": "CondeClub",
+        "description": "Assinatura mensal com biblioteca de guias visuais, projetos práticos e o Manual Definitivo do Dev para quem está começando na programação.",
+        "brand": { "@type": "Brand", "name": "conde.count" },
+        "offers": {
+          "@type": "Offer",
+          "url": "https://pay.kiwify.com.br/mzpLLta",
+          "price": "12.90",
+          "priceCurrency": "BRL",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "12.90",
+            "priceCurrency": "BRL",
+            "billingDuration": 1,
+            "billingIncrement": 1,
+            "unitCode": "MON"
+          }
+        }
+      },
+      {
+        "@type": "Product",
+        "name": "Manual Definitivo do Dev",
+        "description": "Guia visual em PDF sobre lógica, linguagens, front-end, back-end, banco de dados, Git e deploy, com pagamento único.",
+        "brand": { "@type": "Brand", "name": "conde.count" },
+        "offers": {
+          "@type": "Offer",
+          "url": "https://pay.kiwify.com.br/g4nOA1U",
+          "price": "14.90",
+          "priceCurrency": "BRL",
+          "availability": "https://schema.org/InStock"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "O que recebo ao entrar no CondeClub?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Acesso à biblioteca completa enquanto sua assinatura estiver ativa: o Manual Definitivo do Dev, guias visuais, projetos práticos e materiais de carreira, organizados por tecnologia." }
+          },
+          {
+            "@type": "Question",
+            "name": "O Manual está incluído?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Sim. O Manual Definitivo do Dev faz parte da assinatura do CondeClub. Você também pode comprá-lo separadamente, sem assinar o clube." }
+          },
+          {
+            "@type": "Question",
+            "name": "Posso comprar somente o Manual?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Sim. O Manual Definitivo do Dev pode ser comprado separadamente, com pagamento único de R$ 14,90, sem acesso aos demais módulos do CondeClub." }
+          },
+          {
+            "@type": "Question",
+            "name": "Como funciona a cobrança mensal?",
+            "acceptedAnswer": { "@type": "Answer", "text": "O CondeClub é uma assinatura de R$ 12,90 por mês, cobrada automaticamente pela Kiwify até que você cancele." }
+          },
+          {
+            "@type": "Question",
+            "name": "Como faço para cancelar?",
+            "acceptedAnswer": { "@type": "Answer", "text": "O cancelamento pode ser feito a qualquer momento diretamente pela área de compras da Kiwify, sem burocracia." }
+          },
+          {
+            "@type": "Question",
+            "name": "O que acontece com meu acesso depois do cancelamento?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Seu acesso à biblioteca do CondeClub permanece enquanto a assinatura estiver ativa. Após o cancelamento, o acesso aos módulos do clube é encerrado." }
+          },
+          {
+            "@type": "Question",
+            "name": "Como recebo o acesso?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Após a confirmação do pagamento pela Kiwify, você recebe o acesso por e-mail, com instruções de login na área de membros." }
+          },
+          {
+            "@type": "Question",
+            "name": "Preciso saber programar?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Não. Os materiais são pensados para quem está começando do zero, com linguagem simples e conteúdo visual." }
+          },
+          {
+            "@type": "Question",
+            "name": "Novos materiais são adicionados?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Sim, novos guias e projetos são adicionados à biblioteca. Você tem acesso a todo o conteúdo disponível e às próximas atualizações enquanto sua assinatura estiver ativa." }
+          },
+          {
+            "@type": "Question",
+            "name": "Qual a diferença entre o Manual e o CondeClub?",
+            "acceptedAnswer": { "@type": "Answer", "text": "O Manual é um produto avulso, com pagamento único e acesso permanente apenas a ele. O CondeClub é uma assinatura mensal que inclui o Manual e dá acesso à biblioteca completa enquanto estiver ativa." }
+          },
+          {
+            "@type": "Question",
+            "name": "Como entrar em contato com o suporte?",
+            "acceptedAnswer": { "@type": "Answer", "text": "O suporte de pagamentos e acesso é feito diretamente pela Kiwify, plataforma responsável pelo processamento da sua compra." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
   <!-- ===================== HEADER / NAV ===================== -->
   <header class="header">
     <div class="container header__inner">
-      <img src="assets/logo.png" alt="Logo conde.count" class="header__logo" />
+      <img src="assets/logo.webp" alt="Logo conde.count" class="header__logo" width="120" height="30" />
       <a href="https://www.tiktok.com/@conde.count" target="_blank" rel="noopener" class="btn btn--outline btn--sm">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.94a8.2 8.2 0 004.79 1.53V7.04a4.85 4.85 0 01-1.02-.35z"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.94a8.2 8.2 0 004.79 1.53V7.04a4.85 4.85 0 01-1.02-.35z"/></svg>
         TikTok
       </a>
     </div>
   </header>
 
+  <main>
+
   <!-- ===================== HERO ===================== -->
   <section class="hero">
-    <div class="hero__bg"></div>
     <div class="container hero__inner">
       <div class="hero__content">
-        <span class="badge badge--primary">🚀 CondeClub: Primeiro lançamento disponível</span>
-        <span class="hero__brand accent">CondeClub</span>
-        <h1 class="hero__title">Aprenda Programação do Zero e <span class="accent">Transforme Sua Carreira</span></h1>
-        <p class="hero__subtitle">Conteúdos pensados para quem nunca programou. Conteúdo direto, prática real e um caminho claro do zero ao primeiro projeto. Ao entrar no clube, você terá acesso ao Manual Definitivo do Dev, aos carrosséis do TikTok na íntegra e a conteúdos exclusivos.</p>
+        <span class="badge badge--primary">Biblioteca dev para iniciantes</span>
+        <h1 class="hero__title">Pare de estudar <span class="accent">programação</span> sem saber qual é o <span class="accent">próximo passo</span>.</h1>
+        <p class="hero__subtitle">O CondeClub reúne guias visuais, projetos práticos, materiais de carreira e o Manual Definitivo do Dev em uma biblioteca feita para quem está começando.</p>
         <div class="hero__actions">
-          <a href="https://pay.kiwify.com.br/dVK9yLu" target="_blank" rel="noopener" class="btn btn--primary">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg>
-            Quero Entrar no Clube
+          <a href="https://pay.kiwify.com.br/mzpLLta" target="_blank" rel="noopener" class="btn btn--primary btn--lg" data-analytics="click_club_hero">
+            Entrar no CondeClub — R$ 12,90/mês
+          </a>
+          <a href="https://pay.kiwify.com.br/g4nOA1U" target="_blank" rel="noopener" class="btn btn--outline btn--lg" data-analytics="click_manual_hero">
+            Quero apenas o Manual — R$ 14,90
           </a>
         </div>
+        <p class="hero__microcopy">Acesso imediato pela Kiwify &bull; Cancele quando quiser</p>
       </div>
       <div class="hero__image">
-        <img src="assets/condeclub-hero-wide.png" alt="CondeClub, Manual Definitivo do Dev" />
+        <img src="assets/condeclub-hero-capa.webp" alt="Composição do CondeClub: biblioteca de conteúdos, Manual Definitivo do Dev e materiais por dentro" width="1374" height="1145" fetchpriority="high" />
       </div>
     </div>
   </section>
 
   <div class="section-arrow">
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
       <polyline points="6 9 12 15 18 9"/>
     </svg>
   </div>
 
-  <!-- ===================== DOR ===================== -->
-  <section class="section section--pain" id="dores">
+
+  <!-- ===================== FAIXA DE CONFIANÇA ===================== -->
+  <section class="trustbar" aria-label="Diferenciais do CondeClub">
+    <div class="container trustbar__grid">
+      <div class="trustbar__item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span>Conteúdo pensado para iniciantes</span>
+      </div>
+      <div class="trustbar__item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        <span>Acesso imediato</span>
+      </div>
+      <div class="trustbar__item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+        <span>Atualizações contínuas</span>
+      </div>
+      <div class="trustbar__item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        <span>Pagamento seguro pela Kiwify</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-arrow">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <polyline points="6 9 12 15 18 9"/>
+    </svg>
+  </div>
+
+
+  <!-- ===================== VEJA POR DENTRO ===================== -->
+  <section class="section section--inside" id="por-dentro">
     <div class="container">
-      <h2 class="section__title">Você se <span class="accent">identifica</span> com isso?</h2>
-      <p class="section__subtitle">Milhares de pessoas querem aprender a programar, mas acabam travando nos mesmos obstáculos.</p>
+      <h2 class="section__title">Veja o <span class="accent">CondeClub</span> por dentro</h2>
+      <p class="section__subtitle">A visão de quem já é aluno: a área de membros, os guias e os projetos como eles realmente são.</p>
 
-      <div class="pain__grid">
-        <div class="pain__card">
-          <div class="pain__icon-wrap">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-          </div>
-          <p>Não sabe por onde começar e se sente perdido</p>
-        </div>
-        <div class="pain__card">
-          <div class="pain__icon-wrap">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
-          </div>
-          <p>Conteúdo demais na internet e falta de direção clara</p>
-        </div>
-        <div class="pain__card">
-          <div class="pain__icon-wrap">
-            <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-          </div>
-          <p>Cursos confusos, avançados demais ou desorganizados</p>
-        </div>
-        <div class="pain__card">
-          <div class="pain__icon-wrap">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 15s1.5-2 4-2 4 2 4 2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
-          </div>
-          <p>Frustração por tentar sozinho e travar toda hora</p>
-        </div>
-        <div class="pain__card">
-          <div class="pain__icon-wrap">
-            <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-          </div>
-          <p>Medo de investir tempo e não conseguir resultado</p>
-        </div>
-      </div>
-
-      <div class="pain__conclusion">
-        <p class="pain__warning">Se nada mudar, a frustração só aumenta e o sonho fica cada vez mais distante.</p>
-        <p class="pain__question"><span class="accent">E se existisse um caminho simples, direto e pensado para iniciantes?</span></p>
+      <div class="inside__grid">
+        <figure class="inside__card inside__card--wide">
+          <img src="assets/condeclub-print-membros.webp" alt="Área de membros do CondeClub mostrando os módulos: Comece aqui, Manual Definitivo do Dev, Lógica de Programação, HTML e CSS e JavaScript" width="1917" height="881" loading="lazy" />
+          <figcaption>A área de membros, organizada por módulo</figcaption>
+        </figure>
+        <figure class="inside__card">
+          <img src="assets/condeclub-manual-cover.webp" alt="Capa do Manual Definitivo do Dev" width="1254" height="1254" loading="lazy" />
+          <figcaption>O Manual Definitivo do Dev</figcaption>
+        </figure>
+        <figure class="inside__card">
+          <img src="assets/condeclub-print-guia-python.webp" alt="Exemplo de guia visual sobre Python, mostrando usos como automação, dados, IA e back-end" width="626" height="625" loading="lazy" />
+          <figcaption>Exemplo de guia visual (Python)</figcaption>
+        </figure>
+        <figure class="inside__card">
+          <img src="assets/condeclub-print-guia-java.webp" alt="Exemplo de guia visual sobre Java, mostrando usos como orientação a objetos, back-end, Spring Boot, Android e mercado corporativo" width="626" height="625" loading="lazy" />
+          <figcaption>Exemplo de guia visual (Java)</figcaption>
+        </figure>
+        <figure class="inside__card">
+          <img src="assets/condeclub-print-guia-js.webp" alt="Exemplo de guia visual sobre JavaScript, ensinando a criar um projeto de busca de CEP com fetch e API" width="1870" height="1870" loading="lazy" />
+          <figcaption>Exemplo de guia visual (JavaScript)</figcaption>
+        </figure>
       </div>
     </div>
   </section>
 
   <div class="section-arrow">
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
       <polyline points="6 9 12 15 18 9"/>
     </svg>
   </div>
 
-  <!-- ===================== SOLUÇÃO ===================== -->
-  <section class="section section--solution" id="solucao">
+
+  <!-- ===================== CONTEÚDOS DISPONÍVEIS AGORA ===================== -->
+  <section class="section section--courses" id="conteudos">
     <div class="container">
-      <h2 class="section__title">Conteúdos para programadores <span class="accent">iniciantes</span></h2>
-      <p class="section__subtitle">Te ensinaremos do zero ao seu primeiro projeto real. Conteúdo direto, passo a passo, sem enrolação.</p>
-
-      <div class="solution__benefits">
-        <div class="benefit__item">
-          <div class="benefit__stack">
-            <span class="benefit__logo"><img src="assets/logo-html.png" alt="HTML5" /></span>
-            <span class="benefit__logo"><img src="assets/logo-css.png" alt="CSS3" /></span>
-          </div>
-          <span>HTML & CSS para construir e estilizar suas primeiras páginas</span>
-        </div>
-        <div class="benefit__item">
-          <div class="benefit__stack">
-            <span class="benefit__logo"><img src="assets/logo-js.png" alt="JavaScript" /></span>
-          </div>
-          <span>JavaScript para dar vida e interatividade aos seus projetos</span>
-        </div>
-        <div class="benefit__item">
-          <div class="benefit__stack">
-            <span class="benefit__logo"><img src="assets/logo-python.png" alt="Python" /></span>
-          </div>
-          <span>Python para resolver problemas com uma das linguagens mais usadas do mundo</span>
-        </div>
-        <div class="benefit__item">
-          <div class="benefit__stack">
-            <span class="benefit__logo benefit__logo--java"><img src="assets/logo-java.png" alt="Java" /></span>
-            <span class="benefit__logo benefit__logo--csharp"><img src="assets/logo-csharp.png" alt="C#" /></span>
-          </div>
-          <span>Java & C# para ampliar seu domínio em sistemas e back-end</span>
-        </div>
-        <div class="benefit__item">
-          <div class="benefit__stack">
-            <span class="benefit__logo"><img src="assets/logo-git.png" alt="Git" /></span>
-            <span class="benefit__logo"><img src="assets/logo-github.png" alt="GitHub" /></span>
-          </div>
-          <span>Git & GitHub para versionar e colaborar como um profissional</span>
-        </div>
-        <div class="benefit__item">
-          <div class="benefit__stack">
-            <span class="benefit__logo"><img src="assets/logo-maleta.png" alt="Carreira" /></span>
-          </div>
-          <span>Dicas de carreira: currículo, portfólio e primeiros passos no mercado</span>
-        </div>
-      </div>
-
-      <h3 class="compare__title">Antes <span class="accent">vs.</span> Depois</h3>
-      <div class="compare__grid">
-        <div class="compare__card">
-          <p class="compare__before">Perdido, sem saber por onde começar</p>
-          <p class="compare__arrow">→</p>
-          <p class="compare__after">Caminho claro e organizado por etapas</p>
-        </div>
-        <div class="compare__card">
-          <p class="compare__before">Travado em tutoriais sem fim</p>
-          <p class="compare__arrow">→</p>
-          <p class="compare__after">Aprendendo com prática e projetos reais</p>
-        </div>
-        <div class="compare__card">
-          <p class="compare__before">Sem direção de carreira em tech</p>
-          <p class="compare__arrow">→</p>
-          <p class="compare__after">Evoluindo com clareza e confiança</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="section-arrow">
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <polyline points="6 9 12 15 18 9"/>
-    </svg>
-  </div>
-
-  <!-- ===================== LANÇAMENTO CONDECLUB ===================== -->
-  <section class="section section--launch" id="condeclub">
-    <div class="container launch__inner">
-      <div class="launch__content">
-        <span class="badge badge--soon">🎉 Primeiro lançamento do CondeClub</span>
-        <p class="launch__kicker"><span class="accent">Entre</span> no clube e <span class="accent">garanta</span>:</p>
-        <h2 class="section__title launch__title">Manual Definitivo do <span class="accent">Dev</span></h2>
-
-        <div class="launch__image">
-          <img src="assets/condeclub-launch.png" alt="Manual Definitivo do Dev do CondeClub" />
-        </div>
-
-        <p class="launch__text">O guia visual completo para entender lógica, front-end, back-end, banco de dados, IA, Git e deploy, do primeiro código ao portfólio. Já disponível para download.</p>
-
-        <div class="launch__benefits">
-          <div class="benefit__item">
-            <svg class="benefit__icon" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-            <span>Guia completo do zero, direto ao ponto</span>
-          </div>
-          <div class="benefit__item">
-            <svg class="benefit__icon" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            <span>Carrosséis do canal na íntegra para download</span>
-          </div>
-          <div class="benefit__item">
-            <svg class="benefit__icon" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
-            <span>Conteúdos atualizados semanalmente</span>
-          </div>
-        </div>
-
-        <div class="launch__price">
-          <span class="launch__price-value">R$ 7,90<span class="launch__price-period">/mês</span></span>
-          <span class="launch__price-note">menos de R$ 0,30 por dia, cancele quando quiser</span>
-        </div>
-
-        <a href="https://pay.kiwify.com.br/dVK9yLu" target="_blank" rel="noopener" class="btn btn--primary btn--lg launch__cta">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-          Quero o Manual Definitivo do Dev
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <div class="section-arrow">
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <polyline points="6 9 12 15 18 9"/>
-    </svg>
-  </div>
-
-  <!-- ===================== CURSOS ===================== -->
-  <section class="section section--courses" id="cursos">
-    <div class="container">
-      <div class="courses__header">
-        <span class="badge badge--orange">Em preparação</span>
-      </div>
-      <p class="section__subtitle">Conteúdos organizados em trilha para levar você do zero ao mercado. O primeiro já está disponível. Os próximos chegam em breve.</p>
+      <h2 class="section__title">Conteúdos disponíveis <span class="accent">agora</span></h2>
+      <p class="section__subtitle">Organizados por tecnologia, com foco em resultado prático — não só o nome da linguagem.</p>
 
       <div class="courses__grid">
-        <a href="https://pay.kiwify.com.br/dVK9yLu" target="_blank" rel="noopener" class="course__card course__card--unlocked">
-          <img src="assets/condeclub-manual-cover.png" alt="Manual Definitivo do Dev" class="course__cover" />
-          <span class="badge badge--live">Disponível agora no CondeClub</span>
+        <a href="https://pay.kiwify.com.br/mzpLLta" target="_blank" rel="noopener" class="course__card course__card--unlocked" data-analytics="click_club_pricing">
+          <div class="course__covers">
+            <svg class="course__cover course__cover--icon course__cover--orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          </div>
           <div class="course__info">
             <h3>Manual Definitivo do Dev</h3>
-            <p>A partir de <strong>R$ 7,90/mês</strong>, garanta o seu</p>
+            <p>O guia que conecta lógica, linguagens, back-end, banco de dados e deploy num só lugar</p>
           </div>
         </a>
         <div class="course__card">
-          <div class="course__icon-wrap"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
-          <div class="course__lock">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          <span class="course__badge">Incluso no CondeClub</span>
+          <div class="course__covers">
+            <svg class="course__cover course__cover--icon course__cover--orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a6 6 0 00-6 6c0 2 1 3.5 2 4.5.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5 1-1 2-2.5 2-4.5a6 6 0 00-6-6z"/></svg>
+            <svg class="course__cover course__cover--icon course__cover--orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/><path d="M10 7h4"/><path d="M17 10v4"/></svg>
           </div>
-          <span class="badge badge--soon">Em breve</span>
+          <div class="course__info">
+            <h3>Lógica de Programação</h3>
+            <p>A base do raciocínio de programar, explicada de forma visual e simples</p>
+          </div>
+        </div>
+        <div class="course__card">
+          <span class="course__badge">Incluso no CondeClub</span>
+          <div class="course__covers">
+            <img src="assets/logo-html.webp" alt="HTML5" class="course__cover" width="1024" height="1024" loading="lazy" />
+            <img src="assets/logo-css.webp" alt="CSS3" class="course__cover" width="1024" height="1024" loading="lazy" />
+          </div>
           <div class="course__info">
             <h3>HTML & CSS</h3>
-            <p>Crie suas primeiras páginas web</p>
+            <p>Construa páginas reais, como uma página de produto e uma página de restaurante</p>
           </div>
         </div>
         <div class="course__card">
-          <div class="course__icon-wrap"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-          <div class="course__lock">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          <span class="course__badge">Incluso no CondeClub</span>
+          <div class="course__covers">
+            <img src="assets/logo-js.webp" alt="JavaScript" class="course__cover" width="1254" height="1254" loading="lazy" />
           </div>
-          <span class="badge badge--soon">Em breve</span>
           <div class="course__info">
             <h3>JavaScript</h3>
-            <p>Dê vida aos seus projetos</p>
+            <p>Pratique com exercícios reais, como o desafio do palíndromo</p>
           </div>
         </div>
         <div class="course__card">
-          <div class="course__icon-wrap"><svg viewBox="0 0 24 24"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M13 6h3a2 2 0 012 2v7"/><line x1="6" y1="9" x2="6" y2="21"/></svg></div>
-          <div class="course__lock">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          <span class="course__badge">Incluso no CondeClub</span>
+          <div class="course__covers">
+            <img src="assets/logo-git.webp" alt="Git" class="course__cover" width="1254" height="1254" loading="lazy" />
+            <img src="assets/logo-github.webp" alt="GitHub" class="course__cover" width="1254" height="1254" loading="lazy" />
           </div>
-          <span class="badge badge--soon">Em breve</span>
           <div class="course__info">
             <h3>Git & GitHub</h3>
-            <p>Trabalhe como profissional</p>
+            <p>Versionamento e colaboração explicados do jeito que se usa no dia a dia</p>
           </div>
         </div>
         <div class="course__card">
-          <div class="course__icon-wrap"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div>
-          <div class="course__lock">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          <span class="course__badge">Incluso no CondeClub</span>
+          <div class="course__covers">
+            <img src="assets/logo-css.webp" alt="CSS3" class="course__cover" width="1024" height="1024" loading="lazy" />
+            <img src="assets/logo-python.webp" alt="Python" class="course__cover" width="1024" height="1024" loading="lazy" />
+            <img src="assets/logo-java.webp" alt="Java" class="course__cover" width="1254" height="1254" loading="lazy" />
           </div>
-          <span class="badge badge--soon">Em breve</span>
           <div class="course__info">
-            <h3>Projetos Práticos</h3>
-            <p>Portfólio real desde o início</p>
+            <h3>Projetos Full Stack</h3>
+            <p>Projetos que conectam front-end e back-end para sair da teoria</p>
           </div>
         </div>
         <div class="course__card">
-          <div class="course__icon-wrap"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div>
-          <div class="course__lock">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          <span class="course__badge">Incluso no CondeClub</span>
+          <div class="course__covers">
+            <img src="assets/logo-python.webp" alt="Python" class="course__cover" width="1024" height="1024" loading="lazy" />
           </div>
-          <span class="badge badge--soon">Em breve</span>
           <div class="course__info">
-            <h3>Carreira em Tech</h3>
-            <p>Primeiros passos no mercado</p>
+            <h3>Python</h3>
+            <p>Automação, dados e os primeiros passos numa das linguagens mais usadas do mundo</p>
+          </div>
+        </div>
+        <div class="course__card">
+          <span class="course__badge">Incluso no CondeClub</span>
+          <div class="course__covers">
+            <img src="assets/logo-java.webp" alt="Java" class="course__cover" width="1254" height="1254" loading="lazy" />
+          </div>
+          <div class="course__info">
+            <h3>Java</h3>
+            <p>Fundamentos de orientação a objetos com uma linguagem usada em sistemas corporativos</p>
+          </div>
+        </div>
+        <div class="course__card">
+          <span class="course__badge">Incluso no CondeClub</span>
+          <div class="course__covers">
+            <img src="assets/logo-csharp.webp" alt="C#" class="course__cover" width="1024" height="1024" loading="lazy" />
+          </div>
+          <div class="course__info">
+            <h3>C#</h3>
+            <p>Sintaxe clara para quem quer entender aplicações e sistemas back-end</p>
+          </div>
+        </div>
+        <div class="course__card">
+          <span class="course__badge">Incluso no CondeClub</span>
+          <div class="course__covers">
+            <svg class="course__cover course__cover--icon course__cover--orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+          </div>
+          <div class="course__info">
+            <h3>SQL & Banco de Dados</h3>
+            <p>Organize, consulte e estruture dados como um profissional</p>
+          </div>
+        </div>
+        <div class="course__card">
+          <span class="course__badge">Incluso no CondeClub</span>
+          <div class="course__covers">
+            <img src="assets/logo-maleta.webp" alt="Carreira" class="course__cover" width="1254" height="1254" loading="lazy" />
+          </div>
+          <div class="course__info">
+            <h3>Carreira Dev</h3>
+            <p>Currículo, portfólio e os primeiros passos para entrar no mercado</p>
           </div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="expect__box">
-        <h3>O que <span class="accent">você</span> pode esperar</h3>
-        <ul class="expect__list">
-          <li><span class="expect__dot"></span>Trilha pensada para iniciantes</li>
-          <li><span class="expect__dot"></span>Linguagem simples e direta</li>
-          <li><span class="expect__dot"></span>Foco total em prática</li>
-          <li><span class="expect__dot"></span>Progresso passo a passo</li>
-          <li><span class="expect__dot"></span>Conteúdo objetivo e sem enrolação</li>
+  <div class="section-arrow">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <polyline points="6 9 12 15 18 9"/>
+    </svg>
+  </div>
+
+
+  <!-- ===================== DESTAQUES ===================== -->
+  <section class="section section--numbers" aria-label="Destaques do CondeClub">
+    <div class="container numbers__grid">
+      <div class="numbers__item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+        <span>Atualizado semanalmente</span>
+      </div>
+      <div class="numbers__item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+        <span>Guias visuais e diretos</span>
+      </div>
+      <div class="numbers__item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+        <span>Projetos práticos, não só teoria</span>
+      </div>
+      <div class="numbers__item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+        <span>Feito por quem também é dev</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-arrow">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <polyline points="6 9 12 15 18 9"/>
+    </svg>
+  </div>
+
+
+  <!-- ===================== COMO FUNCIONA ===================== -->
+  <section class="section section--how" id="como-funciona">
+    <div class="container">
+      <h2 class="section__title">Como <span class="accent">funciona</span></h2>
+      <div class="how__grid">
+        <div class="how__step">
+          <span class="how__number">1</span>
+          <h3>Escolha o CondeClub ou apenas o Manual</h3>
+        </div>
+        <div class="how__step">
+          <span class="how__number">2</span>
+          <h3>Conclua a compra com segurança pela Kiwify</h3>
+        </div>
+        <div class="how__step">
+          <span class="how__number">3</span>
+          <h3>Receba o acesso por e-mail e comece imediatamente</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-arrow">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <polyline points="6 9 12 15 18 9"/>
+    </svg>
+  </div>
+
+
+  <!-- ===================== ATUALIZAÇÕES ===================== -->
+  <section class="section section--updates" id="atualizacoes">
+    <div class="container">
+      <h2 class="section__title">Atualizações do <span class="accent">CondeClub</span></h2>
+      <p class="section__subtitle">Novos guias e projetos são adicionados regularmente. Você tem acesso a todo o conteúdo disponível e às próximas atualizações enquanto sua assinatura estiver ativa.</p>
+      <ul class="updates__list" id="updates-list" aria-live="polite"></ul>
+    </div>
+  </section>
+
+  <div class="section-arrow">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <polyline points="6 9 12 15 18 9"/>
+    </svg>
+  </div>
+
+
+  <!-- ===================== PLANOS ===================== -->
+  <section class="section section--pricing" id="planos">
+    <div class="container">
+      <h2 class="section__title">Escolha seu <span class="accent">plano</span></h2>
+
+      <div class="pricing__grid">
+        <div class="pricing__card pricing__card--main">
+          <span class="pricing__seal">Melhor para continuar evoluindo</span>
+          <h3>Biblioteca completa</h3>
+          <p class="pricing__price">R$ 12,90<span>/mês</span></p>
+          <ul class="pricing__benefits">
+            <li>Manual Definitivo do Dev incluído</li>
+            <li>Todos os materiais e projetos atuais</li>
+            <li>Conteúdos organizados por tecnologia</li>
+            <li>Materiais de carreira</li>
+            <li>Próximas atualizações</li>
+            <li>Acesso enquanto a assinatura estiver ativa</li>
+          </ul>
+          <a href="https://pay.kiwify.com.br/mzpLLta" target="_blank" rel="noopener" class="btn btn--primary btn--lg" data-analytics="click_club_pricing begin_checkout_club">Entrar no CondeClub</a>
+        </div>
+
+        <div class="pricing__card">
+          <h3>Somente o Manual</h3>
+          <p class="pricing__price">R$ 14,90<span>uma vez</span></p>
+          <ul class="pricing__benefits">
+            <li>Manual Definitivo do Dev</li>
+            <li>Guia visual completo</li>
+            <li>Download pela área de membros</li>
+            <li>Pagamento único</li>
+            <li>Acesso permanente ao Manual adquirido</li>
+          </ul>
+          <a href="https://pay.kiwify.com.br/g4nOA1U" target="_blank" rel="noopener" class="btn btn--outline btn--lg" data-analytics="click_manual_pricing begin_checkout_manual">Comprar somente o Manual</a>
+        </div>
+      </div>
+
+      <div class="pricing__table-wrap">
+        <table class="pricing__table">
+          <caption class="sr-only">Comparação entre CondeClub e Manual avulso</caption>
+          <thead>
+            <tr>
+              <th scope="col">Recurso</th>
+              <th scope="col">CondeClub</th>
+              <th scope="col">Manual avulso</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Preço</th><td>R$ 12,90/mês</td><td>R$ 14,90 único</td></tr>
+            <tr><th scope="row">Manual Definitivo do Dev</th><td>Incluso</td><td>Incluso</td></tr>
+            <tr><th scope="row">Outros guias e projetos</th><td>Sim</td><td>Não</td></tr>
+            <tr><th scope="row">Próximas atualizações</th><td>Sim, enquanto assinante</td><td>Não</td></tr>
+            <tr><th scope="row">Tipo de acesso</th><td>Enquanto a assinatura estiver ativa</td><td>Permanente, só ao Manual</td></tr>
+            <tr><th scope="row">Cancelamento</th><td>A qualquer momento</td><td>Não se aplica</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-arrow">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <polyline points="6 9 12 15 18 9"/>
+    </svg>
+  </div>
+
+
+  <!-- ===================== PARA QUEM É / NÃO É ===================== -->
+  <section class="section section--audience">
+    <div class="container audience__grid">
+      <div class="audience__col">
+        <h3>Para quem é</h3>
+        <ul class="audience__list audience__list--yes">
+          <li>Iniciantes absolutos</li>
+          <li>Pessoas perdidas entre linguagens e roadmaps</li>
+          <li>Quem prefere materiais visuais e objetivos</li>
+          <li>Quem quer começar a construir pequenos projetos</li>
+          <li>Quem quer consultar conteúdos em um só lugar</li>
+        </ul>
+      </div>
+      <div class="audience__col">
+        <h3>Para quem não é</h3>
+        <ul class="audience__list audience__list--no">
+          <li>Quem procura graduação</li>
+          <li>Quem espera acompanhamento individual</li>
+          <li>Quem busca apenas aulas longas em vídeo</li>
+          <li>Quem já domina os assuntos apresentados</li>
         </ul>
       </div>
     </div>
   </section>
 
   <div class="section-arrow">
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
       <polyline points="6 9 12 15 18 9"/>
     </svg>
   </div>
 
-  <!-- ===================== DEPOIMENTOS ===================== -->
+
+  <!-- ===================== PROVA SOCIAL ===================== -->
   <section class="section section--testimonials" id="depoimentos">
     <div class="container">
-      <h2 class="section__title">Depoimentos reais sobre o <span class="accent">criador</span></h2>
-      <p class="section__subtitle">O que as pessoas falam nos comentários dos conteúdos do conde.count.</p>
+      <h2 class="section__title">O que a comunidade diz sobre os <span class="accent">conteúdos do Conde</span></h2>
 
       <div class="testimonials__grid">
-        <div class="testimonial__card">
-          <div class="testimonial__author">
-            <span class="testimonial__avatar testimonial__avatar--initial">MA</span>
-            <span>
-              <span class="testimonial__name">milenaamarald</span>
-              <span class="testimonial__via">via TikTok</span>
-            </span>
-          </div>
-          <p class="testimonial__text">"Amei"</p>
-        </div>
-        <div class="testimonial__card">
-          <div class="testimonial__author">
-            <span class="testimonial__avatar testimonial__avatar--initial">LD</span>
-            <span>
-              <span class="testimonial__name">lildev010</span>
-              <span class="testimonial__via">via TikTok</span>
-            </span>
-          </div>
-          <p class="testimonial__text">"Uau 👏"</p>
-        </div>
-        <div class="testimonial__card">
-          <div class="testimonial__author">
-            <span class="testimonial__avatar testimonial__avatar--initial">HC</span>
-            <span>
-              <span class="testimonial__name">hebertccruz</span>
-              <span class="testimonial__via">via TikTok</span>
-            </span>
-          </div>
-          <p class="testimonial__text">"que explicação ótima"</p>
-        </div>
         <div class="testimonial__card">
           <div class="testimonial__author">
             <span class="testimonial__avatar testimonial__avatar--initial">HM</span>
@@ -364,17 +558,7 @@
               <span class="testimonial__via">via TikTok</span>
             </span>
           </div>
-          <p class="testimonial__text">"nossa obrigada de verdade, vou conseguir fazer meu trabalho da escola bem melhor agora 😁"</p>
-        </div>
-        <div class="testimonial__card">
-          <div class="testimonial__author">
-            <span class="testimonial__avatar testimonial__avatar--initial">GE</span>
-            <span>
-              <span class="testimonial__name">gefsan</span>
-              <span class="testimonial__via">via TikTok</span>
-            </span>
-          </div>
-          <p class="testimonial__text">"Top só gratidão.. 👏👏👏👏👏👏👏👏👏"</p>
+          <p class="testimonial__text">"Nossa, obrigada de verdade, vou conseguir fazer meu trabalho da escola bem melhor agora"</p>
         </div>
         <div class="testimonial__card">
           <div class="testimonial__author">
@@ -384,7 +568,17 @@
               <span class="testimonial__via">via TikTok</span>
             </span>
           </div>
-          <p class="testimonial__text">"Muito bommm, valeu por ensinar"</p>
+          <p class="testimonial__text">"Muito bom, valeu por ensinar"</p>
+        </div>
+        <div class="testimonial__card">
+          <div class="testimonial__author">
+            <span class="testimonial__avatar testimonial__avatar--initial">HC</span>
+            <span>
+              <span class="testimonial__name">hebertccruz</span>
+              <span class="testimonial__via">via TikTok</span>
+            </span>
+          </div>
+          <p class="testimonial__text">"Que explicação ótima"</p>
         </div>
         <div class="testimonial__card">
           <div class="testimonial__author">
@@ -394,45 +588,26 @@
               <span class="testimonial__via">via TikTok</span>
             </span>
           </div>
-          <p class="testimonial__text">"você é a melhor"</p>
+          <p class="testimonial__text">"Você é a melhor"</p>
         </div>
-        <div class="testimonial__card">
-          <div class="testimonial__author">
-            <span class="testimonial__avatar testimonial__avatar--initial">GE</span>
-            <span>
-              <span class="testimonial__name">gefsan</span>
-              <span class="testimonial__via">via TikTok</span>
-            </span>
-          </div>
-          <p class="testimonial__text">"Top, Top de + só gratidão.... 👏👏👏👏👏👏"</p>
-        </div>
-        <div class="testimonial__card">
-          <div class="testimonial__author">
-            <span class="testimonial__avatar testimonial__avatar--initial">SM</span>
-            <span>
-              <span class="testimonial__name">srtmiah</span>
-              <span class="testimonial__via">via TikTok</span>
-            </span>
-          </div>
-          <p class="testimonial__text">"👏🏽👏🏽👏🏽👏🏽👏🏽"</p>
-        </div>
-        <div class="testimonial__card">
-          <div class="testimonial__author">
-            <span class="testimonial__avatar testimonial__avatar--initial">RJ</span>
-            <span>
-              <span class="testimonial__name">renato_java</span>
-              <span class="testimonial__via">via TikTok</span>
-            </span>
-          </div>
-          <p class="testimonial__text">"❤️❤️❤️"</p>
-        </div>
+      </div>
+
+      <!--
+        Seção preparada, mas mantida oculta até existirem avaliações reais
+        de COMPRADORES do CondeClub (os depoimentos acima são comentários
+        sobre os conteúdos do TikTok, não avaliações de quem comprou).
+        Remova o atributo "hidden" quando houver avaliações reais.
+      -->
+      <div class="testimonials__buyers" hidden>
+        <h3>Quem entrou no CondeClub recomenda</h3>
+        <div class="testimonials__grid"></div>
       </div>
 
       <!-- SOBRE O CRIADOR -->
       <div class="creator__box">
-        <img src="assets/creator-photo.jpeg" alt="Conde, criador do CondeClub" class="creator__photo" />
-        <h3>Sobre o Criador</h3>
-        <p>Conde é Full Stack Developer, com experiência em C#, Python, JavaScript, Java e outras tecnologias. Formado em Análise e Desenvolvimento de Sistemas, desenvolve soluções completas, modernas e eficientes, do front-end ao back-end, com foco em performance e boa experiência do usuário. Transforma ideias em projetos reais com qualidade, organização e atenção aos detalhes.</p>
+        <img src="assets/creator-photo.webp" alt="Conde, criador do CondeClub" class="creator__photo" width="480" height="480" loading="lazy" />
+        <h3>Quem criou o CondeClub?</h3>
+        <p>Conde é desenvolvedor Full Stack e criador do conde.count. Depois de ver milhares de iniciantes perdidos entre linguagens, cursos e roadmaps, decidiu organizar materiais visuais e práticos para tornar os primeiros passos mais simples.</p>
         <div class="creator__stats">
           <span class="creator__stat"><span class="accent">+20 mil seguidores</span></span>
           <span class="creator__stat"><span class="accent">+4 milhões de visualizações de vídeo</span></span>
@@ -444,50 +619,11 @@
   </section>
 
   <div class="section-arrow">
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
       <polyline points="6 9 12 15 18 9"/>
     </svg>
   </div>
 
-  <!-- ===================== CTA PRODUÇÃO ===================== -->
-  <section class="section section--cta-prod" id="aviso">
-    <div class="container">
-      <h2 class="section__title">E não para por <span class="accent">aqui</span></h2>
-      <p class="section__subtitle">Postamos conteúdo novo todos os dias nas redes sociais. Siga agora e acompanhe de perto cada novidade do CondeClub.</p>
-
-      <div class="ctaprod__grid">
-        <div class="ctaprod__item">
-          <div class="ctaprod__icon-wrap"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
-          <span>Conteúdo novo todos os dias nas redes sociais</span>
-        </div>
-        <div class="ctaprod__item">
-          <div class="ctaprod__icon-wrap"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg></div>
-          <span>Bastidores da criação dos conteúdos</span>
-        </div>
-        <div class="ctaprod__item">
-          <div class="ctaprod__icon-wrap"><svg viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/></svg></div>
-          <span>Dicas e aulas gratuitas, direto ao ponto</span>
-        </div>
-        <div class="ctaprod__item">
-          <div class="ctaprod__icon-wrap"><svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></div>
-          <span>Novidades do CondeClub em primeira mão</span>
-        </div>
-      </div>
-
-      <div class="cta__center">
-        <a href="https://www.tiktok.com/@conde.count" target="_blank" rel="noopener" class="btn btn--primary btn--lg">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.94a8.2 8.2 0 004.79 1.53V7.04a4.85 4.85 0 01-1.02-.35z"/></svg>
-          Quero Acompanhar no TikTok
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <div class="section-arrow">
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <polyline points="6 9 12 15 18 9"/>
-    </svg>
-  </div>
 
   <!-- ===================== FAQ ===================== -->
   <section class="section section--faq" id="faq">
@@ -498,71 +634,111 @@
 
         <div class="faq__item">
           <button class="faq__question" aria-expanded="false">
-            Os materiais já estão disponíveis?
-            <span class="faq__arrow">▾</span>
+            O que recebo ao entrar no CondeClub?
+            <span class="faq__arrow" aria-hidden="true">▾</span>
           </button>
           <div class="faq__answer">
-            <p>O primeiro já sim! O Manual Definitivo do Dev, e-book de lançamento do CondeClub, já está disponível para download. Além dele, você também tem acesso a diversos outros conteúdos, como carrosséis na íntegra. Os próximos cursos completos da trilha ainda estão em produção. Siga no TikTok para ser avisado assim que saírem.</p>
+            <p>Acesso à biblioteca completa enquanto sua assinatura estiver ativa: o Manual Definitivo do Dev, guias visuais, projetos práticos e materiais de carreira, organizados por tecnologia.</p>
           </div>
         </div>
 
         <div class="faq__item">
           <button class="faq__question" aria-expanded="false">
-            O que é o CondeClub?
-            <span class="faq__arrow">▾</span>
+            O Manual está incluído?
+            <span class="faq__arrow" aria-hidden="true">▾</span>
           </button>
           <div class="faq__answer">
-            <p>É a biblioteca de conteúdos do conde.count para quem quer evoluir como dev: guias completos, materiais para baixar e, em breve, cursos completos. Tudo em um só lugar, do primeiro código ao portfólio.</p>
+            <p>Sim. O Manual Definitivo do Dev faz parte da assinatura do CondeClub. Você também pode comprá-lo separadamente, sem assinar o clube.</p>
           </div>
         </div>
 
         <div class="faq__item">
           <button class="faq__question" aria-expanded="false">
-            Para quem é esse conteúdo?
-            <span class="faq__arrow">▾</span>
+            Posso comprar somente o Manual?
+            <span class="faq__arrow" aria-hidden="true">▾</span>
           </button>
           <div class="faq__answer">
-            <p>Para qualquer pessoa que queira aprender programação do zero, seja para mudar de carreira, conseguir um emprego na área de tecnologia ou simplesmente aprender uma nova habilidade.</p>
+            <p>Sim. O Manual Definitivo do Dev pode ser comprado separadamente, com pagamento único de R$ 14,90, sem acesso aos demais módulos do CondeClub.</p>
           </div>
         </div>
 
         <div class="faq__item">
           <button class="faq__question" aria-expanded="false">
-            Preciso saber programar antes?
-            <span class="faq__arrow">▾</span>
+            Como funciona a cobrança mensal?
+            <span class="faq__arrow" aria-hidden="true">▾</span>
           </button>
           <div class="faq__answer">
-            <p>Não! O conteúdo é totalmente pensado para iniciantes absolutos. Você vai começar do zero e evoluir de forma gradual e estruturada.</p>
+            <p>O CondeClub é uma assinatura de R$ 12,90 por mês, cobrada automaticamente pela Kiwify até que você cancele.</p>
           </div>
         </div>
 
         <div class="faq__item">
           <button class="faq__question" aria-expanded="false">
-            Vai ser do zero mesmo?
-            <span class="faq__arrow">▾</span>
+            Como faço para cancelar?
+            <span class="faq__arrow" aria-hidden="true">▾</span>
           </button>
           <div class="faq__answer">
-            <p>Sim! A trilha começa com Lógica de Programação, que é a base de tudo, e leva você progressivamente até projetos práticos e orientação de carreira.</p>
+            <p>O cancelamento pode ser feito a qualquer momento diretamente pela área de compras da Kiwify, sem burocracia.</p>
           </div>
         </div>
 
         <div class="faq__item">
           <button class="faq__question" aria-expanded="false">
-            Vai ter conteúdo gratuito?
-            <span class="faq__arrow">▾</span>
+            O que acontece com meu acesso depois do cancelamento?
+            <span class="faq__arrow" aria-hidden="true">▾</span>
           </button>
           <div class="faq__answer">
-            <p>Sim! Já há conteúdo gratuito sendo publicado no TikTok. Quem acompanha desde o início tem acesso a dicas, mini-aulas e materiais exclusivos sem custo.</p>
+            <p>Seu acesso à biblioteca do CondeClub permanece enquanto a assinatura estiver ativa. Após o cancelamento, o acesso aos módulos do clube é encerrado.</p>
           </div>
         </div>
 
         <div class="faq__item">
           <button class="faq__question" aria-expanded="false">
-            Quando lança?
-            <span class="faq__arrow">▾</span>
+            Como recebo o acesso?
+            <span class="faq__arrow" aria-hidden="true">▾</span>
           </button>
           <div class="faq__answer">
-            <p>O primeiro lançamento, o Manual Definitivo do Dev, já está disponível! Os próximos cursos completos da trilha chegam em breve. Siga no TikTok para não perder nenhum anúncio e sair na frente.</p>
+            <p>Após a confirmação do pagamento pela Kiwify, você recebe o acesso por e-mail, com instruções de login na área de membros.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false">
+            Preciso saber programar?
+            <span class="faq__arrow" aria-hidden="true">▾</span>
+          </button>
+          <div class="faq__answer">
+            <p>Não. Os materiais são pensados para quem está começando do zero, com linguagem simples e conteúdo visual.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false">
+            Novos materiais são adicionados?
+            <span class="faq__arrow" aria-hidden="true">▾</span>
+          </button>
+          <div class="faq__answer">
+            <p>Sim, novos guias e projetos são adicionados à biblioteca. Você tem acesso a todo o conteúdo disponível e às próximas atualizações enquanto sua assinatura estiver ativa.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false">
+            Qual a diferença entre o Manual e o CondeClub?
+            <span class="faq__arrow" aria-hidden="true">▾</span>
+          </button>
+          <div class="faq__answer">
+            <p>O Manual é um produto avulso, com pagamento único e acesso permanente apenas a ele. O CondeClub é uma assinatura mensal que inclui o Manual e dá acesso à biblioteca completa enquanto estiver ativa.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false">
+            Como entrar em contato com o suporte?
+            <span class="faq__arrow" aria-hidden="true">▾</span>
+          </button>
+          <div class="faq__answer">
+            <p>O suporte de pagamentos e acesso é feito diretamente pela Kiwify, plataforma responsável pelo processamento da sua compra.</p>
           </div>
         </div>
 
@@ -570,45 +746,48 @@
     </div>
   </section>
 
+  <div class="section-arrow">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <polyline points="6 9 12 15 18 9"/>
+    </svg>
+  </div>
+
+
   <!-- ===================== CTA FINAL ===================== -->
   <section class="section section--cta-final">
     <div class="container cta-final__inner">
-      <h2 class="section__title">Comece sua jornada na <span class="accent">programação</span></h2>
-      <p class="section__subtitle">Siga agora e acompanhe os primeiros anúncios. Quem entra cedo, sai na frente.</p>
+      <h2 class="section__title">Você não precisa aprender tudo agora. Precisa saber qual é o <span class="accent">próximo passo</span>.</h2>
 
-      <a href="https://www.tiktok.com/@conde.count" target="_blank" rel="noopener" class="btn btn--primary btn--lg cta-final__btn">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.94a8.2 8.2 0 004.79 1.53V7.04a4.85 4.85 0 01-1.02-.35z"/></svg>
-        Quero Acompanhar no TikTok
-      </a>
-
-      <ul class="cta-final__list">
-        <li>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          Conteúdo para iniciantes
-        </li>
-        <li>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
-          Atualizações frequentes
-        </li>
-        <li>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          Sem custo para acompanhar
-        </li>
-      </ul>
-
-      <p class="cta-final__note">Já decidiu? <a href="https://pay.kiwify.com.br/dVK9yLu" target="_blank" rel="noopener" class="accent">Entre no CondeClub</a> por R$ 7,90/mês.</p>
+      <div class="cta-final__actions">
+        <a href="https://pay.kiwify.com.br/mzpLLta" target="_blank" rel="noopener" class="btn btn--primary btn--lg" data-analytics="click_club_pricing">Entrar no CondeClub — R$ 12,90/mês</a>
+        <a href="https://pay.kiwify.com.br/g4nOA1U" target="_blank" rel="noopener" class="btn btn--outline btn--lg" data-analytics="click_manual_pricing">Comprar apenas o Manual — R$ 14,90</a>
+      </div>
     </div>
   </section>
+
+  </main>
 
   <!-- ===================== FOOTER ===================== -->
   <footer class="footer">
     <div class="container footer__inner">
-      <img src="assets/logo.png" alt="Logo conde.count" class="footer__logo" />
+      <img src="assets/logo.webp" alt="Logo conde.count" class="footer__logo" width="100" height="26" loading="lazy" />
+      <p class="footer__note">Pagamentos processados com segurança pela Kiwify.</p>
+      <a href="https://www.tiktok.com/@conde.count" target="_blank" rel="noopener" class="footer__tiktok">TikTok @conde.count</a>
       <p class="footer__copy">© 2026 conde.count. Todos os direitos reservados.</p>
       <p class="footer__visits"><span id="visit-count">···</span> visitas ao site</p>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- ===================== BARRA FIXA MOBILE ===================== -->
+  <div class="sticky-cta">
+    <a href="https://pay.kiwify.com.br/mzpLLta" target="_blank" rel="noopener" class="btn btn--primary" data-analytics="click_club_pricing">CondeClub — R$ 12,90/mês</a>
+  </div>
+
+  <!-- Analytics: substitua pelos IDs reais antes de publicar -->
+  <script>
+    window.GA4_ID = 'G-XXXXXXXXXX';
+    window.TIKTOK_PIXEL_ID = 'XXXXXXXXXXXXXXXXXXXX';
+  </script>
+  <script src="script.js" defer></script>
 </body>
 </html>
