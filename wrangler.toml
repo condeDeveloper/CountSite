@@ -1,7 +1,0 @@
-name = "countsite"
-pages_build_output_dir = "."
-compatibility_date = "2026-07-31"
-
-[[kv_namespaces]]
-binding = "COUNTER"
-id = "261d23029c8142509bbb1ec0e8e073d6"

@@ -55,10 +55,10 @@ document.querySelectorAll(
 // ============================================================
 //   CONTADOR DE VISITAS
 // ============================================================
-fetch('/api/count')
+fetch('https://abacus.jasoncameron.dev/hit/condecount/visits')
   .then((res) => res.json())
   .then((data) => {
     const el = document.getElementById('visit-count');
-    if (el) el.textContent = data.count.toLocaleString('pt-BR');
+    if (el) el.textContent = data.value.toLocaleString('pt-BR');
   })
   .catch(() => {});
