@@ -490,10 +490,19 @@ button:focus-visible {
 
 .numbers__item {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
   justify-content: center;
+  gap: 10px;
   min-height: 64px;
   padding: 8px;
+}
+
+.numbers__item svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--primary);
+  flex-shrink: 0;
 }
 
 .numbers__value {
