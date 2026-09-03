@@ -105,7 +105,7 @@ if (updatesList) {
   const utmEntries = [...params.entries()].filter(([key]) => key.startsWith('utm_'));
   if (!utmEntries.length) return;
 
-  document.querySelectorAll('a[href*="pay.kiwify.com.br"]').forEach((link) => {
+  document.querySelectorAll('a[href*="pay.kiwify.com"]').forEach((link) => {
     const url = new URL(link.href);
     utmEntries.forEach(([key, value]) => url.searchParams.set(key, value));
     link.href = url.toString();

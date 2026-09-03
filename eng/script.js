@@ -4,7 +4,7 @@
 //   per instructions (no international checkout exists yet).
 //   Replace this one line when the international checkout is ready.
 // ============================================================
-const DEV_MANUAL_CHECKOUT_URL = 'https://pay.kiwify.com.br/g4nOA1U';
+const DEV_MANUAL_CHECKOUT_URL = 'https://pay.kiwify.com/tzdA94I';
 
 document.querySelectorAll('[data-checkout="manual"]').forEach((el) => {
   el.href = DEV_MANUAL_CHECKOUT_URL;
@@ -81,7 +81,7 @@ document.querySelectorAll(
   const utmEntries = [...params.entries()].filter(([key]) => key.startsWith('utm_'));
   if (!utmEntries.length) return;
 
-  document.querySelectorAll('a[href*="pay.kiwify.com.br"]').forEach((link) => {
+  document.querySelectorAll('a[href*="pay.kiwify.com"]').forEach((link) => {
     const url = new URL(link.href);
     utmEntries.forEach(([key, value]) => url.searchParams.set(key, value));
     link.href = url.toString();
