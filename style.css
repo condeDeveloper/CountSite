@@ -1066,3 +1066,94 @@ button:focus-visible {
 }
 
 .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* ============================================================
+   INTERNATIONAL (/eng) — LOCKED "COMING SOON" CARD
+   Additive only — these classes are not used anywhere on the
+   Brazilian page, so they have no effect on it.
+============================================================ */
+.pricing__price-note {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: -6px;
+}
+
+.price-was {
+  color: var(--text-dim);
+  text-decoration: line-through;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-right: 4px;
+}
+
+.price-launch-tag {
+  display: inline-block;
+  margin-left: 6px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--primary);
+  background: var(--primary-gl);
+  padding: 3px 8px;
+  border-radius: 4px;
+  vertical-align: middle;
+}
+
+.pricing__card--locked {
+  opacity: 0.92;
+  background: var(--bg-card-2);
+  box-shadow: none;
+}
+
+.pricing__card--locked .pricing__benefits {
+  filter: blur(2.5px);
+  user-select: none;
+  pointer-events: none;
+}
+
+.pricing__price--locked {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: clamp(1.2rem, 4vw, 1.5rem);
+  color: var(--text-muted);
+}
+
+.pricing__price--locked svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--text-muted);
+  fill: none;
+  flex-shrink: 0;
+}
+
+.locked-badge {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.locked-badge svg {
+  width: 12px;
+  height: 12px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+}
+
+.btn--disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  animation: none !important;
+  box-shadow: none !important;
+}

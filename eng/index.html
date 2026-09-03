@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Ultimate Dev Manual | Conde.Count</title>
+  <meta name="description" content="Learn programming from scratch with a visual, beginner-friendly guide covering programming fundamentals, web development, back-end, databases, Git, AI and more." />
+  <link rel="canonical" href="https://condecount.pages.dev/eng/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="The Ultimate Dev Manual | Conde.Count" />
+  <meta property="og:description" content="Learn programming from scratch with a visual, beginner-friendly guide covering programming fundamentals, web development, back-end, databases, Git, AI and more." />
+  <meta property="og:url" content="https://condecount.pages.dev/eng/" />
+  <meta property="og:image" content="https://condecount.pages.dev/assets/eng-manual-cover.png" />
+  <meta property="og:locale" content="en_US" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Ultimate Dev Manual | Conde.Count" />
+  <meta name="twitter:description" content="A visual, beginner-friendly guide to programming fundamentals, web development, back-end, databases, Git, AI and more." />
+  <meta name="twitter:image" content="https://condecount.pages.dev/assets/eng-manual-cover.png" />
+
+  <link rel="icon" type="image/png" href="../assets/logo.png" />
+  <link rel="stylesheet" href="../style.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <link rel="preload" as="image" href="../assets/eng-hero.webp" fetchpriority="high" />
+
+  <!--
+    NOTE FOR REVIEW: the checkout URL below is the existing Brazilian Kiwify
+    link for the Manual (temporary placeholder, per instructions). It is
+    also centralized as DEV_MANUAL_CHECKOUT_URL at the top of eng/script.js
+    — update it there (and here, as the no-JS fallback) once the
+    international checkout exists. No CondeClub checkout URL is used
+    anywhere on this page, since it is not purchasable internationally yet.
+  -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Product",
+        "name": "The Ultimate Dev Manual",
+        "description": "A complete visual guide to programming fundamentals, web development, back-end, databases, Git, AI and more, with a one-time payment.",
+        "brand": { "@type": "Brand", "name": "conde.count" },
+        "offers": {
+          "@type": "Offer",
+          "url": "https://pay.kiwify.com.br/g4nOA1U",
+          "price": "14.99",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What do I get with The Ultimate Dev Manual?",
+            "acceptedAnswer": { "@type": "Answer", "text": "A complete, beginner-friendly visual guide covering programming logic, front-end, back-end, databases, Git, deployment and AI — everything you need to build a real foundation as a developer." }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this a one-time payment?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. The Ultimate Dev Manual is a single, one-time payment of $14.99. There's no subscription and no recurring charge." }
+          },
+          {
+            "@type": "Question",
+            "name": "What topics does the Manual cover?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Programming logic, HTML & CSS, JavaScript, back-end concepts, databases, Git & GitHub, deployment, and an introduction to AI in software development." }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I need any prior experience?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. The Manual is built for absolute beginners, with simple language and visual explanations instead of technical jargon." }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I get access after I purchase?",
+            "acceptedAnswer": { "@type": "Answer", "text": "After your payment is confirmed by Kiwify, you'll receive access instructions by email right away." }
+          },
+          {
+            "@type": "Question",
+            "name": "Is CondeClub available internationally yet?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Not yet. CondeClub is currently available in Brazil only. The international version is coming soon." }
+          },
+          {
+            "@type": "Question",
+            "name": "What will CondeClub include when it launches?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Courses, exclusive content, projects and a complete learning path — details will be shared closer to launch." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I join CondeClub right now?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Not internationally yet. For now, The Ultimate Dev Manual is the way to get started, and you'll be among the first to know when CondeClub becomes available." }
+          },
+          {
+            "@type": "Question",
+            "name": "Is payment secure?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. All payments are processed securely through Kiwify." }
+          },
+          {
+            "@type": "Question",
+            "name": "Will the Manual get future updates?",
+            "acceptedAnswer": { "@type": "Answer", "text": "The Manual you purchase is yours to keep. Future editions and additional content may be released separately." }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I contact support?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Payment and access support is handled directly by Kiwify, the platform that processes your purchase." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ===================== HEADER / NAV ===================== -->
+  <header class="header">
+    <div class="container header__inner">
+      <img src="../assets/logo.webp" alt="conde.count logo" class="header__logo" width="120" height="30" />
+      <a href="https://www.tiktok.com/@conde.count" target="_blank" rel="noopener" class="btn btn--outline btn--sm">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.94a8.2 8.2 0 004.79 1.53V7.04a4.85 4.85 0 01-1.02-.35z"/></svg>
+        TikTok
+      </a>
+    </div>
+  </header>
+
+  <main>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero">
+    <div class="container hero__inner">
+      <div class="hero__content">
+        <span class="badge badge--primary">Visual Guide for Beginners</span>
+        <h1 class="hero__title">Learn <span class="accent">Programming</span> From Scratch. Build a Real <span class="accent">Developer Foundation</span>.</h1>
+        <p class="hero__subtitle">A visual, beginner-friendly guide to programming fundamentals, web development, back-end, databases, Git, AI and more.</p>
+        <div class="hero__actions">
+          <a href="https://pay.kiwify.com.br/g4nOA1U" data-checkout="manual" target="_blank" rel="noopener" class="btn btn--primary btn--lg" data-analytics="click_manual_hero_intl">
+            Get the Dev Manual — $14.99
+          </a>
+          <a href="#pricing" class="btn btn--outline btn--lg">
+            See what's coming next
+          </a>
+        </div>
+        <p class="hero__microcopy">Instant access after purchase &bull; Secure checkout via Kiwify</p>
+      </div>
+      <div class="hero__image">
+        <img src="../assets/eng-hero.webp" alt="CondeClub — Your library to level up as a developer" width="1371" height="1147" fetchpriority="high" />
+      </div>
+    </div>
+  </section>
+
+  <div class="section-arrow">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <polyline points="6 9 12 15 18 9"/>
+    </svg>
+  </div>
+
+
+  <!-- ===================== TRUST BAR ===================== -->
+  <section class="trustbar" aria-label="Why The Ultimate Dev Manual">
+    <div class="container trustbar__grid">
+      <div class="trustbar__item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span>Beginner-friendly content</span>
+      </div>
+      <div class="trustbar__item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        <span>Instant access after purchase</span>
+      </div>
+      <div class="trustbar__item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        <span>Yours to keep — no subscription</span>
+      </div>
+      <div class="trustbar__item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        <span>Secure payment via Kiwify</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-arrow">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <polyline points="6 9 12 15 18 9"/>
+    </svg>
+  </div>
+
+
+  <!-- ===================== INSIDE THE MANUAL ===================== -->
+  <section class="section section--inside" id="inside">
+    <div class="container">
+      <h2 class="section__title">Inside <span class="accent">The Ultimate Dev Manual</span></h2>
+      <p class="section__subtitle">A real look at the member area and the visual guides, exactly as they are.</p>
+
+      <div class="inside__grid">
+        <figure class="inside__card inside__card--wide">
+          <img src="../assets/eng-inside-membership.webp" alt="Member area showing the Ultimate Dev Manual lesson, with modules for Programming Logic, HTML & CSS and JavaScript" width="1844" height="853" loading="lazy" />
+          <figcaption>The member area, organized by module</figcaption>
+        </figure>
+        <figure class="inside__card">
+          <img src="../assets/eng-manual-cover.webp" alt="The Ultimate Dev Manual cover" width="1254" height="1254" loading="lazy" />
+          <figcaption>The Ultimate Dev Manual</figcaption>
+        </figure>
+        <figure class="inside__card">
+          <img src="../assets/eng-guide-python.webp" alt="Visual guide about Python, covering automation, data, AI and back-end" width="1254" height="1254" loading="lazy" />
+          <figcaption>Example visual guide (Python)</figcaption>
+        </figure>
+        <figure class="inside__card">
+          <img src="../assets/eng-guide-java.webp" alt="Visual guide about Java, covering object-oriented programming, back-end, Spring Boot, Android and the enterprise market" width="1254" height="1254" loading="lazy" />
+          <figcaption>Example visual guide (Java)</figcaption>
+        </figure>
+        <figure class="inside__card">
+          <img src="../assets/eng-guide-js.webp" alt="Visual guide about JavaScript, teaching how to build a ZIP code lookup project with fetch and an API" width="1254" height="1254" loading="lazy" />
+          <figcaption>Example visual guide (JavaScript)</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-arrow">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <polyline points="6 9 12 15 18 9"/>
+    </svg>
+  </div>
+
+
+  <!-- ===================== WHAT YOU'LL LEARN ===================== -->
+  <section class="section section--courses" id="topics">
+    <div class="container">
+      <h2 class="section__title">What you'll <span class="accent">learn</span></h2>
+      <p class="section__subtitle">One visual guide, organized by topic, with a focus on practical results — not just the name of the language.</p>
+
+      <div class="courses__grid">
+        <a href="https://pay.kiwify.com.br/g4nOA1U" data-checkout="manual" target="_blank" rel="noopener" class="course__card course__card--unlocked" data-analytics="click_manual_topics_intl">
+          <div class="course__covers">
+            <svg class="course__cover course__cover--icon course__cover--orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          </div>
+          <div class="course__info">
+            <h3>The Ultimate Dev Manual</h3>
+            <p>Your complete guide — logic, web dev, back-end, databases, Git, deployment and AI in one place</p>
+          </div>
+        </a>
+        <div class="course__card">
+          <span class="course__badge">In the Manual</span>
+          <div class="course__covers">
+            <svg class="course__cover course__cover--icon course__cover--orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a6 6 0 00-6 6c0 2 1 3.5 2 4.5.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5 1-1 2-2.5 2-4.5a6 6 0 00-6-6z"/></svg>
+            <svg class="course__cover course__cover--icon course__cover--orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/><path d="M10 7h4"/><path d="M17 10v4"/></svg>
+          </div>
+          <div class="course__info">
+            <h3>Programming Logic</h3>
+            <p>The foundation of how developers think, explained simply</p>
+          </div>
+        </div>
+        <div class="course__card">
+          <span class="course__badge">In the Manual</span>
+          <div class="course__covers">
+            <img src="../assets/logo-html.webp" alt="HTML5" class="course__cover" width="1024" height="1024" loading="lazy" />
+            <img src="../assets/logo-css.webp" alt="CSS3" class="course__cover" width="1024" height="1024" loading="lazy" />
+          </div>
+          <div class="course__info">
+            <h3>HTML & CSS</h3>
+            <p>Build real pages, like a product page and a restaurant site</p>
+          </div>
+        </div>
+        <div class="course__card">
+          <span class="course__badge">In the Manual</span>
+          <div class="course__covers">
+            <img src="../assets/logo-js.webp" alt="JavaScript" class="course__cover" width="1254" height="1254" loading="lazy" />
+          </div>
+          <div class="course__info">
+            <h3>JavaScript</h3>
+            <p>Practice with real exercises, like the palindrome challenge</p>
+          </div>
+        </div>
+        <div class="course__card">
+          <span class="course__badge">In the Manual</span>
+          <div class="course__covers">
+            <img src="../assets/logo-git.webp" alt="Git" class="course__cover" width="1254" height="1254" loading="lazy" />
+            <img src="../assets/logo-github.webp" alt="GitHub" class="course__cover" width="1254" height="1254" loading="lazy" />
+          </div>
+          <div class="course__info">
+            <h3>Git & GitHub</h3>
+            <p>Version control and collaboration, explained the way it's actually used</p>
+          </div>
+        </div>
+        <div class="course__card">
+          <span class="course__badge">In the Manual</span>
+          <div class="course__covers">
+            <img src="../assets/logo-css.webp" alt="CSS3" class="course__cover" width="1024" height="1024" loading="lazy" />
+            <img src="../assets/logo-python.webp" alt="Python" class="course__cover" width="1024" height="1024" loading="lazy" />
+            <img src="../assets/logo-java.webp" alt="Java" class="course__cover" width="1254" height="1254" loading="lazy" />
+          </div>
+          <div class="course__info">
+            <h3>Full-Stack Projects</h3>
+            <p>Projects that connect front-end and back-end to get you past theory</p>
+          </div>
+        </div>
+        <div class="course__card">
+          <span class="course__badge">In the Manual</span>
+          <div class="course__covers">
+            <img src="../assets/logo-python.webp" alt="Python" class="course__cover" width="1024" height="1024" loading="lazy" />
+          </div>
+          <div class="course__info">
+            <h3>Python</h3>
+            <p>Automation, data, and your first steps in one of the world's most-used languages</p>
+          </div>
+        </div>
+        <div class="course__card">
+          <span class="course__badge">In the Manual</span>
+          <div class="course__covers">
+            <img src="../assets/logo-java.webp" alt="Java" class="course__cover" width="1254" height="1254" loading="lazy" />
+          </div>
+          <div class="course__info">
+            <h3>Java</h3>
+            <p>Object-oriented fundamentals with a language built for large-scale systems</p>
+          </div>
+        </div>
+        <div class="course__card">
+          <span class="course__badge">In the Manual</span>
+          <div class="course__covers">
+            <img src="../assets/logo-csharp.webp" alt="C#" class="course__cover" width="1024" height="1024" loading="lazy" />
+          </div>
+          <div class="course__info">
+            <h3>C#</h3>
+            <p>Clean syntax for understanding applications and back-end systems</p>
+          </div>
+        </div>
+        <div class="course__card">
+          <span class="course__badge">In the Manual</span>
+          <div class="course__covers">
+            <svg class="course__cover course__cover--icon course__cover--orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+          </div>
+          <div class="course__info">
+            <h3>SQL & Databases</h3>
+            <p>Organize, query and structure data like a professional</p>
+          </div>
+        </div>
+        <div class="course__card">
+          <span class="course__badge">In the Manual</span>
+          <div class="course__covers">
+            <img src="../assets/logo-maleta.webp" alt="Career" class="course__cover" width="1254" height="1254" loading="lazy" />
+          </div>
+          <div class="course__info">
+            <h3>Dev Career</h3>
+            <p>Resume, portfolio and your first steps into the job market</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-arrow">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <polyline points="6 9 12 15 18 9"/>
+    </svg>
+  </div>
+
+
+  <!-- ===================== WHY CONDE.COUNT ===================== -->
+  <section class="section section--numbers" aria-label="Why conde.count">
+    <div class="container numbers__grid">
+      <div class="numbers__item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+        <span>New content added regularly</span>
+      </div>
+      <div class="numbers__item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+        <span>Visual, straight-to-the-point guides</span>
+      </div>
+      <div class="numbers__item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+        <span>Real projects, not just theory</span>
+      </div>
+      <div class="numbers__item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+        <span>Made by an actual developer</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-arrow">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <polyline points="6 9 12 15 18 9"/>
+    </svg>
+  </div>
+
+
+  <!-- ===================== HOW IT WORKS ===================== -->
+  <section class="section section--how" id="how-it-works">
+    <div class="container">
+      <h2 class="section__title">How it <span class="accent">works</span></h2>
+      <div class="how__grid">
+        <div class="how__step">
+          <span class="how__number">1</span>
+          <h3>Get The Ultimate Dev Manual</h3>
+        </div>
+        <div class="how__step">
+          <span class="how__number">2</span>
+          <h3>Complete your purchase securely via Kiwify</h3>
+        </div>
+        <div class="how__step">
+          <span class="how__number">3</span>
+          <h3>Get instant access by email and start right away</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-arrow">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <polyline points="6 9 12 15 18 9"/>
+    </svg>
+  </div>
+
+
+  <!-- ===================== PRICING ===================== -->
+  <section class="section section--pricing" id="pricing">
+    <div class="container">
+      <h2 class="section__title">Get started <span class="accent">today</span></h2>
+
+      <div class="pricing__grid">
+        <div class="pricing__card pricing__card--main">
+          <span class="pricing__seal">Available Now</span>
+          <h3>The Ultimate Dev Manual</h3>
+          <p class="pricing__price">
+            <span class="price-was">$24.99</span>
+            $14.99
+            <span class="price-launch-tag">Launch Price</span>
+          </p>
+          <p class="pricing__price-note">One-time payment</p>
+          <ul class="pricing__benefits">
+            <li>Complete visual guide to programming fundamentals</li>
+            <li>Web development, back-end & databases</li>
+            <li>Git, deployment and AI covered</li>
+            <li>Instant access after purchase</li>
+            <li>Yours to keep — no subscription</li>
+          </ul>
+          <a href="https://pay.kiwify.com.br/g4nOA1U" data-checkout="manual" target="_blank" rel="noopener" class="btn btn--primary btn--lg" data-analytics="click_manual_pricing_intl begin_checkout_manual_intl">Get the Dev Manual</a>
+        </div>
+
+        <div class="pricing__card pricing__card--locked">
+          <span class="locked-badge">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+            Coming Soon
+          </span>
+          <h3>CondeClub</h3>
+          <p class="pricing__price pricing__price--locked">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+            Coming Soon
+          </p>
+          <ul class="pricing__benefits">
+            <li>Courses</li>
+            <li>Exclusive content</li>
+            <li>Projects</li>
+            <li>Complete learning path</li>
+          </ul>
+          <span class="btn btn--outline btn--lg btn--disabled" aria-disabled="true">Coming Soon</span>
+          <p class="pricing__price-note">Courses, exclusive content, projects and a complete learning path are coming soon.</p>
+        </div>
+      </div>
+
+      <div class="pricing__table-wrap">
+        <table class="pricing__table">
+          <caption class="sr-only">Comparison between The Ultimate Dev Manual and CondeClub</caption>
+          <thead>
+            <tr>
+              <th scope="col">Feature</th>
+              <th scope="col">The Manual</th>
+              <th scope="col">CondeClub</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Price</th><td>$14.99 one-time</td><td>🔒 Coming soon</td></tr>
+            <tr><th scope="row">Format</th><td>Complete visual guide</td><td>Full library</td></tr>
+            <tr><th scope="row">Access</th><td>Lifetime, single purchase</td><td>Subscription (soon)</td></tr>
+            <tr><th scope="row">Topics covered</th><td>Logic, web dev, back-end, databases, Git, AI</td><td>Everything in the Manual + more (soon)</td></tr>
+            <tr><th scope="row">Updates</th><td>Not included</td><td>Regularly, once available</td></tr>
+            <tr><th scope="row">Availability</th><td>✅ Available now</td><td>🔒 Coming soon</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-arrow">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <polyline points="6 9 12 15 18 9"/>
+    </svg>
+  </div>
+
+
+  <!-- ===================== WHO IT'S FOR / NOT FOR ===================== -->
+  <section class="section section--audience">
+    <div class="container audience__grid">
+      <div class="audience__col">
+        <h3>Who it's for</h3>
+        <ul class="audience__list audience__list--yes">
+          <li>Complete beginners</li>
+          <li>People overwhelmed by languages and roadmaps</li>
+          <li>Anyone who prefers visual, straight-to-the-point material</li>
+          <li>People ready to start building small projects</li>
+          <li>Anyone who wants it all in one place</li>
+        </ul>
+      </div>
+      <div class="audience__col">
+        <h3>Who it's not for</h3>
+        <ul class="audience__list audience__list--no">
+          <li>People looking for a college degree</li>
+          <li>Anyone expecting one-on-one mentorship</li>
+          <li>People who only want long video courses</li>
+          <li>Anyone who already masters these topics</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-arrow">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <polyline points="6 9 12 15 18 9"/>
+    </svg>
+  </div>
+
+
+  <!-- ===================== TESTIMONIALS ===================== -->
+  <section class="section section--testimonials" id="testimonials">
+    <div class="container">
+      <h2 class="section__title">What our <span class="accent">community</span> says</h2>
+
+      <div class="testimonials__grid">
+        <div class="testimonial__card">
+          <div class="testimonial__author">
+            <span class="testimonial__avatar testimonial__avatar--initial">HM</span>
+            <span>
+              <span class="testimonial__name">harlequin_my_favorite1</span>
+              <span class="testimonial__via">via TikTok</span>
+            </span>
+          </div>
+          <p class="testimonial__text">"Wow, thank you so much, this is really going to help me with my schoolwork"</p>
+        </div>
+        <div class="testimonial__card">
+          <div class="testimonial__author">
+            <span class="testimonial__avatar testimonial__avatar--initial">MO</span>
+            <span>
+              <span class="testimonial__name">moon_5926</span>
+              <span class="testimonial__via">via TikTok</span>
+            </span>
+          </div>
+          <p class="testimonial__text">"Really good, thanks for teaching this"</p>
+        </div>
+        <div class="testimonial__card">
+          <div class="testimonial__author">
+            <span class="testimonial__avatar testimonial__avatar--initial">HC</span>
+            <span>
+              <span class="testimonial__name">hebertccruz</span>
+              <span class="testimonial__via">via TikTok</span>
+            </span>
+          </div>
+          <p class="testimonial__text">"Such a great explanation"</p>
+        </div>
+        <div class="testimonial__card">
+          <div class="testimonial__author">
+            <span class="testimonial__avatar testimonial__avatar--initial">RN</span>
+            <span>
+              <span class="testimonial__name">rodlucasnunes</span>
+              <span class="testimonial__via">via TikTok</span>
+            </span>
+          </div>
+          <p class="testimonial__text">"You're the best"</p>
+        </div>
+      </div>
+
+      <!--
+        Section kept ready but hidden until real BUYER reviews of the
+        international Manual exist (the quotes above are translated
+        TikTok comments about the free content, not purchase reviews).
+        Remove "hidden" once real reviews are available.
+      -->
+      <div class="testimonials__buyers" hidden>
+        <h3>What readers of the Manual say</h3>
+        <div class="testimonials__grid"></div>
+      </div>
+
+      <!-- CREATOR -->
+      <div class="creator__box">
+        <img src="../assets/creator-photo.webp" alt="Conde, creator of The Ultimate Dev Manual" class="creator__photo" width="480" height="480" loading="lazy" />
+        <h3>Who created The Ultimate Dev Manual?</h3>
+        <p>Conde is a Full Stack developer and the creator of conde.count. After seeing thousands of beginners lost between languages, courses and roadmaps, he set out to build visual, practical material that makes the first steps simpler.</p>
+        <div class="creator__stats">
+          <span class="creator__stat"><span class="accent">20K+ followers</span></span>
+          <span class="creator__stat"><span class="accent">4M+ video views</span></span>
+          <span class="creator__stat"><span class="accent">320K+ likes</span></span>
+          <span class="creator__stat"><span class="accent">Daily content</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-arrow">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <polyline points="6 9 12 15 18 9"/>
+    </svg>
+  </div>
+
+
+  <!-- ===================== FAQ ===================== -->
+  <section class="section section--faq" id="faq">
+    <div class="container">
+      <h2 class="section__title">Frequently Asked <span class="accent">Questions</span></h2>
+
+      <div class="faq__list">
+
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false">
+            What do I get with The Ultimate Dev Manual?
+            <span class="faq__arrow" aria-hidden="true">▾</span>
+          </button>
+          <div class="faq__answer">
+            <p>A complete, beginner-friendly visual guide covering programming logic, front-end, back-end, databases, Git, deployment and AI — everything you need to build a real foundation as a developer.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false">
+            Is this a one-time payment?
+            <span class="faq__arrow" aria-hidden="true">▾</span>
+          </button>
+          <div class="faq__answer">
+            <p>Yes. The Ultimate Dev Manual is a single, one-time payment of $14.99. There's no subscription and no recurring charge.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false">
+            What topics does the Manual cover?
+            <span class="faq__arrow" aria-hidden="true">▾</span>
+          </button>
+          <div class="faq__answer">
+            <p>Programming logic, HTML & CSS, JavaScript, back-end concepts, databases, Git & GitHub, deployment, and an introduction to AI in software development.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false">
+            Do I need any prior experience?
+            <span class="faq__arrow" aria-hidden="true">▾</span>
+          </button>
+          <div class="faq__answer">
+            <p>No. The Manual is built for absolute beginners, with simple language and visual explanations instead of technical jargon.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false">
+            How do I get access after I purchase?
+            <span class="faq__arrow" aria-hidden="true">▾</span>
+          </button>
+          <div class="faq__answer">
+            <p>After your payment is confirmed by Kiwify, you'll receive access instructions by email right away.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false">
+            Is CondeClub available internationally yet?
+            <span class="faq__arrow" aria-hidden="true">▾</span>
+          </button>
+          <div class="faq__answer">
+            <p>Not yet. CondeClub is currently available in Brazil only. The international version is coming soon.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false">
+            What will CondeClub include when it launches?
+            <span class="faq__arrow" aria-hidden="true">▾</span>
+          </button>
+          <div class="faq__answer">
+            <p>Courses, exclusive content, projects and a complete learning path — details will be shared closer to launch.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false">
+            Can I join CondeClub right now?
+            <span class="faq__arrow" aria-hidden="true">▾</span>
+          </button>
+          <div class="faq__answer">
+            <p>Not internationally yet. For now, The Ultimate Dev Manual is the way to get started, and you'll be among the first to know when CondeClub becomes available.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false">
+            Is payment secure?
+            <span class="faq__arrow" aria-hidden="true">▾</span>
+          </button>
+          <div class="faq__answer">
+            <p>Yes. All payments are processed securely through Kiwify.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false">
+            Will the Manual get future updates?
+            <span class="faq__arrow" aria-hidden="true">▾</span>
+          </button>
+          <div class="faq__answer">
+            <p>The Manual you purchase is yours to keep. Future editions and additional content may be released separately.</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false">
+            How do I contact support?
+            <span class="faq__arrow" aria-hidden="true">▾</span>
+          </button>
+          <div class="faq__answer">
+            <p>Payment and access support is handled directly by Kiwify, the platform that processes your purchase.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="section-arrow">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <polyline points="6 9 12 15 18 9"/>
+    </svg>
+  </div>
+
+
+  <!-- ===================== FINAL CTA ===================== -->
+  <section class="section section--cta-final">
+    <div class="container cta-final__inner">
+      <h2 class="section__title">You don't need to learn everything today. You need to know what's <span class="accent">next</span>.</h2>
+
+      <div class="cta-final__actions">
+        <a href="https://pay.kiwify.com.br/g4nOA1U" data-checkout="manual" target="_blank" rel="noopener" class="btn btn--primary btn--lg" data-analytics="click_manual_pricing_intl">Get the Dev Manual — $14.99</a>
+        <a href="https://www.tiktok.com/@conde.count" target="_blank" rel="noopener" class="btn btn--outline btn--lg">Follow for CondeClub updates</a>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <img src="../assets/logo.webp" alt="conde.count logo" class="footer__logo" width="100" height="26" loading="lazy" />
+      <p class="footer__note">Payments securely processed by Kiwify.</p>
+      <a href="https://www.tiktok.com/@conde.count" target="_blank" rel="noopener" class="footer__tiktok">TikTok @conde.count</a>
+      <p class="footer__copy">© 2026 conde.count. All rights reserved.</p>
+      <p class="footer__visits"><span id="visit-count">···</span> site visits</p>
+    </div>
+  </footer>
+
+  <!-- ===================== STICKY MOBILE CTA ===================== -->
+  <div class="sticky-cta">
+    <a href="https://pay.kiwify.com.br/g4nOA1U" data-checkout="manual" target="_blank" rel="noopener" class="btn btn--primary" data-analytics="click_manual_pricing_intl">Get the Dev Manual — $14.99</a>
+  </div>
+
+  <!-- Analytics: replace with real IDs before publishing -->
+  <script>
+    window.GA4_ID = 'G-XXXXXXXXXX';
+    window.TIKTOK_PIXEL_ID = 'XXXXXXXXXXXXXXXXXXXX';
+  </script>
+  <script src="script.js" defer></script>
+</body>
+</html>
