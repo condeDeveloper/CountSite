@@ -391,6 +391,62 @@ button:focus-visible {
   .inside__card--wide { grid-column: 1 / -1; }
 }
 
+/* Mobile: card do Manual fica do tamanho dos quadrados e arrastável na horizontal
+   (classes exclusivas do BR — não usadas em /eng, então não afetam a versão inglesa) */
+.inside__manual-viewport { position: relative; }
+
+.inside__drag-hint {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  padding: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+.inside__drag-hint svg { width: 18px; height: 18px; }
+.inside__drag-hint--right { right: 10px; }
+.inside__drag-hint--left { left: 10px; }
+
+@media (max-width: 639px) {
+  .inside__manual-viewport {
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+  }
+  .inside__manual-frame {
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .inside__manual-frame::-webkit-scrollbar { display: none; }
+  .inside__manual-frame img {
+    width: auto;
+    height: 100%;
+    max-width: none;
+    display: block;
+  }
+
+  .inside__drag-hint.is-visible {
+    display: flex;
+    animation: dragHintPulse 1.4s ease-in-out infinite;
+  }
+}
+
+@keyframes dragHintPulse {
+  0%, 100%  { opacity: 0.85; }
+  50%       { opacity: 1; }
+}
+
 /* ============================================================
    COURSES / CONTEÚDOS
 ============================================================ */
@@ -681,6 +737,34 @@ button:focus-visible {
   color: var(--primary);
   font-weight: 700;
 }
+
+.pricing__sample-link {
+  align-self: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 9px 18px;
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  margin-top: -2px;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.pricing__sample-link svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+.pricing__sample-link:hover { color: var(--text); }
+
+.pricing__sample-link--club { border-color: rgba(34, 197, 94, 0.35); }
+.pricing__sample-link--club svg { color: var(--primary); }
+.pricing__sample-link--club:hover { border-color: var(--primary); }
+
+.pricing__sample-link--manual { border-color: rgba(249, 115, 22, 0.35); }
+.pricing__sample-link--manual svg { color: #f97316; }
+.pricing__sample-link--manual:hover { border-color: #f97316; }
 
 .pricing__table-wrap {
   overflow-x: auto;

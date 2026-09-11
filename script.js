@@ -1,4 +1,40 @@
 // ============================================================
+//   GALERIA "POR DENTRO": setas do preview do Manual (mobile)
+// ============================================================
+(function manualPreviewArrows() {
+  const frame = document.getElementById('manual-frame');
+  if (!frame) return;
+
+  const viewport = frame.closest('.inside__manual-viewport');
+  if (!viewport) return;
+
+  const btnLeft = viewport.querySelector('.inside__drag-hint--left');
+  const btnRight = viewport.querySelector('.inside__drag-hint--right');
+  const img = frame.querySelector('img');
+  if (!btnLeft || !btnRight) return;
+
+  function updateArrows() {
+    const maxScroll = frame.scrollWidth - frame.clientWidth;
+    const atStart = frame.scrollLeft <= 4;
+    const atEnd = frame.scrollLeft >= maxScroll - 4;
+    btnLeft.classList.toggle('is-visible', !atStart && maxScroll > 4);
+    btnRight.classList.toggle('is-visible', !atEnd && maxScroll > 4);
+  }
+
+  btnRight.addEventListener('click', () => {
+    frame.scrollBy({ left: frame.clientWidth * 0.9, behavior: 'smooth' });
+  });
+  btnLeft.addEventListener('click', () => {
+    frame.scrollBy({ left: -frame.clientWidth * 0.9, behavior: 'smooth' });
+  });
+
+  frame.addEventListener('scroll', updateArrows, { passive: true });
+  window.addEventListener('resize', updateArrows);
+  if (img && !img.complete) img.addEventListener('load', updateArrows);
+  updateArrows();
+})();
+
+// ============================================================
 //   CONTADOR DE VISITAS
 // ============================================================
 fetch('https://abacus.jasoncameron.dev/hit/condecount/visits')

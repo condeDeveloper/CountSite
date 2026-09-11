@@ -207,6 +207,9 @@
   <!-- ===================== VEJA POR DENTRO ===================== -->
   <section class="section section--inside" id="por-dentro">
     <div class="container">
+      <div style="text-align: center; margin-bottom: 12px;">
+        <span class="badge badge--primary">Exclusivo para membros do CondeClub</span>
+      </div>
       <h2 class="section__title">Veja o <span class="accent">CondeClub</span> por dentro</h2>
       <p class="section__subtitle">A visão de quem já é aluno: a área de membros, os guias e os projetos como eles realmente são.</p>
 
@@ -216,16 +219,26 @@
           <figcaption>A área de membros, organizada por módulo</figcaption>
         </figure>
         <figure class="inside__card">
-          <img src="assets/condeclub-print-projeto-login.webp" alt="Projeto prático de sistema de login completo com HTML, CSS, JavaScript, Node.js, Express e banco de dados, com checklist do que é ensinado e PDF anexo para download" width="1880" height="828" loading="lazy" />
-          <figcaption>Projeto prático: sistema de login full stack</figcaption>
+          <img src="assets/condeclub-print-guia-python.webp" alt="Exemplo de guia visual sobre Python, mostrando usos como automação, dados, IA e back-end" width="626" height="625" loading="lazy" />
+          <figcaption>Exemplo de guia visual (Python)</figcaption>
         </figure>
         <figure class="inside__card">
-          <img src="assets/condeclub-print-projeto-sql.webp" alt="Projeto prático de banco de dados com SQL, ensinando criação de tabelas, relacionamentos, INSERT, SELECT, JOIN e mais, com a trilha completa de SQL e Banco de Dados ao lado" width="1895" height="788" loading="lazy" />
-          <figcaption>Projeto prático: banco de dados com SQL</figcaption>
-        </figure>
-        <figure class="inside__card" style="grid-column: 1 / -1;">
           <img src="assets/condeclub-print-guia-js.webp" alt="Exemplo de guia visual sobre JavaScript, ensinando a criar um projeto de busca de CEP com fetch e API" width="1870" height="1870" loading="lazy" />
           <figcaption>Exemplo de guia visual (JavaScript)</figcaption>
+        </figure>
+        <figure class="inside__card inside__card--manual" style="grid-column: 1 / -1;">
+          <div class="inside__manual-viewport">
+            <div class="inside__manual-frame" id="manual-frame">
+              <img src="assets/condeclub-manual-preview.webp" alt="Páginas reais do Manual Definitivo do Dev: capa, o mapa do desenvolvimento, como escolher uma linguagem e como a internet funciona" width="2508" height="627" loading="lazy" />
+            </div>
+            <button type="button" class="inside__drag-hint inside__drag-hint--left" aria-label="Ver página anterior do Manual">
+              <svg viewBox="0 0 24 24"><polyline points="15 6 9 12 15 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button type="button" class="inside__drag-hint inside__drag-hint--right" aria-label="Ver próxima página do Manual">
+              <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+          <figcaption>Amostra real de páginas do Manual Definitivo do Dev — incluso no CondeClub</figcaption>
         </figure>
       </div>
     </div>
@@ -462,6 +475,10 @@
             <li>Acesso enquanto a assinatura estiver ativa</li>
           </ul>
           <a href="https://pay.kiwify.com.br/mzpLLta" target="_blank" rel="noopener" class="btn btn--primary btn--lg" data-analytics="click_club_pricing begin_checkout_club">Entrar no CondeClub</a>
+          <a href="assets/downloads/amostra-biblioteca-dev-login-fullstack.pdf" download class="pricing__sample-link pricing__sample-link--club" data-analytics="download_sample_biblioteca">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11m0 0l-4-4m4 4l4-4M4 20h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Baixar projeto de exemplo grátis (Login Full Stack)
+          </a>
         </div>
 
         <div class="pricing__card">
@@ -475,6 +492,10 @@
             <li>Acesso permanente ao Manual adquirido</li>
           </ul>
           <a href="https://pay.kiwify.com.br/g4nOA1U" target="_blank" rel="noopener" class="btn btn--outline btn--lg" data-analytics="click_manual_pricing begin_checkout_manual">Comprar somente o Manual</a>
+          <a href="assets/downloads/amostra-manual-definitivo-do-dev.pdf" download class="pricing__sample-link pricing__sample-link--manual" data-analytics="download_sample_manual">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11m0 0l-4-4m4 4l4-4M4 20h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Baixar prévia grátis do Manual (PDF)
+          </a>
         </div>
       </div>
 
