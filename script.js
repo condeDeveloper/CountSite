@@ -1,13 +1,11 @@
 // ============================================================
-//   CONTADOR DE VISITAS
+//   CHECKOUT URL — fonte única de verdade
 // ============================================================
-fetch('https://abacus.jasoncameron.dev/hit/condecount/visits')
-  .then((res) => res.json())
-  .then((data) => {
-    const el = document.getElementById('visit-count');
-    if (el) el.textContent = data.value.toLocaleString('pt-BR');
-  })
-  .catch(() => {});
+const CONDECLUB_CHECKOUT_URL = 'https://pay.kiwify.com.br/zeHjPOA';
+
+document.querySelectorAll('[data-checkout="condeclub"]').forEach((el) => {
+  el.href = CONDECLUB_CHECKOUT_URL;
+});
 
 // ============================================================
 //   FAQ ACCORDION
@@ -55,47 +53,11 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOpts);
 
 document.querySelectorAll(
-  '.course__card, .testimonial__card, .faq__item, .inside__card, .how__step, .pricing__card'
+  '.testimonial__card, .faq__item, .inside__card, .how__step, .pricing__card, .track__card, .screen-frame'
 ).forEach((el) => {
   el.classList.add('fade-in');
   observer.observe(el);
 });
-
-// ============================================================
-//   ATUALIZAÇÕES: renderiza a lista a partir de data/updates.json
-// ============================================================
-const updatesList = document.getElementById('updates-list');
-const UPDATE_ICONS = {
-  'Git & GitHub': ['assets/logo-github.webp'],
-  'Projetos Full Stack': ['assets/logo-html.webp', 'assets/logo-js.webp'],
-  'Python': ['assets/logo-python.webp'],
-  'Java': ['assets/logo-java.webp'],
-  'C#': ['assets/logo-csharp.webp'],
-  'Manual': ['assets/condeclub-manual-cover.webp'],
-  'HTML & CSS': ['assets/logo-html.webp', 'assets/logo-css.webp'],
-  'JavaScript': ['assets/logo-js.webp'],
-};
-
-if (updatesList) {
-  fetch('data/updates.json')
-    .then((res) => res.json())
-    .then((updates) => {
-      updatesList.innerHTML = updates.map((u) => {
-        const icons = UPDATE_ICONS[u.category] || [];
-        const iconsHtml = icons.map((src) => `<img src="${src}" alt="" class="update__icon" loading="lazy" />`).join('');
-        return `
-        <li class="update__item">
-          <span class="update__icons">${iconsHtml}</span>
-          <span class="update__title">${u.title} <span style="color:var(--text-dim)">— ${u.category}</span></span>
-          ${u.tag ? `<span class="update__tag">${u.tag}</span>` : ''}
-        </li>
-      `;
-      }).join('');
-    })
-    .catch(() => {
-      updatesList.innerHTML = '<li class="update__item">Não foi possível carregar as atualizações agora.</li>';
-    });
-}
 
 // ============================================================
 //   UTM PASSTHROUGH: preserva parâmetros de campanha no checkout
@@ -148,7 +110,20 @@ document.querySelectorAll('[data-analytics]').forEach((el) => {
   });
 });
 
-// view_pricing / view_faq: dispara quando a seção entra na tela
+// ============================================================
+//   VÍDEO: video_play / video_complete
+// ============================================================
+const presentationVideo = document.querySelector('[data-analytics-video]');
+if (presentationVideo) {
+  let playFired = false;
+  presentationVideo.addEventListener('play', () => {
+    if (!playFired) { track('video_play'); playFired = true; }
+    document.getElementById('video-player')?.classList.add('is-playing');
+  });
+  presentationVideo.addEventListener('ended', () => track('video_complete'));
+}
+
+// course_section_view / pricing_view: dispara quando a seção entra na tela
 const viewOnceObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
@@ -158,14 +133,14 @@ const viewOnceObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.3 });
 
-const pricingSection = document.getElementById('planos');
-if (pricingSection) {
-  pricingSection.dataset.viewEvent = 'view_pricing';
-  viewOnceObserver.observe(pricingSection);
+const tracksSection = document.getElementById('trilhas');
+if (tracksSection) {
+  tracksSection.dataset.viewEvent = 'course_section_view';
+  viewOnceObserver.observe(tracksSection);
 }
 
-const faqSection = document.getElementById('faq');
-if (faqSection) {
-  faqSection.dataset.viewEvent = 'view_faq';
-  viewOnceObserver.observe(faqSection);
+const pricingSection = document.getElementById('planos');
+if (pricingSection) {
+  pricingSection.dataset.viewEvent = 'pricing_view';
+  viewOnceObserver.observe(pricingSection);
 }
