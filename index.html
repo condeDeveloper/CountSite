@@ -59,7 +59,7 @@
           { "@type": "Question", "name": "O que é o CondeClub Learn?", "acceptedAnswer": { "@type": "Answer", "text": "É a plataforma interativa de aprendizado do CondeClub: você escolhe uma trilha, estuda lições curtas, responde exercícios e acompanha seu progresso com XP e conquistas." } },
           { "@type": "Question", "name": "Preciso saber programar?", "acceptedAnswer": { "@type": "Answer", "text": "Não. As trilhas começam do zero, pensadas para quem nunca programou." } },
           { "@type": "Question", "name": "Quais linguagens estão disponíveis?", "acceptedAnswer": { "@type": "Answer", "text": "Lógica de Programação, SQL, JavaScript, Python, Java e C#/.NET." } },
-          { "@type": "Question", "name": "Todos os níveis já estão disponíveis?", "acceptedAnswer": { "@type": "Answer", "text": "As trilhas básicas já estão disponíveis. Novos níveis, exercícios e conteúdos estão sendo adicionados progressivamente." } },
+          { "@type": "Question", "name": "Todos os níveis já estão disponíveis?", "acceptedAnswer": { "@type": "Answer", "text": "Lógica de Programação e SQL já têm Básico, Intermediário e Avançado. JavaScript, Python, Java e C# têm o Básico completo; os próximos níveis chegam em seguida." } },
           { "@type": "Question", "name": "A Biblioteca Dev está incluída?", "acceptedAnswer": { "@type": "Answer", "text": "Sim. Além do CondeClub Learn, sua assinatura inclui a Biblioteca Dev, com materiais visuais, projetos e conteúdos por tecnologia." } },
           { "@type": "Question", "name": "O Manual Definitivo do Dev está incluído?", "acceptedAnswer": { "@type": "Answer", "text": "Sim, o Manual faz parte da assinatura do CondeClub." } },
           { "@type": "Question", "name": "Meu progresso fica salvo?", "acceptedAnswer": { "@type": "Answer", "text": "Sim. Sua conta guarda XP, lições concluídas e conquistas." } },
@@ -87,7 +87,10 @@
         <a href="#biblioteca">Benefícios</a>
         <a href="#faq">FAQ</a>
       </nav>
-      <a href="https://pay.kiwify.com.br/zeHjPOA" target="_blank" rel="noopener" class="btn btn--primary btn--sm" data-checkout="condeclub" data-analytics="checkout_click">Assinar</a>
+      <div class="header__actions">
+        <a href="https://condeclub.pages.dev/" class="header__login" data-analytics="member_login_click">Já sou membro</a>
+        <a href="https://pay.kiwify.com.br/zeHjPOA" target="_blank" rel="noopener" class="btn btn--primary btn--sm" data-checkout="condeclub" data-analytics="checkout_click">Assinar</a>
+      </div>
     </div>
   </header>
 
@@ -184,44 +187,50 @@
 
       <div class="tracks__grid">
         <div class="track__card">
-          <span class="track__status">Básico disponível</span>
+          <span class="track__status">Comece aqui</span>
           <img src="assets/learn/logic.webp" alt="Ícone de Lógica de Programação" width="256" height="256" loading="lazy" />
           <h3>Lógica de Programação</h3>
           <p>Construa a base para pensar e resolver problemas como programador.</p>
+          <span class="track__levels" aria-label="Níveis disponíveis"><i class="is-on">Básico</i><i class="is-on">Intermediário</i><i class="is-on">Avançado</i></span>
         </div>
         <div class="track__card">
-          <span class="track__status track__status--sql">Básico disponível</span>
+          <span class="track__status track__status--sql">Banco de dados</span>
           <img src="assets/learn/sql.webp" alt="Ícone de SQL" width="256" height="256" loading="lazy" />
           <h3>SQL</h3>
           <p>Aprenda a consultar, filtrar e organizar dados.</p>
+          <span class="track__levels" aria-label="Níveis disponíveis"><i class="is-on">Básico</i><i class="is-on">Intermediário</i><i class="is-on">Avançado</i></span>
         </div>
         <div class="track__card">
-          <span class="track__status track__status--js">Básico disponível</span>
+          <span class="track__status track__status--js">Web</span>
           <img src="assets/learn/javascript.webp" alt="Ícone de JavaScript" width="256" height="256" loading="lazy" />
           <h3>JavaScript</h3>
           <p>Aprenda os fundamentos da linguagem que move a web.</p>
+          <span class="track__levels" aria-label="Níveis disponíveis"><i class="is-on">Básico</i><i class="">Intermediário</i><i class="">Avançado</i></span>
         </div>
         <div class="track__card">
-          <span class="track__status track__status--python">Básico disponível</span>
+          <span class="track__status track__status--python">Dados e automação</span>
           <img src="assets/learn/python.webp" alt="Ícone de Python" width="256" height="256" loading="lazy" />
           <h3>Python</h3>
           <p>Comece a programar com uma das linguagens mais versáteis.</p>
+          <span class="track__levels" aria-label="Níveis disponíveis"><i class="is-on">Básico</i><i class="">Intermediário</i><i class="">Avançado</i></span>
         </div>
         <div class="track__card">
-          <span class="track__status track__status--java">Básico disponível</span>
+          <span class="track__status track__status--java">Sistemas e Android</span>
           <img src="assets/learn/java.webp" alt="Ícone de Java" width="256" height="256" loading="lazy" />
           <h3>Java</h3>
           <p>Aprenda os fundamentos de Java e orientação a objetos.</p>
+          <span class="track__levels" aria-label="Níveis disponíveis"><i class="is-on">Básico</i><i class="">Intermediário</i><i class="">Avançado</i></span>
         </div>
         <div class="track__card">
-          <span class="track__status">Básico disponível</span>
+          <span class="track__status">Aplicações e jogos</span>
           <img src="assets/learn/csharp.webp" alt="Ícone de C# / .NET" width="256" height="256" loading="lazy" />
           <h3>C# / .NET</h3>
           <p>Dê seus primeiros passos com C# e o ecossistema .NET.</p>
+          <span class="track__levels" aria-label="Níveis disponíveis"><i class="is-on">Básico</i><i class="">Intermediário</i><i class="">Avançado</i></span>
         </div>
       </div>
 
-      <p class="tracks__note">As trilhas básicas já estão disponíveis. Novos níveis, exercícios e conteúdos estão sendo adicionados progressivamente.</p>
+      <p class="tracks__note">Lógica e SQL já têm os três níveis completos. Nas outras trilhas o Básico está pronto, e os próximos níveis chegam em seguida.</p>
     </div>
   </section>
 
@@ -342,7 +351,7 @@
     <div class="container midcta__inner">
       <div class="midcta__text">
         <strong>CondeClub Learn + Biblioteca Dev</strong>
-        <span>R$ 19,90/mês</span>
+        <span>R$ 19,90/mês · 7 dias de garantia</span>
       </div>
       <a href="https://pay.kiwify.com.br/zeHjPOA" target="_blank" rel="noopener" class="btn btn--primary" data-checkout="condeclub" data-analytics="checkout_click">Quero começar</a>
     </div>
@@ -405,10 +414,20 @@
   <!-- ===================== PROVA SOCIAL ===================== -->
   <section class="section section--testimonials" id="depoimentos">
     <div class="container">
-      <h2 class="section__title">O que a comunidade diz sobre os <span class="accent">conteúdos do Conde</span></h2>
-      <p class="section__subtitle">Comentários reais de pessoas que acompanham os conteúdos de programação do conde.count.</p>
+      <h2 class="section__title">Conteúdo pronto para <span class="accent">praticar hoje</span></h2>
+      <p class="section__subtitle">Não é promessa de lançamento: as trilhas já estão no ar, com explicação e exercícios em cada lição.</p>
 
-      <div class="testimonials__grid">
+      <div class="numbers__grid" aria-label="O CondeClub em números">
+        <div class="numbers__tile"><strong>10</strong><span>trilhas publicadas</span></div>
+        <div class="numbers__tile"><strong>107</strong><span>lições em 3 partes</span></div>
+        <div class="numbers__tile"><strong>1.600+</strong><span>exercícios com correção na hora</span></div>
+        <div class="numbers__tile"><strong>100%</strong><span>no navegador do celular</span></div>
+      </div>
+
+      <h3 class="testimonials__subtitle">O que a comunidade diz sobre os conteúdos do Conde</h3>
+      <p class="testimonials__note">Comentários reais de quem acompanha os vídeos de programação do conde.count no TikTok.</p>
+
+      <div class="testimonials__grid testimonials__grid--compact">
         <div class="testimonial__card">
           <div class="testimonial__author">
             <span class="testimonial__avatar testimonial__avatar--initial">HM</span>
@@ -493,6 +512,8 @@
             <li>Cancele quando quiser</li>
           </ul>
           <a href="https://pay.kiwify.com.br/zeHjPOA" target="_blank" rel="noopener" class="btn btn--primary btn--lg" data-checkout="condeclub" data-analytics="checkout_click">Entrar para o CondeClub</a>
+          <p class="pricing__guarantee">7 dias de garantia</p>
+          <p class="pricing__fineprint">Não gostou? Peça o reembolso em até 7 dias e devolvemos o valor.</p>
           <p class="pricing__fineprint">Pagamento seguro pela Kiwify.</p>
           <p class="pricing__fineprint">Quem já é membro mantém as condições atuais da sua assinatura.</p>
         </div>
@@ -550,7 +571,7 @@
             <span class="faq__arrow" aria-hidden="true">▾</span>
           </button>
           <div class="faq__answer">
-            <p>As trilhas básicas já estão disponíveis. Novos níveis, exercícios e conteúdos estão sendo adicionados progressivamente.</p>
+            <p>Lógica de Programação e SQL já têm Básico, Intermediário e Avançado. JavaScript, Python, Java e C# têm o Básico completo; os próximos níveis chegam em seguida.</p>
           </div>
         </div>
 
@@ -610,7 +631,7 @@
             <span class="faq__arrow" aria-hidden="true">▾</span>
           </button>
           <div class="faq__answer">
-            <p>O login é feito com seu e-mail e um código de 6 dígitos enviado na hora — sem precisar lembrar senha.</p>
+            <p>Entre em <a href="https://condeclub.pages.dev/" data-analytics="member_login_click">condeclub.pages.dev</a> com o mesmo e-mail da compra. O login é feito com um código de 6 dígitos enviado na hora — sem precisar lembrar senha.</p>
           </div>
         </div>
 
@@ -674,6 +695,7 @@
     <div class="container footer__inner">
       <img src="assets/logo.webp" alt="Logo conde.count" class="footer__logo" width="100" height="26" loading="lazy" />
       <p class="footer__note">Pagamentos processados com segurança pela Kiwify.</p>
+      <a href="https://condeclub.pages.dev/" class="footer__login" data-analytics="member_login_click">Já é membro? Entrar no CondeClub</a>
       <a href="https://www.tiktok.com/@conde.count" target="_blank" rel="noopener" class="footer__tiktok">TikTok @conde.count</a>
       <p class="footer__copy">© 2026 conde.count. Todos os direitos reservados.</p>
     </div>
@@ -684,10 +706,16 @@
     <a href="https://pay.kiwify.com.br/zeHjPOA" target="_blank" rel="noopener" class="btn btn--primary" data-checkout="condeclub" data-analytics="checkout_click">CondeClub • R$ 19,90 — Assinar</a>
   </div>
 
-  <!-- Analytics: substitua pelos IDs reais antes de publicar -->
+  <!-- GA4 e Pixel do TikTok ficam desligados (IDs vazios) até haver anúncio pago. -->
   <script>
-    window.GA4_ID = 'G-XXXXXXXXXX';
-    window.TIKTOK_PIXEL_ID = 'XXXXXXXXXXXXXXXXXXXX';
+    window.GA4_ID = '';
+    window.TIKTOK_PIXEL_ID = '';
+    // Funil do CondeClub: conta visitas e cliques em "Assinar" no próprio banco
+    // do produto (sem cookie). A chave abaixo é a chave pública do projeto.
+    window.CONDECLUB_FUNIL = {
+      url: 'https://jfljglekznchlcdtgyne.supabase.co',
+      anon: 'sb_publishable_Es6m1MUELCRZiM9HJu-p9g_Na9YMiB2'
+    };
   </script>
   <script src="script.js" defer></script>
 </body>

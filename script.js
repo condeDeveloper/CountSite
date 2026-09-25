@@ -95,6 +95,43 @@ document.querySelectorAll(
   }
 })();
 
+// ============================================================
+//   FUNIL DO CONDECLUB: viu_pagina / clicou_assinar → banco do produto
+//   Id de visita aleatório, só nesta aba (sessionStorage). Sem cookie.
+// ============================================================
+const funil = (function () {
+  const cfg = window.CONDECLUB_FUNIL;
+  if (!cfg || !cfg.url || !cfg.anon) return { registrar() {} };
+  let visita = null;
+  function idDaVisita() {
+    if (visita) return visita;
+    try { visita = sessionStorage.getItem('condeclub.visita'); } catch (e) { /* bloqueado */ }
+    if (!visita) {
+      visita = (crypto.randomUUID ? crypto.randomUUID() : String(Date.now()) + Math.random().toString(16).slice(2)).replace(/-/g, '');
+      try { sessionStorage.setItem('condeclub.visita', visita); } catch (e) { /* bloqueado */ }
+    }
+    return visita;
+  }
+  function registrar(nome, props) {
+    try {
+      fetch(cfg.url + '/rest/v1/rpc/track_event', {
+        method: 'POST',
+        keepalive: true,
+        headers: { 'content-type': 'application/json', apikey: cfg.anon, authorization: 'Bearer ' + cfg.anon },
+        body: JSON.stringify({ p_name: nome, p_session_id: idDaVisita(), p_source: 'site', p_props: props || {} }),
+      }).catch(function () {});
+    } catch (e) { /* nunca atrapalha a página */ }
+  }
+  return { registrar };
+})();
+
+funil.registrar('viu_pagina', { ref: document.referrer ? new URL(document.referrer).hostname : '' });
+document.querySelectorAll('[data-checkout]').forEach(function (el) {
+  el.addEventListener('click', function () {
+    funil.registrar('clicou_assinar', { onde: el.getAttribute('data-analytics') || '' });
+  });
+});
+
 function track(eventName, params) {
   if (typeof window.gtag === 'function') {
     window.gtag('event', eventName, params || {});

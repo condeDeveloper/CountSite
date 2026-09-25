@@ -779,6 +779,54 @@ button:focus-visible {
 /* ============================================================
    TESTIMONIALS
 ============================================================ */
+.numbers__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 40px;
+}
+.numbers__tile {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 14px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.numbers__tile strong {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--primary);
+  font-variant-numeric: tabular-nums;
+}
+.numbers__tile span { font-size: 0.8rem; color: var(--text-muted); }
+@media (min-width: 640px) {
+  .numbers__grid { grid-template-columns: repeat(4, 1fr); }
+  .numbers__tile strong { font-size: 2.4rem; }
+}
+
+.testimonials__subtitle {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.testimonials__note {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  margin-bottom: 16px;
+}
+.testimonials__grid--compact { gap: 10px; margin-bottom: 40px; }
+.testimonials__grid--compact .testimonial__card { padding: 12px 14px; gap: 8px; }
+.testimonials__grid--compact .testimonial__text { font-size: 0.82rem; }
+.testimonials__grid--compact .testimonial__avatar { width: 28px; height: 28px; font-size: 0.65rem; }
+.testimonials__grid--compact .testimonial__name { font-size: 0.8rem; }
+
 .testimonials__grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -1021,6 +1069,13 @@ button:focus-visible {
   text-underline-offset: 3px;
 }
 .footer__copy { font-size: 0.8rem; color: var(--text-dim); }
+.footer__login {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 
 .footer__visits {
   font-size: 0.75rem;
@@ -1211,6 +1266,15 @@ body:has(#trilhas) .section-arrow:not(.section-arrow--pre-trust):not(.section-ar
 }
 .header__nav a:hover { color: var(--text); }
 
+.header__actions { display: flex; align-items: center; gap: 14px; }
+.header__login {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+.header__login:hover { color: var(--text); }
+
 @media (min-width: 768px) {
   .header__nav { display: flex; }
 }
@@ -1310,6 +1374,12 @@ body:has(#trilhas) .section-arrow:not(.section-arrow--pre-trust):not(.section-ar
   color: var(--text-muted);
   margin-top: 4px;
 }
+/* No celular: 2 × 2, cabe numa tela */
+#como-funciona .how__grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+#como-funciona .how__step { padding: 18px 12px; }
+#como-funciona .how__number { width: 30px; height: 30px; margin-bottom: 8px; font-size: 0.9rem; }
+#como-funciona .how__step h3 { font-size: 0.9rem; }
+#como-funciona .how__step p { font-size: 0.78rem; }
 
 .how__step--purple .how__number {
   background: var(--purple-gl);
@@ -1357,6 +1427,22 @@ body:has(#trilhas) .section-arrow:not(.section-arrow--pre-trust):not(.section-ar
   max-width: 420px;
 }
 
+.pricing__guarantee {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 14px auto 6px;
+  padding: 8px 14px;
+  border-radius: 50px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--primary);
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.35);
+}
+.pricing__guarantee::before { content: '✓'; font-weight: 800; }
+.pricing__card--main { text-align: center; }
+
 .pricing__fineprint {
   font-size: 0.78rem;
   color: var(--text-dim);
@@ -1367,7 +1453,11 @@ body:has(#trilhas) .section-arrow:not(.section-arrow--pre-trust):not(.section-ar
 .track__card { position: relative; }
 
 .track__status {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  line-height: 1.15;
   font-size: 0.62rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -1385,6 +1475,31 @@ body:has(#trilhas) .section-arrow:not(.section-arrow--pre-trust):not(.section-ar
 .track__status--js    { color: #eab308; background: rgba(234, 179, 8, 0.15); border-color: rgba(234, 179, 8, 0.4); }
 .track__status--python{ color: #3b82f6; background: rgba(59, 130, 246, 0.15); border-color: rgba(59, 130, 246, 0.4); }
 .track__status--sql   { color: #0ea5e9; background: rgba(14, 165, 233, 0.15); border-color: rgba(14, 165, 233, 0.4); }
+
+/* Níveis da trilha: aceso = pronto, apagado = em produção */
+.track__levels {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  margin-top: 12px;
+}
+.track__levels i {
+  font-style: normal;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 2px 7px;
+  border-radius: 50px;
+  color: var(--text-dim);
+  border: 1px solid var(--border);
+  background: transparent;
+}
+.track__levels i.is-on {
+  color: var(--primary);
+  border-color: rgba(34, 197, 94, 0.45);
+  background: rgba(34, 197, 94, 0.12);
+}
 
 /* PERFEITO PARA VOCÊ SE... (versão única, sem a coluna negativa) */
 .audience__single {
