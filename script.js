@@ -125,6 +125,21 @@ const funil = (function () {
   return { registrar };
 })();
 
+// Contador do rodapé: total público de visitas (lido do mesmo banco do funil).
+(function mostrarVisitas() {
+  const el = document.getElementById('visit-count');
+  const cfg = window.CONDECLUB_FUNIL;
+  if (!el || !cfg || !cfg.url) return;
+  fetch(cfg.url + '/rest/v1/rpc/contar_visitas', {
+    method: 'POST',
+    headers: { 'content-type': 'application/json', apikey: cfg.anon, authorization: 'Bearer ' + cfg.anon },
+    body: '{}',
+  })
+    .then(function (r) { return r.json(); })
+    .then(function (n) { if (typeof n === 'number') el.textContent = n.toLocaleString('pt-BR'); })
+    .catch(function () {});
+})();
+
 funil.registrar('viu_pagina', { ref: document.referrer ? new URL(document.referrer).hostname : '' });
 document.querySelectorAll('[data-checkout]').forEach(function (el) {
   el.addEventListener('click', function () {
