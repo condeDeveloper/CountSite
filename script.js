@@ -172,7 +172,22 @@ if (presentationVideo) {
     if (!playFired) { track('video_play'); playFired = true; }
     document.getElementById('video-player')?.classList.add('is-playing');
   });
-  presentationVideo.addEventListener('ended', () => track('video_complete'));
+  presentationVideo.addEventListener('ended', () => {
+    track('video_complete');
+    // O vídeo termina apontando para o botão logo abaixo: sai da tela cheia,
+    // rola até ele e chama atenção por alguns segundos.
+    try {
+      if (document.fullscreenElement) document.exitFullscreen();
+      else if (presentationVideo.webkitDisplayingFullscreen) presentationVideo.webkitExitFullscreen();
+    } catch (_) { /* alguns navegadores não permitem; segue */ }
+    const cta = document.getElementById('video-cta');
+    if (!cta) return;
+    setTimeout(() => {
+      cta.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      cta.classList.add('is-highlight');
+      setTimeout(() => cta.classList.remove('is-highlight'), 6000);
+    }, 300);
+  });
 }
 
 // course_section_view / pricing_view: dispara quando a seção entra na tela
