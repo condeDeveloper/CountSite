@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<title>Organizador automático (Python)</title>
+<link rel="stylesheet" href="../terminal.css" />
+<style>
+  .pastas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+  .pasta { background: #17141f; border: 1px solid #2a2438; border-radius: 10px; padding: 6px 8px; min-height: 58px; font-size: 11.5px; }
+  .pasta b { display: block; font-size: 11px; color: #ffd43b; margin-bottom: 4px; }
+  .pasta--down { grid-column: 1 / -1; min-height: 44px; }
+  .pasta--down b { color: #9cdcfe; }
+  .arqs { display: flex; flex-wrap: wrap; gap: 4px; }
+  .arq { background: #262038; border-radius: 6px; padding: 2px 6px; font-size: 11px; animation: entra .35s ease-out both; }
+  @keyframes entra { from { transform: scale(.6); opacity: 0 } to { transform: none; opacity: 1 } }
+  .acoes { display: flex; gap: 6px; }
+  .acoes button { flex: 1; border: 0; border-radius: 10px; padding: 10px; font: 700 13px system-ui, sans-serif; cursor: pointer; background: #ffd43b; color: #111; }
+  .acoes button.sec { flex: 0 0 auto; background: #1d182a; color: #e5e7eb; border: 1px solid #3b3350; }
+  .acoes button:disabled { opacity: .5; }
+  .term { flex: 1 1 140px; }
+</style>
+</head>
+<body style="--neon:#ffd43b">
+  <div class="pastas" id="pastas"></div>
+  <div class="term" id="t">
+    <div class="term-barra"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span>python organizador.py</span></div>
+    <div class="term-saida"></div>
+    <div class="term-entrada" hidden><span class="term-rotulo"></span><input type="text" autocomplete="off" /><button type="button">OK</button></div>
+  </div>
+  <div class="acoes"><button type="button" id="rodar">▶ Rodar organizador.py</button><button type="button" class="sec" id="zerar">↺ Bagunçar de novo</button></div>
+<script src="../terminal.js"></script>
+<script>
+  // Mesma regra do organizador.py: a extensão decide a pasta; o que não se encaixa vai pra "Outros".
+  const TIPOS = {
+    'Imagens': ['.jpg', '.jpeg', '.png', '.gif', '.webp'],
+    'Documentos': ['.pdf', '.docx', '.txt', '.xlsx', '.pptx'],
+    'Músicas': ['.mp3', '.wav', '.m4a'],
+    'Vídeos': ['.mp4', '.mov', '.mkv'],
+    'Compactados': ['.zip', '.rar', '.7z'],
+  }
+  const BAGUNCA = ['foto-praia.JPG', 'boleto.pdf', 'trabalho-final.docx', 'print.png', 'musica.mp3', 'aula-gravada.mp4', 'projeto.zip', 'planilha.xlsx', 'instalador.exe', 'meme.gif']
+  const destino = (nome) => {
+    const ext = nome.slice(nome.lastIndexOf('.')).toLowerCase()
+    for (const [pasta, exts] of Object.entries(TIPOS)) if (exts.includes(ext)) return pasta
+    return 'Outros'
+  }
+  const icone = { 'Imagens': '🖼️', 'Documentos': '📄', 'Músicas': '🎵', 'Vídeos': '🎬', 'Compactados': '🗜️', 'Outros': '📦' }
+  let pastas
+  function desenha() {
+    const el = document.getElementById('pastas')
+    el.innerHTML = ''
+    for (const [nome, arqs] of Object.entries(pastas)) {
+      const d = document.createElement('div')
+      d.className = 'pasta' + (nome === 'Downloads' ? ' pasta--down' : '')
+      d.innerHTML = `<b>📁 ${nome}</b><div class="arqs">${arqs.map((a) => `<span class="arq">${nome === 'Downloads' ? '' : icone[nome] + ' '}${a}</span>`).join('')}</div>`
+      el.appendChild(d)
+    }
+  }
+  const t = Terminal(document.getElementById('t'))
+  function zera() {
+    pastas = { 'Downloads': [...BAGUNCA], 'Imagens': [], 'Documentos': [], 'Músicas': [], 'Vídeos': [], 'Compactados': [], 'Outros': [] }
+    desenha()
+    t.limpa()
+    t.escreve('Sua pasta Downloads está uma bagunça. Toca em ▶ Rodar.', 'fraco')
+  }
+  zera()
+  const rodar = document.getElementById('rodar'), zerar = document.getElementById('zerar')
+  rodar.addEventListener('click', async () => {
+    rodar.disabled = zerar.disabled = true
+    t.limpa()
+    t.escreve('$ python organizador.py', 'cmd')
+    await t.espera(400)
+    t.escreve('Organizar C:\\Users\\voce\\Downloads? (s/n) s', 'eco')
+    let movidos = 0
+    for (const nome of [...pastas['Downloads']]) {
+      await t.espera(380)
+      const p = destino(nome)
+      pastas['Downloads'] = pastas['Downloads'].filter((x) => x !== nome)
+      pastas[p].push(nome)
+      desenha()
+      t.escreve(`${nome} -> ${p}`)
+      movidos++
+    }
+    t.escreve(`\nPronto! ${movidos} arquivos organizados.`, 'ok')
+    zerar.disabled = false
+  })
+  zerar.addEventListener('click', () => { zera(); rodar.disabled = false })
+</script>
+</body>
+</html>

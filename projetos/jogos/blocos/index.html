@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<title>Jogo dos blocos</title>
+<link rel="stylesheet" href="../jogo.css" />
+</head>
+<body data-jogo="blocos">
+  <div class="tela-jogo">
+    <canvas id="jogo" width="300" height="600"></canvas>
+    <button class="comecar" id="comecar" type="button">▶ Jogar</button>
+    <div class="fim" id="fim" hidden><b>Fim de jogo</b><span id="fim-pontos"></span><button type="button" id="fim-denovo">↻ Jogar de novo</button></div>
+  </div>
+  <div class="pad" id="pad" aria-label="Controles">
+    <button class="cima" data-key="ArrowUp" aria-label="Girar">⟳</button>
+    <button class="esq" data-key="ArrowLeft" aria-label="Esquerda">◀</button>
+    <button class="baixo" data-key="ArrowDown" aria-label="Descer">▼</button>
+    <button class="dir" data-key="ArrowRight" aria-label="Direita">▶</button>
+  </div>
+  <div class="barra"><span>Toque no jogo pra girar</span><button id="denovo" type="button">Jogar de novo</button></div>
+  <script src="../inicio.js"></script>
+  <script src="blocos.js"></script>
+  <script src="../controles.js"></script>
+</body>
+</html>

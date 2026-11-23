@@ -1,0 +1,62 @@
+/* Páginas públicas dos projetos: em cima da style.css da página de vendas (mesmo estilo). */
+.pj-hero { padding-bottom: 8px; text-align: center; }
+.pj-hero .hero__subtitle { margin-left: auto; margin-right: auto; }
+.pj-titulo { font-size: clamp(30px, 6.4vw, 50px); margin-top: 16px; }
+.pj-corpo { padding-top: 24px; }
+.pj-grid { display: grid; gap: 28px; align-items: start; }
+.pj-grid > * { min-width: 0; }
+.pj-capa { height: 300px; }
+.pj-capa--cobrinha img { object-position: center; }
+.pj-h2 { font-size: 1.4rem; font-weight: 800; margin: 0 0 8px; }
+.pj-como { color: var(--text-muted); font-size: .92rem; margin: 0 0 16px; }
+.pj-como b { color: var(--text); }
+.pj-codigo .codigo { margin-bottom: 16px; }
+.pj-codigo pre { max-height: 460px; }
+.pj-oferta { max-width: 760px; margin: 0 auto; text-align: center; padding-top: 34px; }
+.pj-oferta .section__title { font-size: clamp(24px, 4.6vw, 34px); margin-top: 14px; }
+.pj-oferta__lang { width: 110px; height: 110px; object-fit: contain; margin: -90px auto 6px; display: block; filter: drop-shadow(0 0 18px rgba(247,223,30,.55)); }
+.pj-lista { text-align: left; max-width: 560px; margin: 22px auto; }
+.pj-lista li::before { content: none !important; }
+.pj-lista li { padding-left: 0 !important; }
+.pj-oferta .pricing__fineprint a { color: var(--primary); }
+.proj-minis { display: grid; gap: 12px; margin-top: 14px; }
+.proj-mini { display: flex; gap: 14px; align-items: center; padding: 10px; border-radius: var(--radius); border: 1px solid var(--border); background: var(--bg-card); text-decoration: none; color: var(--text); }
+.proj-mini:hover { border-color: var(--border-hover); }
+.proj-mini img { width: 72px; height: 72px; object-fit: cover; object-position: center bottom; border-radius: 10px; background: #111; }
+.proj-mini span { display: flex; flex-direction: column; gap: 2px; padding: 6px 8px; }
+.proj-mini small { color: var(--text-muted); font-size: .8rem; }
+.proj-mini--breve { border-style: dashed; }
+.proj .proj__info { text-decoration: none; color: var(--text); }
+.pj-vitrine-cta { text-align: center; margin-top: 32px; }
+@media (min-width: 900px) {
+  .pj-grid { grid-template-columns: 380px 1fr; }
+  .pj-lado { position: sticky; top: 90px; }
+  .proj-minis { grid-template-columns: repeat(3, 1fr); }
+}
+.pj-oferta .section__subtitle { margin-bottom: 0; }
+.pj-oferta .pj-lista { margin: 18px auto 10px; gap: 10px; }
+.pj-oferta .pj-lista li { font-size: .95rem; color: var(--text); }
+.pj-oferta .pricing__price { margin-top: 6px; }
+
+/* rodada 3: capa centralizada em cima, código embaixo */
+.pj-destaque { max-width: 760px; margin: 40px auto 0; }
+.pj-destaque .pj-capa { width: 100%; border: 0; padding: 0; cursor: pointer; height: auto; }
+.pj-destaque__txt { text-align: center; align-items: center; }
+.pj-destaque .jogo-inline { border-radius: 20px 20px 0 0; overflow: hidden; }
+.pj-codigo { max-width: 900px; margin: 56px auto 0; }
+.pj-codigo .pj-h2, .pj-codigo .pj-como { text-align: center; }
+.pj-corpo .pcards, .pj-hero + .pj-corpo .pcards { margin-top: 10px; }
+
+/* Seta flutuante entre o código e o ícone da linguagem (o ícone sobe 90px pra fora do cartão). */
+.section-arrow.pj-seta { margin: -46px 0 14px; }
+
+/* Vitrine: respiro entre o título e o texto, e a seta flutuante antes dos cartões. */
+.pj-titulo + .hero__subtitle { margin-top: 18px; }
+.section-arrow.pj-vseta { margin: 6px 0 -4px; }
+
+/* planos na página de projeto (os mesmos dois cartões da página de vendas, sem o mascote) */
+.pj-planos__titulo { text-align: center; margin-top: 44px; }
+.pj-planos__sub { text-align: center; color: var(--text-muted); max-width: 560px; margin: 8px auto 0; font-size: .95rem; }
+.pricing__grid--duo.pj-planos { margin-top: 24px; }
+.pj-planos__fim { text-align: center; color: var(--text-muted); font-size: .88rem; margin-top: 16px; }
+.pj-planos__fim a { color: var(--primary); }

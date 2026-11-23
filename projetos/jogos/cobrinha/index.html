@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<title>Jogo da cobrinha</title>
+<link rel="stylesheet" href="../jogo.css" />
+</head>
+<body data-jogo="cobrinha">
+  <div class="tela-jogo">
+    <canvas id="jogo" width="400" height="400"></canvas>
+    <button class="comecar" id="comecar" type="button">▶ Jogar</button>
+    <div class="fim" id="fim" hidden><b>Fim de jogo</b><span id="fim-pontos"></span><button type="button" id="fim-denovo">↻ Jogar de novo</button></div>
+  </div>
+  <div class="pad" id="pad" aria-label="Controles">
+    <button class="cima" data-key="ArrowUp" aria-label="Cima">▲</button>
+    <button class="esq" data-key="ArrowLeft" aria-label="Esquerda">◀</button>
+    <button class="baixo" data-key="ArrowDown" aria-label="Baixo">▼</button>
+    <button class="dir" data-key="ArrowRight" aria-label="Direita">▶</button>
+  </div>
+  <div class="barra"><span>Setas do teclado ou deslize o dedo</span><button id="denovo" type="button">Jogar de novo</button></div>
+  <script src="../inicio.js"></script>
+  <script src="cobrinha.js"></script>
+  <script src="../controles.js"></script>
+</body>
+</html>

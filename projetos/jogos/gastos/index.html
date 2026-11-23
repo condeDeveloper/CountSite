@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<title>Controle de gastos (C#)</title>
+<link rel="stylesheet" href="../terminal.css" />
+<style>.term-saida { font-size: clamp(10.5px, 2.75vw, 13.5px); }</style>
+</head>
+<body style="--neon:#a179dc">
+  <div class="term" id="t">
+    <div class="term-barra"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span>dotnet run</span></div>
+    <div class="term-saida"></div>
+    <div class="term-entrada" hidden><span class="term-rotulo"></span><input type="text" autocomplete="off" enterkeyhint="send" aria-label="Gasto" /><button type="button">OK</button></div>
+  </div>
+  <div class="atalhos" id="atalhos">
+    <button type="button">mercado 52,90</button>
+    <button type="button">aluguel 1100</button>
+    <button type="button">ifood 89,90</button>
+    <button type="button">uber 23,40</button>
+    <button type="button" data-fim>Ver resumo</button>
+  </div>
+<script src="../terminal.js"></script>
+<script>
+  // Mesma lógica do Program.cs: "categoria valor" vira um gasto; ENTER vazio mostra o resumo com barras.
+  const t = Terminal(document.getElementById('t'))
+  const reais = (v) => v.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+  const gastos = []
+  const atalhos = document.getElementById('atalhos')
+  atalhos.addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) t.responde(b.hasAttribute('data-fim') ? '' : b.textContent) })
+  ;(async () => {
+    t.escreve('$ dotnet run', 'cmd')
+    t.escreve('Controle de gastos. Escreva assim: mercado 52,90')
+    while (true) {
+      const linha = (await t.pergunta('Gasto (ENTER para ver o resumo): ')).trim()
+      if (!linha) break
+      const espaco = linha.lastIndexOf(' ')
+      const valor = Number(linha.slice(espaco + 1).replace(/\./g, '').replace(',', '.'))
+      if (espaco < 1 || Number.isNaN(valor) || valor <= 0) { t.escreve('Não entendi. Escreva a categoria e o valor: mercado 52,90', 'erro'); continue }
+      const categoria = linha.slice(0, espaco).trim().toLowerCase()
+      gastos.push({ categoria, valor })
+      t.escreve(`Anotado: ${categoria} ${reais(valor)}`, 'ok')
+    }
+    atalhos.hidden = true
+    if (!gastos.length) return t.escreve('Nenhum gasto anotado.')
+    const total = gastos.reduce((s, g) => s + g.valor, 0)
+    const por = {}
+    gastos.forEach((g) => { por[g.categoria] = (por[g.categoria] || 0) + g.valor })
+    const resumo = Object.entries(por).sort((a, b) => b[1] - a[1])
+    const maior = resumo[0][1]
+    t.escreve('\n--- Para onde foi o dinheiro ---')
+    for (const [cat, v] of resumo) {
+      const barra = '█'.repeat(Math.max(1, Math.floor((v / maior) * 20)))
+      t.escreve(`${cat.padEnd(12)} ${barra.padEnd(20)} ${reais(v).padStart(12)}  ${Math.round((v / total) * 100)}%`)
+    }
+    t.escreve(`\nTotal do mês: ${reais(total)}`, 'ok')
+  })()
+</script>
+</body>
+</html>

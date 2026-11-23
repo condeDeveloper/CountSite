@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<title>Mini sistema bancário (Java)</title>
+<link rel="stylesheet" href="../terminal.css" />
+</head>
+<body style="--neon:#f89820">
+  <div class="term" id="t">
+    <div class="term-barra"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span>java Banco</span></div>
+    <div class="term-saida"></div>
+    <div class="term-entrada" hidden><span class="term-rotulo"></span><input type="text" inputmode="decimal" autocomplete="off" enterkeyhint="go" aria-label="Resposta" /><button type="button">OK</button></div>
+  </div>
+  <div class="atalhos" id="atalhos">
+    <button type="button" data-v="1">1 Depositar</button>
+    <button type="button" data-v="2">2 Sacar</button>
+    <button type="button" data-v="3">3 Extrato</button>
+    <button type="button" data-v="0">0 Sair</button>
+  </div>
+<script src="../terminal.js"></script>
+<script>
+  // Mesma lógica do Banco.java: menu, depósito, saque com saldo insuficiente e extrato.
+  const t = Terminal(document.getElementById('t'))
+  const reais = (v) => 'R$ ' + v.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+  let saldo = 0
+  const extrato = []
+  const atalhos = document.getElementById('atalhos')
+  atalhos.addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) t.responde(b.dataset.v) })
+  async function lerValor() {
+    atalhos.hidden = true
+    const txt = (await t.pergunta('Valor: R$ ')).trim().replace(',', '.')
+    atalhos.hidden = false
+    const v = Number(txt)
+    return txt === '' || Number.isNaN(v) ? -1 : v
+  }
+  function depositar(v) {
+    if (v <= 0) return t.escreve('Valor inválido.', 'erro')
+    saldo += v
+    extrato.push(`+ ${reais(v)}  depósito`)
+    t.escreve(`Depósito feito. Saldo: ${reais(saldo)}`, 'ok')
+  }
+  function sacar(v) {
+    if (v <= 0) return t.escreve('Valor inválido.', 'erro')
+    if (v > saldo) return t.escreve('Saldo insuficiente.', 'erro')
+    saldo -= v
+    extrato.push(`- ${reais(v)}  saque`)
+    t.escreve(`Saque feito. Saldo: ${reais(saldo)}`, 'ok')
+  }
+  function mostrarExtrato() {
+    t.escreve('\n--- Extrato ---')
+    if (!extrato.length) t.escreve('Nenhuma movimentação ainda.', 'fraco')
+    extrato.forEach((l) => t.escreve(l))
+    t.escreve(`Saldo: ${reais(saldo)}`)
+  }
+  ;(async () => {
+    t.escreve('$ java Banco', 'cmd')
+    t.escreve('Bem-vindo ao Mini Banco!')
+    while (true) {
+      t.escreve('\n1) Depositar  2) Sacar  3) Extrato  0) Sair')
+      const op = (await t.pergunta('Escolha: ')).trim()
+      if (op === '1') depositar(await lerValor())
+      else if (op === '2') sacar(await lerValor())
+      else if (op === '3') mostrarExtrato()
+      else if (op === '0') { t.escreve('Até logo!', 'ok'); atalhos.hidden = true; return }
+      else t.escreve('Opção inválida.', 'erro')
+    }
+  })()
+</script>
+</body>
+</html>

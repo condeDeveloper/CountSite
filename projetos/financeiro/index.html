@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Controle financeiro em SQL em SQL: o código do vídeo | CondeClub</title>
+  <meta name="description" content="Entradas, saídas, o saldo do mês e pra onde foi o dinheiro." />
+  <meta property="og:title" content="Controle financeiro em SQL em SQL: o código do vídeo | CondeClub" />
+  <meta property="og:description" content="Entradas, saídas, o saldo do mês e pra onde foi o dinheiro." />
+  <link rel="icon" type="image/png" href="../../assets/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../style.css" />
+  <link rel="stylesheet" href="../../projetos/projetos.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a href="../../"><img src="../../assets/logo.webp" alt="Logo CondeClub" class="header__logo" width="120" height="30" /></a>
+      <nav class="header__nav" aria-label="Navegação principal">
+        <a href="../../projetos/">Projetos</a>
+        <a href="../../#trilhas">Trilhas</a>
+        <a href="../../#ia">IA</a>
+      </nav>
+      <div class="header__actions">
+        <a href="https://condeclub.pages.dev/" class="header__login">Já sou membro</a>
+        <a href="#plano-anual" class="btn btn--primary btn--sm">Ver planos</a>
+      </div>
+    </div>
+  </header>
+  <main>
+
+    <section class="section pj-hero">
+      <div class="container">
+        <span class="badge badge--purple">Projeto do vídeo</span>
+        <h1 class="hero__title pj-titulo">📊 Controle financeiro em SQL em <span class="accent">SQL</span></h1>
+        <p class="hero__subtitle">Entradas, saídas, o saldo do mês e pra onde foi o dinheiro. Testa aqui, copia o código e roda no seu computador. É seu.</p>
+      </div>
+    </section>
+
+    <section class="section pj-corpo">
+      <div class="container">
+        <div class="pcard pj-destaque" style="--c:#4b8dff">
+          <img class="pcard__lang" src="../../assets/learn/sql.webp" alt="SQL" width="72" height="72" />
+          <button type="button" class="pcard__capa pj-capa" data-jogo="projetos/jogos/financeiro/" data-titulo="Controle financeiro em SQL" aria-label="Jogar Controle financeiro em SQL">
+            <img src="../../assets/clube/capa2-financeiro.webp" alt="" width="720" height="480" />
+            <span class="proj__play">▶ Testar aqui</span>
+          </button>
+          <div class="pcard__txt pj-destaque__txt"><span class="pcard__tipo">Banco de dados</span><h3>📊 Controle financeiro em SQL</h3><p>SQL · 29 linhas · feito no canal em 20/11</p></div>
+        </div>
+
+        <div class="pj-codigo">
+          <h2 class="pj-h2">💻 O código</h2>
+          <p class="pj-como">Com o SQLite: <b>sqlite3 financeiro.db &lt; financeiro.sql</b>. Ou cola num site de SQL online.</p>
+          <div class="pj-arquivos">
+          <div class="codigo codigo--sql">
+            <div class="codigo__topo"><img src="../../assets/learn/sql.webp" alt="" />financeiro.sql<button type="button" data-copiar="cod-0">Copiar</button></div>
+            <pre><code id="cod-0" data-lang="sql">CREATE TABLE lancamentos (
+  id        INTEGER PRIMARY KEY,
+  dia       TEXT,
+  descricao TEXT,
+  categoria TEXT,
+  tipo      TEXT,
+  valor     REAL
+);
+
+INSERT INTO lancamentos
+  (dia, descricao, categoria, tipo, valor) VALUES
+  ('2026-11-05', 'Salário', 'Trabalho', 'entrada', 3200.00),
+  ('2026-11-06', 'Aluguel', 'Casa', 'saida', 1100.00),
+  ('2026-11-08', 'Mercado do mês', 'Mercado', 'saida', 480.00),
+  ('2026-11-09', 'Pizza', 'Delivery', 'saida', 89.90),
+  ('2026-11-12', 'Internet', 'Casa', 'saida', 99.90),
+  ('2026-11-14', 'Hambúrguer', 'Delivery', 'saida', 64.50),
+  ('2026-11-15', 'Freela de site', 'Trabalho', 'entrada', 450.00),
+  ('2026-11-16', 'Feira', 'Mercado', 'saida', 75.00),
+  ('2026-11-18', 'Sushi', 'Delivery', 'saida', 142.00),
+  ('2026-11-21', 'Marmita', 'Delivery', 'saida', 96.00),
+  ('2026-11-23', 'Açaí', 'Delivery', 'saida', 38.00),
+  ('2026-11-27', 'Pizza de novo', 'Delivery', 'saida', 149.60);
+
+SELECT ROUND(SUM(CASE WHEN tipo = 'entrada'
+  THEN valor ELSE -valor END), 2) AS saldo
+FROM lancamentos;
+
+SELECT categoria, ROUND(SUM(valor), 2) AS total
+FROM lancamentos WHERE tipo = 'saida'
+GROUP BY categoria
+ORDER BY total DESC;</code></pre>
+          </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-arrow pj-seta">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <polyline points="6 9 12 15 18 9"/>
+      </svg>
+    </div>
+
+    <section class="section">
+      <div class="container">
+        <div class="pricing__card pricing__card--main pj-oferta">
+          <img class="pj-oferta__lang" src="../../assets/learn/sql.webp" alt="SQL" width="120" height="120" />
+          <span class="badge badge--purple">Copiar é grátis. Saber fazer é do clube.</span>
+          <h2 class="section__title">Esse projeto é <span class="accent">SQL</span>. Aprende do zero no CondeClub.</h2>
+          <p class="section__subtitle">Começa pela trilha de SQL no estilo Duolingo e depois faz esse projeto passo a passo, na mão ou com IA.</p>
+          <ul class="pricing__benefits pj-lista">
+            <li>🧩 Trilha de SQL do zero, com exercício e correção na hora</li>
+            <li>✍️ Esse controle financeiro em SQL em 4 passos, um bloco por vez</li>
+            <li>🤖 A versão com IA: o pedido certo pro Claude ou pro ChatGPT e o que conferir</li>
+            <li>🏆 A versão completa: vários meses e comparação, metas por categoria, lançar pelo celular, gráfico no navegador</li>
+            <li>🚀 Um projeto novo toda semana e mais 6 trilhas: IA, Lógica, JavaScript, Python, Java e C#</li>
+          </ul>
+        </div>
+
+        <div id="planos">
+        <h2 class="pj-h2 pj-planos__titulo">Escolha seu plano do CondeClub</h2>
+        <p class="pj-planos__sub">O CondeClub Learn é o clube de programação e IA do conde.count. Os dois planos liberam tudo. Muda só o jeito de pagar.</p>
+        <div class="pricing__grid pricing__grid--duo pj-planos">
+          <div class="pricing__card pricing__card--main pricing__card--anual" id="plano-anual" data-folga="150">
+            <span class="pricing__seal">Mais vantajoso · economize até 58%</span>
+            <h3>Anual</h3>
+            <p class="pricing__was">De <s>R$ 19,90</s> por</p>
+            <p class="pricing__price"><small class="pricing__vezes">12x</small> R$ 10,34<span>/mês*</span></p>
+            <p class="pricing__price-note">ou <b>R$ 100 à vista por ano</b></p>
+            <p class="pricing__asterisco">*Parcelado no cartão: 12x de R$ 10,34, total de R$ 124,08, com juros da Kiwify de 3,49% ao mês (50,9% ao ano). À vista: R$ 100. A cobrança é uma vez por ano.</p>
+            <a href="https://pay.kiwify.com.br/AaVx51e" class="btn btn--primary btn--lg" data-checkout="condeclub-anual" data-onde="projeto-financeiro-anual">Quero o plano anual</a>
+          </div>
+          <div class="pricing__card pricing__card--mensal">
+            <h3>Mensal</h3>
+            <p class="pricing__price">R$ 19,90<span>/mês</span></p>
+            <p class="pricing__price-note">Menos de R$ 0,70 por dia. Cancele quando quiser.</p>
+            <a href="https://pay.kiwify.com.br/zeHjPOA" class="btn btn--outline btn--lg" data-checkout="condeclub" data-onde="projeto-financeiro-mensal">Assinar o mensal</a>
+          </div>
+        </div>
+        <p class="pj-planos__fim">7 dias de garantia nos dois planos · <a href="../../">Ver tudo que tem no clube</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="pj-h2">🎮 Outros projetos</h2>
+        <div class="pcards">
+        <article class="pcard" style="--c:#f7df1e">
+          <img class="pcard__lang" src="../../assets/learn/javascript.webp" alt="JavaScript" width="72" height="72" loading="lazy" />
+          <a class="pcard__capa" href="../blocos/" aria-label="Jogar Jogo dos blocos e ver o código"><img src="../../assets/clube/capa2-blocos.webp" alt="" width="720" height="480" loading="lazy" /><span class="proj__play">▶ Jogar</span></a>
+          <div class="pcard__txt"><span class="pcard__tipo">Jogo</span><h3>🧱 Jogo dos blocos</h3><p>JavaScript · 54 linhas · 7 passos</p><a class="pcard__ver" href="../blocos/">Jogar e ver o código →</a></div>
+        </article>
+        <article class="pcard" style="--c:#f7df1e">
+          <img class="pcard__lang" src="../../assets/learn/javascript.webp" alt="JavaScript" width="72" height="72" loading="lazy" />
+          <a class="pcard__capa" href="../cobrinha/" aria-label="Jogar Jogo da cobrinha e ver o código"><img src="../../assets/clube/capa2-cobrinha.webp" alt="" width="720" height="480" loading="lazy" /><span class="proj__play">▶ Jogar</span></a>
+          <div class="pcard__txt"><span class="pcard__tipo">Jogo</span><h3>🐍 Jogo da cobrinha</h3><p>JavaScript · 36 linhas · 9 passos</p><a class="pcard__ver" href="../cobrinha/">Jogar e ver o código →</a></div>
+        </article>
+        <article class="pcard" style="--c:#4b8bbe">
+          <img class="pcard__lang" src="../../assets/learn/python.webp" alt="Python" width="72" height="72" loading="lazy" />
+          <a class="pcard__capa" href="../chatbot/" aria-label="Testar Chatbot com IA e ver o código"><img src="../../assets/clube/capa2-chatbot.webp" alt="" width="720" height="480" loading="lazy" /><span class="proj__play">▶ Testar</span></a>
+          <div class="pcard__txt"><span class="pcard__tipo">Inteligência artificial</span><h3>🤖 Chatbot com IA</h3><p>Python · 31 linhas · 5 passos</p><a class="pcard__ver" href="../chatbot/">Testar e ver o código →</a></div>
+        </article>
+        <article class="pcard" style="--c:#4b8bbe">
+          <img class="pcard__lang" src="../../assets/learn/python.webp" alt="Python" width="72" height="72" loading="lazy" />
+          <a class="pcard__capa" href="../organizador/" aria-label="Testar Organizador automático e ver o código"><img src="../../assets/clube/capa2-organizador.webp" alt="" width="720" height="480" loading="lazy" /><span class="proj__play">▶ Testar</span></a>
+          <div class="pcard__txt"><span class="pcard__tipo">Automação</span><h3>📂 Organizador automático</h3><p>Python · 32 linhas · 5 passos</p><a class="pcard__ver" href="../organizador/">Testar e ver o código →</a></div>
+        </article>
+        <article class="pcard" style="--c:#f89820">
+          <img class="pcard__lang" src="../../assets/learn/java.webp" alt="Java" width="72" height="72" loading="lazy" />
+          <a class="pcard__capa" href="../pomodoro/" aria-label="Testar Timer Pomodoro e ver o código"><img src="../../assets/clube/capa2-pomodoro.webp" alt="" width="720" height="480" loading="lazy" /><span class="proj__play">▶ Testar</span></a>
+          <div class="pcard__txt"><span class="pcard__tipo">Produtividade</span><h3>🍅 Timer Pomodoro</h3><p>Java · 59 linhas · 5 passos</p><a class="pcard__ver" href="../pomodoro/">Testar e ver o código →</a></div>
+        </article>
+        <article class="pcard" style="--c:#f89820">
+          <img class="pcard__lang" src="../../assets/learn/java.webp" alt="Java" width="72" height="72" loading="lazy" />
+          <a class="pcard__capa" href="../banco/" aria-label="Testar Mini sistema bancário e ver o código"><img src="../../assets/clube/capa2-banco.webp" alt="" width="720" height="480" loading="lazy" /><span class="proj__play">▶ Testar</span></a>
+          <div class="pcard__txt"><span class="pcard__tipo">Sistema</span><h3>🏦 Mini sistema bancário</h3><p>Java · 64 linhas · 5 passos</p><a class="pcard__ver" href="../banco/">Testar e ver o código →</a></div>
+        </article>
+        <article class="pcard" style="--c:#a179dc">
+          <img class="pcard__lang" src="../../assets/learn/csharp.webp" alt="C#" width="72" height="72" loading="lazy" />
+          <a class="pcard__capa" href="../gastos/" aria-label="Testar Controle de gastos e ver o código"><img src="../../assets/clube/capa2-gastos.webp" alt="" width="720" height="480" loading="lazy" /><span class="proj__play">▶ Testar</span></a>
+          <div class="pcard__txt"><span class="pcard__tipo">Finanças</span><h3>💰 Controle de gastos</h3><p>C# · 40 linhas · 5 passos</p><a class="pcard__ver" href="../gastos/">Testar e ver o código →</a></div>
+        </article>
+        <article class="pcard" style="--c:#a179dc">
+          <img class="pcard__lang" src="../../assets/learn/csharp.webp" alt="C#" width="72" height="72" loading="lazy" />
+          <a class="pcard__capa" href="../clima/" aria-label="Testar App do clima e ver o código"><img src="../../assets/clube/capa2-clima.webp" alt="" width="720" height="480" loading="lazy" /><span class="proj__play">▶ Testar</span></a>
+          <div class="pcard__txt"><span class="pcard__tipo">API</span><h3>🌦️ App do clima</h3><p>C# · 47 linhas · 4 passos</p><a class="pcard__ver" href="../clima/">Testar e ver o código →</a></div>
+        </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <footer class="footer">
+    <div class="container footer__inner">
+      <img src="../../assets/logo.webp" alt="Logo conde.count" class="footer__logo" width="100" height="26" loading="lazy" />
+      <a href="../../" class="footer__login">Conheça o CondeClub</a>
+      <a href="https://condeclub.pages.dev/" class="footer__login">Já é membro? Entrar no CondeClub</a>
+      <a href="https://www.tiktok.com/@conde.count" rel="noopener" class="footer__tiktok">TikTok @conde.count</a>
+      <p class="footer__copy">© 2026 conde.count. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+  <div class="sticky-cta">
+    <a href="#plano-anual" class="btn btn--primary">Entrar no clube</a>
+  </div>
+  <script src="../../assets/clube/clube.js" defer></script>
+  <script src="../../assets/clube/planos.js" defer></script>
+  <script>
+  window.CONDECLUB_FUNIL = { url: 'https://jfljglekznchlcdtgyne.supabase.co', anon: 'sb_publishable_Es6m1MUELCRZiM9HJu-p9g_Na9YMiB2' };
+  (function () {
+    var cfg = window.CONDECLUB_FUNIL; if (!cfg || !cfg.url) return;
+    var id = (crypto.randomUUID ? crypto.randomUUID() : String(Date.now()) + Math.random()).replace(/-/g, '');
+    document.querySelectorAll('[data-checkout]').forEach(function (el) {
+      el.addEventListener('click', function () {
+        fetch(cfg.url + '/rest/v1/rpc/track_event', { method: 'POST', keepalive: true,
+          headers: { 'content-type': 'application/json', apikey: cfg.anon, authorization: 'Bearer ' + cfg.anon },
+          body: JSON.stringify({ p_name: 'clicou_assinar', p_session_id: id, p_source: 'site', p_props: { onde: el.getAttribute('data-onde') } }) }).catch(function () {});
+      });
+    });
+  })();
+</script>
+</body>
+</html>

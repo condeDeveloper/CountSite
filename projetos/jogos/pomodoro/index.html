@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<title>Pomodoro (Java)</title>
+<style>
+  /* Réplica da janela que o Pomodoro.java abre (Swing). O comportamento é o mesmo do código Java. */
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: #0d0b14; font-family: 'Segoe UI', system-ui, sans-serif; }
+  body { display: flex; align-items: center; justify-content: center; padding: 10px; }
+  .janela { width: min(320px, 100%); border-radius: 10px; overflow: hidden; background: #3c3f41; border: 1px solid #555; box-shadow: 0 24px 50px -20px #000, 0 0 0 1px rgba(248,152,32,.35), 0 0 28px -8px rgba(248,152,32,.5); }
+  .titulo { display: flex; align-items: center; gap: 8px; height: 34px; padding: 0 0 0 12px; background: #2b2b2b; color: #ddd; font-size: 13px; }
+  .titulo img { width: 16px; height: 16px; }
+  .titulo span { flex: 1; }
+  .titulo i { width: 40px; height: 34px; display: grid; place-items: center; font-style: normal; color: #aaa; font-size: 13px; }
+  .titulo i:last-child:hover { background: #c42b1c; color: #fff; }
+  .corpo { display: grid; grid-template-rows: auto auto 1fr auto auto; gap: 4px; padding: 12px 0 14px; height: min(340px, calc(100vh - 66px)); color: #e6e6e6; text-align: center; }
+  #tomate { font-size: clamp(30px, 9vh, 44px); line-height: 1; transition: transform .3s; }
+  body.rodando #tomate { animation: pulsa 1s ease-in-out infinite; }
+  @keyframes pulsa { 50% { transform: scale(1.12); } }
+  #feitos { min-height: 20px; }
+  .corpo > div { display: grid; place-items: center; }
+  #modo { font-weight: 700; letter-spacing: .12em; color: #f89820; font-size: 15px; }
+  #tempo { font: 700 clamp(44px, 16vw, 64px)/1 'Segoe UI', system-ui, sans-serif; color: #fff; }
+  #feitos { font-size: 14px; color: #bbb; }
+  .botoes { display: flex !important; justify-content: center; align-items: center; gap: 8px; }
+  button { min-width: 96px; padding: 8px 14px; border-radius: 4px; border: 1px solid #5e6060; background: linear-gradient(#4c5052, #45494a); color: #e6e6e6; font: 14px 'Segoe UI', system-ui, sans-serif; cursor: pointer; }
+  button:active { background: #2f65ca; border-color: #2f65ca; }
+</style>
+</head>
+<body>
+  <div class="janela" role="application" aria-label="Janela do Pomodoro em Java">
+    <div class="titulo"><img src="java.svg" alt="" /><span>Pomodoro</span><i>─</i><i>☐</i><i>✕</i></div>
+    <div class="corpo">
+      <div id="tomate" aria-hidden="true">🍅</div>
+      <div id="modo">FOCO</div>
+      <div id="tempo">25:00</div>
+      <div id="feitos">Ciclos feitos: nenhum</div>
+      <div class="botoes"><button id="iniciar" type="button">Iniciar</button><button id="zerar" type="button">Zerar</button></div>
+    </div>
+  </div>
+<script>
+  // Mesma lógica do Pomodoro.java: um relógio de 1 s que desconta o tempo e troca foco e pausa.
+  const FOCO = 25 * 60, PAUSA = 5 * 60
+  let restante = FOCO, ciclos = 0, foco = true, relogio = null
+  const $ = (id) => document.getElementById(id)
+  const pad = (n) => String(n).padStart(2, '0')
+  function tique() {
+    restante--
+    if (restante < 0) {
+      if (foco) ciclos++
+      foco = !foco
+      restante = foco ? FOCO : PAUSA
+    }
+    $('tempo').textContent = pad(Math.floor(restante / 60)) + ':' + pad(restante % 60)
+    $('modo').textContent = foco ? 'FOCO' : 'PAUSA'
+    $('feitos').textContent = 'Ciclos feitos: ' + (ciclos ? '🍅'.repeat(ciclos) : 'nenhum')
+  }
+  $('iniciar').addEventListener('click', () => {
+    if (relogio) { clearInterval(relogio); relogio = null; $('iniciar').textContent = 'Continuar' }
+    else { relogio = setInterval(tique, 1000); $('iniciar').textContent = 'Pausar' }
+    document.body.classList.toggle('rodando', !!relogio)
+  })
+  $('zerar').addEventListener('click', () => {
+    clearInterval(relogio); relogio = null; foco = true; restante = FOCO; document.body.classList.remove('rodando')
+    $('tempo').textContent = '25:00'; $('modo').textContent = 'FOCO'; $('iniciar').textContent = 'Iniciar'
+  })
+</script>
+</body>
+</html>

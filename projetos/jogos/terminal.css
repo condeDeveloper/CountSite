@@ -1,0 +1,25 @@
+/* Terminal das demonstrações (Python, Java, C# e SQL rodando "de verdade" na página). */
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: #0d0b14; }
+body { display: flex; flex-direction: column; padding: 10px; gap: 8px; font-family: 'Segoe UI', system-ui, sans-serif; color: #e5e7eb; }
+.term { flex: 1; min-height: 0; display: flex; flex-direction: column; border-radius: 12px; overflow: hidden; background: #0c0c0c; border: 1px solid #333; box-shadow: 0 0 0 1px color-mix(in srgb, var(--neon, #4b8bbe) 35%, transparent), 0 0 26px -8px var(--neon, #4b8bbe); }
+.term-barra { display: flex; align-items: center; gap: 7px; padding: 8px 12px; background: #1f1f1f; border-bottom: 1px solid #2d2d2d; font-size: 12px; color: #bbb; }
+.term-barra i { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.term-barra span { margin-left: 6px; font-family: Consolas, 'Cascadia Code', ui-monospace, monospace; }
+.term-saida { flex: 1; min-height: 0; overflow-y: auto; padding: 12px 14px; font: 13.5px/1.55 Consolas, 'Cascadia Code', ui-monospace, monospace; white-space: pre-wrap; word-break: break-word; overscroll-behavior: contain; }
+.term-linha.cmd { color: #9cdcfe; }
+.term-linha.eco { color: #fff; }
+.term-linha.ok { color: #4ade80; }
+.term-linha.erro { color: #f87171; }
+.term-linha.fraco { color: #8b8b8b; }
+.term-linha.bot { color: #c4b5fd; }
+.term-entrada { display: flex; align-items: center; gap: 6px; padding: 8px 14px 12px; font: 13.5px Consolas, 'Cascadia Code', ui-monospace, monospace; background: #0c0c0c; }
+.term-entrada[hidden] { display: none; }
+.term-rotulo { color: #fff; white-space: pre; }
+.term-entrada input { flex: 1; min-width: 0; background: #1a1a1a; border: 1px solid #333; border-radius: 6px; color: #fff; font: inherit; padding: 7px 9px; outline: none; }
+.term-entrada input:focus { border-color: var(--neon, #4b8bbe); }
+.term-entrada button { background: var(--neon, #4b8bbe); color: #0b0b0b; border: 0; border-radius: 6px; padding: 7px 12px; font: 700 13px system-ui, sans-serif; cursor: pointer; }
+.atalhos { display: flex; flex-wrap: wrap; gap: 6px; }
+.atalhos button { border: 1px solid #3b3350; background: #1d182a; color: #e5e7eb; border-radius: 999px; padding: 7px 12px; font: 600 12.5px system-ui, sans-serif; cursor: pointer; }
+.atalhos button:active { background: #7c3aed; }
+.nota { font-size: 11.5px; color: #8b8b9a; text-align: center; }

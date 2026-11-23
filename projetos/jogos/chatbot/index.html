@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<title>Chatbot com IA (Python)</title>
+<link rel="stylesheet" href="../terminal.css" />
+</head>
+<body style="--neon:#4b8bbe">
+  <div class="term" id="t">
+    <div class="term-barra"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span>python chatbot.py</span></div>
+    <div class="term-saida"></div>
+    <div class="term-entrada" hidden><span class="term-rotulo"></span><input type="text" autocomplete="off" enterkeyhint="send" aria-label="Sua mensagem" /><button type="button">Enviar</button></div>
+  </div>
+  <div class="atalhos" id="atalhos">
+    <button type="button">oi, tudo bem?</button>
+    <button type="button">me indica um filme</button>
+    <button type="button">me explica o que é uma API</button>
+    <button type="button">sair</button>
+  </div>
+  <p class="nota">Demonstração: aqui as respostas são de exemplo. No seu computador, quem responde é o Claude.</p>
+<script src="../terminal.js"></script>
+<script>
+  // Mesmo fluxo do chatbot.py: pergunta, mostra a resposta aos pouquinhos e guarda o histórico.
+  const t = Terminal(document.getElementById('t'))
+  const historico = []
+  function resposta(p) {
+    const q = p.toLowerCase()
+    if (/\b(oi|olá|ola|e aí|eai|bom dia|boa tarde|boa noite)\b/.test(q)) return 'Oi! Tudo ótimo por aqui. Sou um chatbot feito em Python. Em que posso ajudar?'
+    if (/filme|série|serie/.test(q)) return 'Que tal Interestelar? Ficção científica, trilha sonora incrível e um final que dá o que pensar. Quer outra sugestão?'
+    if (/api/.test(q)) return 'API é uma porta que um programa abre pra outro conversar com ele. Este chatbot, por exemplo, manda sua mensagem pra API do Claude e recebe a resposta de volta.'
+    if (/nome|quem é você|quem e voce/.test(q)) return 'Pode me chamar de Bot. Sou um programinha de umas 40 linhas que conversa usando IA.'
+    if (/obrigad/.test(q)) return 'De nada! Se quiser, pergunta mais alguma coisa.'
+    if (historico.length > 2 && /e (o|a) outr|mais um|outra/.test(q)) return 'Lembro do que a gente falou antes, porque guardo o histórico da conversa. Bora: me diz o assunto que eu sigo.'
+    return 'Boa pergunta! Nesta demonstração eu só tenho respostas de exemplo. No seu computador, com a chave da API, quem responde é o Claude de verdade.'
+  }
+  document.getElementById('atalhos').addEventListener('click', (e) => {
+    const b = e.target.closest('button')
+    if (b) t.responde(b.textContent)
+  })
+  ;(async () => {
+    t.escreve('$ python chatbot.py', 'cmd')
+    t.escreve('Chatbot com IA. Digite \'sair\' para terminar.\n')
+    while (true) {
+      const p = (await t.pergunta('Você: ')).trim()
+      if (p.toLowerCase() === 'sair') break
+      if (!p) continue
+      historico.push({ role: 'user', content: p })
+      const linha = t.escreve('Bot: ', 'bot')
+      await t.espera(500)
+      const texto = resposta(p)
+      for (const palavra of texto.split(' ')) { linha.textContent += palavra + ' '; await t.espera(45) }
+      t.escreve('')
+      historico.push({ role: 'assistant', content: texto })
+    }
+    t.escreve('Até mais!', 'ok')
+    document.getElementById('atalhos').hidden = true
+  })()
+</script>
+</body>
+</html>

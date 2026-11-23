@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<title>App do clima (C#)</title>
+<link rel="stylesheet" href="../terminal.css" />
+<style>.term-saida { font-size: clamp(10.5px, 2.75vw, 13.5px); }</style>
+</head>
+<body style="--neon:#a179dc">
+  <div class="term" id="t">
+    <div class="term-barra"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span>dotnet run</span></div>
+    <div class="term-saida"></div>
+    <div class="term-entrada" hidden><span class="term-rotulo"></span><input type="text" autocomplete="off" enterkeyhint="search" aria-label="Cidade" /><button type="button">OK</button></div>
+  </div>
+  <div class="atalhos" id="atalhos">
+    <button type="button">São Paulo</button>
+    <button type="button">Rio de Janeiro</button>
+    <button type="button">Recife</button>
+    <button type="button">Porto Alegre</button>
+  </div>
+  <p class="nota">Previsão de verdade, da mesma API gratuita que o programa em C# usa (Open-Meteo).</p>
+<script src="../terminal.js"></script>
+<script>
+  // Mesma lógica do Program.cs: acha a cidade, busca o tempo agora e os 5 próximos dias.
+  const t = Terminal(document.getElementById('t'))
+  document.getElementById('atalhos').addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) t.responde(b.textContent) })
+  function descreve(c) {
+    if (c === 0) return '☀️ céu limpo'
+    if (c === 1 || c === 2) return '⛅ poucas nuvens'
+    if (c === 3) return '☁️ nublado'
+    if (c === 45 || c === 48) return '🌫️ neblina'
+    if (c >= 51 && c <= 67) return '🌧️ chuva'
+    if (c >= 71 && c <= 77) return '❄️ neve'
+    if (c >= 80 && c <= 82) return '🌦️ pancadas'
+    if (c >= 95) return '⛈️ trovoada'
+    return '🌡️ variado'
+  }
+  ;(async () => {
+    t.escreve('$ dotnet run', 'cmd')
+    while (true) {
+      const cidade = (await t.pergunta('Cidade: ')).trim()
+      if (!cidade) continue
+      try {
+        const busca = await (await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(cidade)}&count=1&language=pt`)).json()
+        if (!busca.results) { t.escreve('Não achei essa cidade.', 'erro'); continue }
+        const l = busca.results[0]
+        const url = `https://api.open-meteo.com/v1/forecast?latitude=${l.latitude}&longitude=${l.longitude}&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=auto&forecast_days=5`
+        const tempo = await (await fetch(url)).json()
+        t.escreve(`\n${l.name}, agora: ${Math.round(tempo.current.temperature_2m)}° ${descreve(tempo.current.weather_code)}\n`, 'ok')
+        const d = tempo.daily
+        for (let i = 0; i < 5; i++) {
+          const dia = new Date(d.time[i] + 'T12:00:00')
+          const nome = dia.toLocaleDateString('pt-BR', { weekday: 'short' }) + ' ' + dia.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' })
+          t.escreve(`${nome}  ${descreve(d.weather_code[i]).padEnd(17)} máx ${Math.round(d.temperature_2m_max[i])}°  mín ${Math.round(d.temperature_2m_min[i])}°`)
+        }
+        t.escreve('\n(Escolha outra cidade pra comparar.)', 'fraco')
+      } catch (e) {
+        t.escreve('Sem conexão com o serviço do tempo agora. Tenta de novo daqui a pouco.', 'erro')
+      }
+    }
+  })()
+</script>
+</body>
+</html>
