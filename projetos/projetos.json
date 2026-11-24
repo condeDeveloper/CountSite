@@ -1,318 +1,352 @@
 {
-  "projetos": [
+ "projetos": [
+  {
+   "slug": "dinossauro",
+   "titulo": "Jogo do dinossauro",
+   "emoji": "🦖",
+   "linguagem": "Python",
+   "linhas": 60,
+   "publicado": "23/11",
+   "curto": "O dinossauro que pula cactos, numa janela de verdade, em 60 linhas de Python.",
+   "altura": 380,
+   "passos": 8,
+   "tipo": "Jogo",
+   "cor": "#4b8bbe",
+   "icone": "python",
+   "trilha": {
+    "nome": "Python",
+    "img": "assets/learn/python.webp",
+    "neon": "py"
+   },
+   "arquivos": [
     {
-      "slug": "blocos",
-      "titulo": "Jogo dos blocos",
-      "linguagem": "JavaScript",
-      "linhas": 54,
-      "publicado": "22/11",
-      "curto": "O jogo das peças que caem, em 54 linhas de JavaScript.",
-      "altura": 600,
-      "passos": 7,
-      "arquivos": [
-        {
-          "nome": "index.html",
-          "de": "pagina.html",
-          "lang": "html"
-        },
-        {
-          "nome": "blocos.js",
-          "de": "blocos.js",
-          "lang": "js"
-        }
-      ],
-      "completa": [
-        "Próxima peça na tela",
-        "Pontos por linha e nível",
-        "Velocidade que sobe",
-        "Recorde salvo",
-        "Fim de jogo com recomeçar"
-      ],
-      "emoji": "🧱",
-      "trilha": {
-        "nome": "JavaScript",
-        "img": "assets/learn/javascript.webp",
-        "neon": "js"
-      },
-      "tipo": "Jogo",
-      "cor": "#f7df1e",
-      "icone": "javascript",
-      "como": "Cria uma pasta, salva os dois arquivos com esses nomes e abre o <b>index.html</b> no navegador."
-    },
-    {
-      "slug": "cobrinha",
-      "titulo": "Jogo da cobrinha",
-      "linguagem": "JavaScript",
-      "linhas": 36,
-      "publicado": "21/11",
-      "curto": "O clássico da cobrinha em 36 linhas de JavaScript.",
-      "altura": 560,
-      "passos": 9,
-      "arquivos": [
-        {
-          "nome": "index.html",
-          "de": "pagina.html",
-          "lang": "html"
-        },
-        {
-          "nome": "cobrinha.js",
-          "de": "cobrinha.js",
-          "lang": "js"
-        }
-      ],
-      "completa": [
-        "Não morre na seta contrária",
-        "Comida nunca nasce na cobra",
-        "Recorde salvo",
-        "Velocidade que sobe",
-        "Controles de toque"
-      ],
-      "emoji": "🐍",
-      "trilha": {
-        "nome": "JavaScript",
-        "img": "assets/learn/javascript.webp",
-        "neon": "js"
-      },
-      "tipo": "Jogo",
-      "cor": "#f7df1e",
-      "icone": "javascript",
-      "como": "Cria uma pasta, salva os dois arquivos com esses nomes e abre o <b>index.html</b> no navegador."
-    },
-    {
-      "slug": "chatbot",
-      "titulo": "Chatbot com IA",
-      "emoji": "🤖",
-      "linguagem": "Python",
-      "linhas": 31,
-      "curto": "Um chatbot de terminal que conversa de verdade, usando o Claude.",
-      "altura": 560,
-      "passos": 5,
-      "tipo": "Inteligência artificial",
-      "cor": "#4b8bbe",
-      "icone": "python",
-      "trilha": {
-        "nome": "Python",
-        "img": "assets/learn/python.webp",
-        "neon": "py"
-      },
-      "arquivos": [
-        {
-          "nome": "chatbot.py",
-          "de": "chatbot.py",
-          "lang": "py"
-        }
-      ],
-      "como": "Instala a biblioteca com <b>pip install anthropic</b>, coloca sua chave na variável <b>ANTHROPIC_API_KEY</b> e roda <b>python chatbot.py</b>.",
-      "completa": [
-        "Personalidade escolhida por você",
-        "Conversa salva e retomada depois",
-        "Quanto cada conversa custou",
-        "Versão no navegador"
-      ]
-    },
-    {
-      "slug": "organizador",
-      "titulo": "Organizador automático",
-      "emoji": "📂",
-      "linguagem": "Python",
-      "linhas": 32,
-      "curto": "Um script que arruma sua pasta de Downloads sozinho, por tipo de arquivo.",
-      "altura": 560,
-      "passos": 5,
-      "tipo": "Automação",
-      "cor": "#4b8bbe",
-      "icone": "python",
-      "trilha": {
-        "nome": "Python",
-        "img": "assets/learn/python.webp",
-        "neon": "py"
-      },
-      "arquivos": [
-        {
-          "nome": "organizador.py",
-          "de": "organizador.py",
-          "lang": "py"
-        }
-      ],
-      "como": "Testa primeiro numa pasta de teste: <b>python organizador.py C:\teste</b>. Sem a pasta, ele organiza a sua Downloads (e pergunta antes).",
-      "completa": [
-        "Roda sozinho todo dia",
-        "Desfaz a última organização",
-        "Regras suas por nome de arquivo",
-        "Relatório do espaço liberado"
-      ]
-    },
-    {
-      "slug": "pomodoro",
-      "titulo": "Timer Pomodoro",
-      "emoji": "🍅",
-      "linguagem": "Java",
-      "linhas": 59,
-      "curto": "25 minutos de foco, 5 de pausa, numa janela de verdade em Java.",
-      "altura": 520,
-      "passos": 5,
-      "tipo": "Produtividade",
-      "cor": "#f89820",
-      "icone": "java",
-      "trilha": {
-        "nome": "Java",
-        "img": "assets/learn/java.webp",
-        "neon": "java"
-      },
-      "arquivos": [
-        {
-          "nome": "Pomodoro.java",
-          "de": "Pomodoro.java",
-          "lang": "java"
-        }
-      ],
-      "como": "Com o Java instalado: <b>javac Pomodoro.java</b> e depois <b>java Pomodoro</b>. A janela abre sozinha.",
-      "completa": [
-        "Pausa longa a cada 4 ciclos",
-        "Tempos que você escolhe",
-        "Notificação do sistema na troca",
-        "Histórico dos dias com mais foco"
-      ]
-    },
-    {
-      "slug": "banco",
-      "titulo": "Mini sistema bancário",
-      "emoji": "🏦",
-      "linguagem": "Java",
-      "linhas": 64,
-      "curto": "Saldo, depósito, saque e extrato, com as regras que um banco tem.",
-      "altura": 560,
-      "passos": 5,
-      "tipo": "Sistema",
-      "cor": "#f89820",
-      "icone": "java",
-      "trilha": {
-        "nome": "Java",
-        "img": "assets/learn/java.webp",
-        "neon": "java"
-      },
-      "arquivos": [
-        {
-          "nome": "Banco.java",
-          "de": "Banco.java",
-          "lang": "java"
-        }
-      ],
-      "como": "Com o Java instalado: <b>javac Banco.java</b> e depois <b>java Banco</b>, no terminal.",
-      "completa": [
-        "BigDecimal no lugar de double",
-        "Várias contas com senha",
-        "Pix entre contas",
-        "Extrato salvo em arquivo"
-      ]
-    },
-    {
-      "slug": "gastos",
-      "titulo": "Controle de gastos",
-      "emoji": "💰",
-      "linguagem": "C#",
-      "linhas": 40,
-      "curto": "Anote o que gastou e veja pra onde foi o dinheiro do mês.",
-      "altura": 560,
-      "passos": 5,
-      "tipo": "Finanças",
-      "cor": "#a179dc",
-      "icone": "csharp",
-      "trilha": {
-        "nome": "C#",
-        "img": "assets/learn/csharp.webp",
-        "neon": "cs"
-      },
-      "arquivos": [
-        {
-          "nome": "Gastos.csproj",
-          "de": "Gastos.csproj",
-          "lang": "xml"
-        },
-        {
-          "nome": "Program.cs",
-          "de": "Program.cs",
-          "lang": "cs"
-        }
-      ],
-      "como": "Com o .NET 9 instalado, salva os dois arquivos numa pasta e roda <b>dotnet run</b> dentro dela.",
-      "completa": [
-        "Salvar e abrir no mês seguinte",
-        "Limite por categoria com alerta",
-        "Exportar pra planilha",
-        "Gráfico de pizza no navegador"
-      ]
-    },
-    {
-      "slug": "clima",
-      "titulo": "App do clima",
-      "emoji": "🌦️",
-      "linguagem": "C#",
-      "linhas": 47,
-      "curto": "A previsão de verdade da sua cidade, puxada de uma API gratuita.",
-      "altura": 560,
-      "passos": 4,
-      "tipo": "API",
-      "cor": "#a179dc",
-      "icone": "csharp",
-      "trilha": {
-        "nome": "C#",
-        "img": "assets/learn/csharp.webp",
-        "neon": "cs"
-      },
-      "arquivos": [
-        {
-          "nome": "Clima.csproj",
-          "de": "Clima.csproj",
-          "lang": "xml"
-        },
-        {
-          "nome": "Program.cs",
-          "de": "Program.cs",
-          "lang": "cs"
-        }
-      ],
-      "como": "Com o .NET 9 instalado, salva os dois arquivos numa pasta e roda <b>dotnet run</b> dentro dela. Não precisa de chave.",
-      "completa": [
-        "Várias cidades lado a lado",
-        "Alerta de chuva forte",
-        "Gráfico da semana",
-        "Versão web com a sua localização"
-      ]
-    },
-    {
-      "slug": "financeiro",
-      "titulo": "Controle financeiro em SQL",
-      "emoji": "📊",
-      "linguagem": "SQL",
-      "linhas": 29,
-      "curto": "Entradas, saídas, o saldo do mês e pra onde foi o dinheiro.",
-      "altura": 600,
-      "passos": 4,
-      "tipo": "Banco de dados",
-      "cor": "#4b8dff",
-      "icone": "sql",
-      "trilha": {
-        "nome": "SQL",
-        "img": "assets/learn/sql.webp",
-        "neon": "sql"
-      },
-      "publicado": "20/11",
-      "arquivos": [
-        {
-          "nome": "financeiro.sql",
-          "de": "financeiro.sql",
-          "lang": "sql"
-        }
-      ],
-      "como": "Com o SQLite: <b>sqlite3 financeiro.db &lt; financeiro.sql</b>. Ou cola num site de SQL online.",
-      "completa": [
-        "Vários meses e comparação",
-        "Metas por categoria",
-        "Lançar pelo celular",
-        "Gráfico no navegador"
-      ]
+     "nome": "dino.py",
+     "de": "dino.py",
+     "lang": "py"
     }
-  ],
-  "proximos": []
+   ],
+   "como": "Com o Python instalado, salva o arquivo e roda <b>python dino.py</b>. A janela abre sozinha, sem instalar mais nada.",
+   "completa": [
+    "Recorde salvo",
+    "Pássaros voando além dos cactos",
+    "Agachar com a seta pra baixo",
+    "Dia virando noite",
+    "Som no pulo e na batida"
+   ]
+  },
+  {
+   "slug": "blocos",
+   "titulo": "Jogo dos blocos",
+   "linguagem": "JavaScript",
+   "linhas": 54,
+   "publicado": "22/11",
+   "curto": "O jogo das peças que caem, em 54 linhas de JavaScript.",
+   "altura": 600,
+   "passos": 7,
+   "arquivos": [
+    {
+     "nome": "index.html",
+     "de": "pagina.html",
+     "lang": "html"
+    },
+    {
+     "nome": "blocos.js",
+     "de": "blocos.js",
+     "lang": "js"
+    }
+   ],
+   "completa": [
+    "Próxima peça na tela",
+    "Pontos por linha e nível",
+    "Velocidade que sobe",
+    "Recorde salvo",
+    "Fim de jogo com recomeçar"
+   ],
+   "emoji": "🧱",
+   "trilha": {
+    "nome": "JavaScript",
+    "img": "assets/learn/javascript.webp",
+    "neon": "js"
+   },
+   "tipo": "Jogo",
+   "cor": "#f7df1e",
+   "icone": "javascript",
+   "como": "Cria uma pasta, salva os dois arquivos com esses nomes e abre o <b>index.html</b> no navegador."
+  },
+  {
+   "slug": "cobrinha",
+   "titulo": "Jogo da cobrinha",
+   "linguagem": "JavaScript",
+   "linhas": 36,
+   "publicado": "21/11",
+   "curto": "O clássico da cobrinha em 36 linhas de JavaScript.",
+   "altura": 560,
+   "passos": 9,
+   "arquivos": [
+    {
+     "nome": "index.html",
+     "de": "pagina.html",
+     "lang": "html"
+    },
+    {
+     "nome": "cobrinha.js",
+     "de": "cobrinha.js",
+     "lang": "js"
+    }
+   ],
+   "completa": [
+    "Não morre na seta contrária",
+    "Comida nunca nasce na cobra",
+    "Recorde salvo",
+    "Velocidade que sobe",
+    "Controles de toque"
+   ],
+   "emoji": "🐍",
+   "trilha": {
+    "nome": "JavaScript",
+    "img": "assets/learn/javascript.webp",
+    "neon": "js"
+   },
+   "tipo": "Jogo",
+   "cor": "#f7df1e",
+   "icone": "javascript",
+   "como": "Cria uma pasta, salva os dois arquivos com esses nomes e abre o <b>index.html</b> no navegador."
+  },
+  {
+   "slug": "chatbot",
+   "titulo": "Chatbot com IA",
+   "emoji": "🤖",
+   "linguagem": "Python",
+   "linhas": 31,
+   "curto": "Um chatbot de terminal que conversa de verdade, usando o Claude.",
+   "altura": 560,
+   "passos": 5,
+   "tipo": "Inteligência artificial",
+   "cor": "#4b8bbe",
+   "icone": "python",
+   "trilha": {
+    "nome": "Python",
+    "img": "assets/learn/python.webp",
+    "neon": "py"
+   },
+   "arquivos": [
+    {
+     "nome": "chatbot.py",
+     "de": "chatbot.py",
+     "lang": "py"
+    }
+   ],
+   "como": "Instala a biblioteca com <b>pip install anthropic</b>, coloca sua chave na variável <b>ANTHROPIC_API_KEY</b> e roda <b>python chatbot.py</b>.",
+   "completa": [
+    "Personalidade escolhida por você",
+    "Conversa salva e retomada depois",
+    "Quanto cada conversa custou",
+    "Versão no navegador"
+   ]
+  },
+  {
+   "slug": "organizador",
+   "titulo": "Organizador automático",
+   "emoji": "📂",
+   "linguagem": "Python",
+   "linhas": 32,
+   "curto": "Um script que arruma sua pasta de Downloads sozinho, por tipo de arquivo.",
+   "altura": 560,
+   "passos": 5,
+   "tipo": "Automação",
+   "cor": "#4b8bbe",
+   "icone": "python",
+   "trilha": {
+    "nome": "Python",
+    "img": "assets/learn/python.webp",
+    "neon": "py"
+   },
+   "arquivos": [
+    {
+     "nome": "organizador.py",
+     "de": "organizador.py",
+     "lang": "py"
+    }
+   ],
+   "como": "Testa primeiro numa pasta de teste: <b>python organizador.py C:\teste</b>. Sem a pasta, ele organiza a sua Downloads (e pergunta antes).",
+   "completa": [
+    "Roda sozinho todo dia",
+    "Desfaz a última organização",
+    "Regras suas por nome de arquivo",
+    "Relatório do espaço liberado"
+   ]
+  },
+  {
+   "slug": "pomodoro",
+   "titulo": "Timer Pomodoro",
+   "emoji": "🍅",
+   "linguagem": "Java",
+   "linhas": 59,
+   "curto": "25 minutos de foco, 5 de pausa, numa janela de verdade em Java.",
+   "altura": 520,
+   "passos": 5,
+   "tipo": "Produtividade",
+   "cor": "#f89820",
+   "icone": "java",
+   "trilha": {
+    "nome": "Java",
+    "img": "assets/learn/java.webp",
+    "neon": "java"
+   },
+   "arquivos": [
+    {
+     "nome": "Pomodoro.java",
+     "de": "Pomodoro.java",
+     "lang": "java"
+    }
+   ],
+   "como": "Com o Java instalado: <b>javac Pomodoro.java</b> e depois <b>java Pomodoro</b>. A janela abre sozinha.",
+   "completa": [
+    "Pausa longa a cada 4 ciclos",
+    "Tempos que você escolhe",
+    "Notificação do sistema na troca",
+    "Histórico dos dias com mais foco"
+   ]
+  },
+  {
+   "slug": "banco",
+   "titulo": "Mini sistema bancário",
+   "emoji": "🏦",
+   "linguagem": "Java",
+   "linhas": 64,
+   "curto": "Saldo, depósito, saque e extrato, com as regras que um banco tem.",
+   "altura": 560,
+   "passos": 5,
+   "tipo": "Sistema",
+   "cor": "#f89820",
+   "icone": "java",
+   "trilha": {
+    "nome": "Java",
+    "img": "assets/learn/java.webp",
+    "neon": "java"
+   },
+   "arquivos": [
+    {
+     "nome": "Banco.java",
+     "de": "Banco.java",
+     "lang": "java"
+    }
+   ],
+   "como": "Com o Java instalado: <b>javac Banco.java</b> e depois <b>java Banco</b>, no terminal.",
+   "completa": [
+    "BigDecimal no lugar de double",
+    "Várias contas com senha",
+    "Pix entre contas",
+    "Extrato salvo em arquivo"
+   ]
+  },
+  {
+   "slug": "gastos",
+   "titulo": "Controle de gastos",
+   "emoji": "💰",
+   "linguagem": "C#",
+   "linhas": 40,
+   "curto": "Anote o que gastou e veja pra onde foi o dinheiro do mês.",
+   "altura": 560,
+   "passos": 5,
+   "tipo": "Finanças",
+   "cor": "#a179dc",
+   "icone": "csharp",
+   "trilha": {
+    "nome": "C#",
+    "img": "assets/learn/csharp.webp",
+    "neon": "cs"
+   },
+   "arquivos": [
+    {
+     "nome": "Gastos.csproj",
+     "de": "Gastos.csproj",
+     "lang": "xml"
+    },
+    {
+     "nome": "Program.cs",
+     "de": "Program.cs",
+     "lang": "cs"
+    }
+   ],
+   "como": "Com o .NET 9 instalado, salva os dois arquivos numa pasta e roda <b>dotnet run</b> dentro dela.",
+   "completa": [
+    "Salvar e abrir no mês seguinte",
+    "Limite por categoria com alerta",
+    "Exportar pra planilha",
+    "Gráfico de pizza no navegador"
+   ]
+  },
+  {
+   "slug": "clima",
+   "titulo": "App do clima",
+   "emoji": "🌦️",
+   "linguagem": "C#",
+   "linhas": 47,
+   "curto": "A previsão de verdade da sua cidade, puxada de uma API gratuita.",
+   "altura": 560,
+   "passos": 4,
+   "tipo": "API",
+   "cor": "#a179dc",
+   "icone": "csharp",
+   "trilha": {
+    "nome": "C#",
+    "img": "assets/learn/csharp.webp",
+    "neon": "cs"
+   },
+   "arquivos": [
+    {
+     "nome": "Clima.csproj",
+     "de": "Clima.csproj",
+     "lang": "xml"
+    },
+    {
+     "nome": "Program.cs",
+     "de": "Program.cs",
+     "lang": "cs"
+    }
+   ],
+   "como": "Com o .NET 9 instalado, salva os dois arquivos numa pasta e roda <b>dotnet run</b> dentro dela. Não precisa de chave.",
+   "completa": [
+    "Várias cidades lado a lado",
+    "Alerta de chuva forte",
+    "Gráfico da semana",
+    "Versão web com a sua localização"
+   ]
+  },
+  {
+   "slug": "financeiro",
+   "titulo": "Controle financeiro em SQL",
+   "emoji": "📊",
+   "linguagem": "SQL",
+   "linhas": 29,
+   "curto": "Entradas, saídas, o saldo do mês e pra onde foi o dinheiro.",
+   "altura": 600,
+   "passos": 4,
+   "tipo": "Banco de dados",
+   "cor": "#4b8dff",
+   "icone": "sql",
+   "trilha": {
+    "nome": "SQL",
+    "img": "assets/learn/sql.webp",
+    "neon": "sql"
+   },
+   "publicado": "20/11",
+   "arquivos": [
+    {
+     "nome": "financeiro.sql",
+     "de": "financeiro.sql",
+     "lang": "sql"
+    }
+   ],
+   "como": "Com o SQLite: <b>sqlite3 financeiro.db &lt; financeiro.sql</b>. Ou cola num site de SQL online.",
+   "completa": [
+    "Vários meses e comparação",
+    "Metas por categoria",
+    "Lançar pelo celular",
+    "Gráfico no navegador"
+   ]
+  }
+ ],
+ "proximos": []
 }

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jogo do dinossauro em Python: o código do vídeo | CondeClub</title>
+  <meta name="description" content="O dinossauro que pula cactos, numa janela de verdade, em 60 linhas de Python." />
+  <meta property="og:title" content="Jogo do dinossauro em Python: o código do vídeo | CondeClub" />
+  <meta property="og:description" content="O dinossauro que pula cactos, numa janela de verdade, em 60 linhas de Python." />
+  <link rel="icon" type="image/png" href="../../assets/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../style.css" />
+  <link rel="stylesheet" href="../../projetos/projetos.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a href="../../"><img src="../../assets/logo.webp" alt="Logo CondeClub" class="header__logo" width="120" height="30" /></a>
+      <nav class="header__nav" aria-label="Navegação principal">
+        <a href="../../projetos/">Projetos</a>
+        <a href="../../#trilhas">Trilhas</a>
+        <a href="../../#ia">IA</a>
+      </nav>
+      <div class="header__actions">
+        <a href="https://condeclub.pages.dev/" class="header__login">Já sou membro</a>
+        <a href="#plano-anual" class="btn btn--primary btn--sm">Ver planos</a>
+      </div>
+    </div>
+  </header>
+  <main>
+
+    <section class="section pj-hero">
+      <div class="container">
+        <span class="badge badge--purple">Projeto do vídeo</span>
+        <h1 class="hero__title pj-titulo">🦖 Jogo do dinossauro em <span class="accent">Python</span></h1>
+        <p class="hero__subtitle">O dinossauro que pula cactos, numa janela de verdade, em 60 linhas de Python. Joga, copia o código e roda no seu computador. É seu.</p>
+      </div>
+    </section>
+
+    <section class="section pj-corpo">
+      <div class="container">
+        <div class="pcard pj-destaque" style="--c:#4b8bbe">
+          <img class="pcard__lang" src="../../assets/learn/python.webp" alt="Python" width="72" height="72" />
+          <button type="button" class="pcard__capa pj-capa" data-jogo="projetos/jogos/dinossauro/" data-titulo="Jogo do dinossauro" aria-label="Jogar Jogo do dinossauro">
+            <img src="../../assets/clube/capa2-dinossauro.webp" alt="" width="720" height="480" />
+            <span class="proj__play">▶ Jogar aqui</span>
+          </button>
+          <div class="pcard__txt pj-destaque__txt"><span class="pcard__tipo">Jogo</span><h3>🦖 Jogo do dinossauro</h3><p>Python · 60 linhas · feito no canal em 23/11</p></div>
+        </div>
+
+        <div class="pj-codigo">
+          <h2 class="pj-h2">💻 O código</h2>
+          <p class="pj-como">Com o Python instalado, salva o arquivo e roda <b>python dino.py</b>. A janela abre sozinha, sem instalar mais nada.</p>
+          <div class="pj-arquivos">
+          <div class="codigo codigo--py">
+            <div class="codigo__topo"><img src="../../assets/learn/python.webp" alt="" />dino.py<button type="button" data-copiar="cod-0">Copiar</button></div>
+            <pre><code id="cod-0" data-lang="py">import tkinter as tk
+import random
+
+L, A, CHAO, P = 600, 200, 160, 4
+DINO = ['      #### ',
+        '      # ###',
+        '      #####',
+        '#    ###   ',
+        '##  #####  ',
+        ' ######    ',
+        '  #####    ']
+PERNAS = ['  #  #     ', '   # #     ']
+
+janela = tk.Tk()
+janela.title('Jogo do dinossauro')
+tela = tk.Canvas(janela, width=L, height=A, bg='white')
+tela.pack()
+
+def novo():
+    global y, vel, cactos, pontos, ritmo, folga, vivo
+    y, vel, cactos, pontos, ritmo, folga, vivo = CHAO, 0, [], 0, 6, 0, True
+
+def pula(_=None):
+    global vel
+    if not vivo: novo()
+    elif y == CHAO: vel = -13
+
+def passo():
+    global y, vel, pontos, ritmo, folga, vivo
+    if vivo:
+        vel += 1
+        y = min(CHAO, y + vel)
+        if not cactos or cactos[-1][0] &lt; L - folga:
+            cactos.append([L, random.choice([24, 32, 40])])
+            folga = random.randint(280, 480)
+        for c in cactos: c[0] -= ritmo
+        cactos[:] = [c for c in cactos if c[0] &gt; -20]
+        pontos += 1
+        ritmo = min(11, 6 + pontos // 300)
+        vivo = not any(c[0] &lt; 76 and c[0] + 14 &gt; 44 and y &gt; CHAO - c[1] for c in cactos)
+    desenha()
+    janela.after(20, passo)
+
+def bloco(x, y0, w, h):
+    tela.create_rectangle(x, y0, x + w, y0 + h, fill='#535353', width=0)
+
+def desenha():
+    tela.delete('all')
+    bloco(0, CHAO, L, 2)
+    corpo = DINO + [PERNAS[pontos // 6 % 2 if y == CHAO else 0]]
+    for i, linha in enumerate(corpo):
+        for j, c in enumerate(linha):
+            if c == '#': bloco(40 + j * P, y - (len(corpo) - i) * P, P, P)
+    for x, h in cactos:
+        bloco(x + 4, CHAO - h, 6, h)
+        bloco(x, CHAO - h * 0.45, 14, 3)
+        bloco(x, CHAO - h * 0.75, 3, h * 0.3); bloco(x + 11, CHAO - h * 0.85, 3, h * 0.4)
+    tela.create_text(L - 12, 18, text=f'{pontos // 5:05d}', anchor='e', font=('Consolas', 14), fill='#535353')
+    if not vivo:
+        tela.create_text(L / 2, 70, text='FIM DE JOGO', font=('Consolas', 18, 'bold'), fill='#535353')
+        tela.create_text(L / 2, 96, text='espaço para jogar de novo', font=('Consolas', 11), fill='#535353')
+
+janela.bind('&lt;space&gt;', pula)
+janela.bind('&lt;Up&gt;', pula)
+novo()
+if __name__ == '__main__':
+    passo()
+    janela.mainloop()</code></pre>
+          </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-arrow pj-seta">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <polyline points="6 9 12 15 18 9"/>
+      </svg>
+    </div>
+
+    <section class="section">
+      <div class="container">
+        <div class="pricing__card pricing__card--main pj-oferta">
+          <img class="pj-oferta__lang" src="../../assets/learn/python.webp" alt="Python" width="120" height="120" />
+          <span class="badge badge--purple">Copiar é grátis. Saber fazer é do clube.</span>
+          <h2 class="section__title">Esse jogo é <span class="accent">Python</span>. Aprende do zero no CondeClub.</h2>
+          <p class="section__subtitle">Começa pela trilha de Python no estilo Duolingo e depois faz esse projeto passo a passo, na mão ou com IA.</p>
+          <ul class="pricing__benefits pj-lista">
+            <li>🧩 Trilha de Python do zero, com exercício e correção na hora</li>
+            <li>✍️ Esse jogo do dinossauro em 8 passos, um bloco por vez</li>
+            <li>🤖 A versão com IA: o pedido certo pro Claude ou pro ChatGPT e o que conferir</li>
+            <li>🏆 A versão completa: recorde salvo, pássaros voando além dos cactos, agachar com a seta pra baixo, dia virando noite, som no pulo e na batida</li>
+            <li>🚀 Um projeto novo toda semana e mais 6 trilhas: IA, Lógica, SQL, JavaScript, Java e C#</li>
+          </ul>
+        </div>
+
+        <div id="planos">
+        <h2 class="pj-h2 pj-planos__titulo">Escolha seu plano do CondeClub</h2>
+        <p class="pj-planos__sub">O CondeClub Learn é o clube de programação e IA do conde.count. Os dois planos liberam tudo. Muda só o jeito de pagar.</p>
+        <div class="pricing__grid pricing__grid--duo pj-planos">
+          <div class="pricing__card pricing__card--main pricing__card--anual" id="plano-anual" data-folga="150">
+            <span class="pricing__seal">Mais vantajoso · economize até 58%</span>
+            <h3>Anual</h3>
+            <p class="pricing__was">De <s>R$ 19,90</s> por</p>
+            <p class="pricing__price"><small class="pricing__vezes">12x</small> R$ 10,34<span>/mês*</span></p>
+            <p class="pricing__price-note">ou <b>R$ 100 à vista por ano</b></p>
+            <p class="pricing__asterisco">*Parcelado no cartão: 12x de R$ 10,34, total de R$ 124,08, com juros da Kiwify de 3,49% ao mês (50,9% ao ano). À vista: R$ 100. A cobrança é uma vez por ano.</p>
+            <a href="https://pay.kiwify.com.br/AaVx51e" class="btn btn--primary btn--lg" data-checkout="condeclub-anual" data-onde="projeto-dinossauro-anual">Quero o plano anual</a>
+          </div>
+          <div class="pricing__card pricing__card--mensal">
+            <h3>Mensal</h3>
+            <p class="pricing__price">R$ 19,90<span>/mês</span></p>
+            <p class="pricing__price-note">Menos de R$ 0,70 por dia. Cancele quando quiser.</p>
+            <a href="https://pay.kiwify.com.br/zeHjPOA" class="btn btn--outline btn--lg" data-checkout="condeclub" data-onde="projeto-dinossauro-mensal">Assinar o mensal</a>
+          </div>
+        </div>
+        <p class="pj-planos__fim">7 dias de garantia nos dois planos · <a href="../../">Ver tudo que tem no clube</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="pj-h2">🎮 Outros projetos</h2>
+        <div class="pcards">
+        <article class="pcard" style="--c:#f7df1e">
+          <img class="pcard__lang" src="../../assets/learn/javascript.webp" alt="JavaScript" width="72" height="72" loading="lazy" />
+          <a class="pcard__capa" href="../blocos/" aria-label="Jogar Jogo dos blocos e ver o código"><img src="../../assets/clube/capa2-blocos.webp" alt="" width="720" height="480" loading="lazy" /><span class="proj__play">▶ Jogar</span></a>
+          <div class="pcard__txt"><span class="pcard__tipo">Jogo</span><h3>🧱 Jogo dos blocos</h3><p>JavaScript · 54 linhas · 7 passos</p><a class="pcard__ver" href="../blocos/">Jogar e ver o código →</a></div>
+        </article>
+        <article class="pcard" style="--c:#f7df1e">
+          <img class="pcard__lang" src="../../assets/learn/javascript.webp" alt="JavaScript" width="72" height="72" loading="lazy" />
+          <a class="pcard__capa" href="../cobrinha/" aria-label="Jogar Jogo da cobrinha e ver o código"><img src="../../assets/clube/capa2-cobrinha.webp" alt="" width="720" height="480" loading="lazy" /><span class="proj__play">▶ Jogar</span></a>
+          <div class="pcard__txt"><span class="pcard__tipo">Jogo</span><h3>🐍 Jogo da cobrinha</h3><p>JavaScript · 36 linhas · 9 passos</p><a class="pcard__ver" href="../cobrinha/">Jogar e ver o código →</a></div>
+        </article>
+        <article class="pcard" style="--c:#4b8bbe">
+          <img class="pcard__lang" src="../../assets/learn/python.webp" alt="Python" width="72" height="72" loading="lazy" />
+          <a class="pcard__capa" href="../chatbot/" aria-label="Testar Chatbot com IA e ver o código"><img src="../../assets/clube/capa2-chatbot.webp" alt="" width="720" height="480" loading="lazy" /><span class="proj__play">▶ Testar</span></a>
+          <div class="pcard__txt"><span class="pcard__tipo">Inteligência artificial</span><h3>🤖 Chatbot com IA</h3><p>Python · 31 linhas · 5 passos</p><a class="pcard__ver" href="../chatbot/">Testar e ver o código →</a></div>
+        </article>
+        <article class="pcard" style="--c:#4b8bbe">
+          <img class="pcard__lang" src="../../assets/learn/python.webp" alt="Python" width="72" height="72" loading="lazy" />
+          <a class="pcard__capa" href="../organizador/" aria-label="Testar Organizador automático e ver o código"><img src="../../assets/clube/capa2-organizador.webp" alt="" width="720" height="480" loading="lazy" /><span class="proj__play">▶ Testar</span></a>
+          <div class="pcard__txt"><span class="pcard__tipo">Automação</span><h3>📂 Organizador automático</h3><p>Python · 32 linhas · 5 passos</p><a class="pcard__ver" href="../organizador/">Testar e ver o código →</a></div>
+        </article>
+        <article class="pcard" style="--c:#f89820">
+          <img class="pcard__lang" src="../../assets/learn/java.webp" alt="Java" width="72" height="72" loading="lazy" />
+          <a class="pcard__capa" href="../pomodoro/" aria-label="Testar Timer Pomodoro e ver o código"><img src="../../assets/clube/capa2-pomodoro.webp" alt="" width="720" height="480" loading="lazy" /><span class="proj__play">▶ Testar</span></a>
+          <div class="pcard__txt"><span class="pcard__tipo">Produtividade</span><h3>🍅 Timer Pomodoro</h3><p>Java · 59 linhas · 5 passos</p><a class="pcard__ver" href="../pomodoro/">Testar e ver o código →</a></div>
+        </article>
+        <article class="pcard" style="--c:#f89820">
+          <img class="pcard__lang" src="../../assets/learn/java.webp" alt="Java" width="72" height="72" loading="lazy" />
+          <a class="pcard__capa" href="../banco/" aria-label="Testar Mini sistema bancário e ver o código"><img src="../../assets/clube/capa2-banco.webp" alt="" width="720" height="480" loading="lazy" /><span class="proj__play">▶ Testar</span></a>
+          <div class="pcard__txt"><span class="pcard__tipo">Sistema</span><h3>🏦 Mini sistema bancário</h3><p>Java · 64 linhas · 5 passos</p><a class="pcard__ver" href="../banco/">Testar e ver o código →</a></div>
+        </article>
+        <article class="pcard" style="--c:#a179dc">
+          <img class="pcard__lang" src="../../assets/learn/csharp.webp" alt="C#" width="72" height="72" loading="lazy" />
+          <a class="pcard__capa" href="../gastos/" aria-label="Testar Controle de gastos e ver o código"><img src="../../assets/clube/capa2-gastos.webp" alt="" width="720" height="480" loading="lazy" /><span class="proj__play">▶ Testar</span></a>
+          <div class="pcard__txt"><span class="pcard__tipo">Finanças</span><h3>💰 Controle de gastos</h3><p>C# · 40 linhas · 5 passos</p><a class="pcard__ver" href="../gastos/">Testar e ver o código →</a></div>
+        </article>
+        <article class="pcard" style="--c:#a179dc">
+          <img class="pcard__lang" src="../../assets/learn/csharp.webp" alt="C#" width="72" height="72" loading="lazy" />
+          <a class="pcard__capa" href="../clima/" aria-label="Testar App do clima e ver o código"><img src="../../assets/clube/capa2-clima.webp" alt="" width="720" height="480" loading="lazy" /><span class="proj__play">▶ Testar</span></a>
+          <div class="pcard__txt"><span class="pcard__tipo">API</span><h3>🌦️ App do clima</h3><p>C# · 47 linhas · 4 passos</p><a class="pcard__ver" href="../clima/">Testar e ver o código →</a></div>
+        </article>
+        <article class="pcard" style="--c:#4b8dff">
+          <img class="pcard__lang" src="../../assets/learn/sql.webp" alt="SQL" width="72" height="72" loading="lazy" />
+          <a class="pcard__capa" href="../financeiro/" aria-label="Testar Controle financeiro em SQL e ver o código"><img src="../../assets/clube/capa2-financeiro.webp" alt="" width="720" height="480" loading="lazy" /><span class="proj__play">▶ Testar</span></a>
+          <div class="pcard__txt"><span class="pcard__tipo">Banco de dados</span><h3>📊 Controle financeiro em SQL</h3><p>SQL · 29 linhas · 4 passos</p><a class="pcard__ver" href="../financeiro/">Testar e ver o código →</a></div>
+        </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <footer class="footer">
+    <div class="container footer__inner">
+      <img src="../../assets/logo.webp" alt="Logo conde.count" class="footer__logo" width="100" height="26" loading="lazy" />
+      <a href="../../" class="footer__login">Conheça o CondeClub</a>
+      <a href="https://condeclub.pages.dev/" class="footer__login">Já é membro? Entrar no CondeClub</a>
+      <a href="https://www.tiktok.com/@conde.count" rel="noopener" class="footer__tiktok">TikTok @conde.count</a>
+      <p class="footer__copy">© 2026 conde.count. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+  <div class="sticky-cta">
+    <a href="#plano-anual" class="btn btn--primary">Entrar no clube</a>
+  </div>
+  <script src="../../assets/clube/clube.js" defer></script>
+  <script src="../../assets/clube/planos.js" defer></script>
+  <script>
+  window.CONDECLUB_FUNIL = { url: 'https://jfljglekznchlcdtgyne.supabase.co', anon: 'sb_publishable_Es6m1MUELCRZiM9HJu-p9g_Na9YMiB2' };
+  (function () {
+    var cfg = window.CONDECLUB_FUNIL; if (!cfg || !cfg.url) return;
+    var id = (crypto.randomUUID ? crypto.randomUUID() : String(Date.now()) + Math.random()).replace(/-/g, '');
+    document.querySelectorAll('[data-checkout]').forEach(function (el) {
+      el.addEventListener('click', function () {
+        fetch(cfg.url + '/rest/v1/rpc/track_event', { method: 'POST', keepalive: true,
+          headers: { 'content-type': 'application/json', apikey: cfg.anon, authorization: 'Bearer ' + cfg.anon },
+          body: JSON.stringify({ p_name: 'clicou_assinar', p_session_id: id, p_source: 'site', p_props: { onde: el.getAttribute('data-onde') } }) }).catch(function () {});
+      });
+    });
+  })();
+</script>
+</body>
+</html>
