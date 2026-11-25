@@ -11,6 +11,16 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://condecount.pages.dev/projetos/forca/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://condecount.pages.dev/projetos/cinco-letras/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://condecount.pages.dev/projetos/passarinho/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

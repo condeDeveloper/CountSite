@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<title>Jogo da forca</title>
+<style>
+  /* Moldura do jogo da forca. O forca.js é o mesmo do vídeo, sem mudar uma linha: o teclado da tela só aperta as mesmas teclas. */
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: #0d0b14; color: #f8fafc; font-family: 'Poppins', system-ui, sans-serif; -webkit-tap-highlight-color: transparent; }
+  body { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 10px; user-select: none; -webkit-user-select: none; touch-action: manipulation; }
+  canvas { display: block; width: min(100%, 400px, 52vh); height: auto; border-radius: 10px; background: #fdf6e3; box-shadow: 0 0 0 1px #2a2438, 0 18px 40px -18px #000, 0 0 28px -8px rgba(247,223,30,.45); }
+  .teclado { display: grid; grid-template-columns: repeat(9, 1fr); gap: 5px; width: min(100%, 400px); }
+  .teclado button { border: 1px solid #3b3350; background: #1d182a; color: #f8fafc; border-radius: 8px; padding: 9px 0; font: 700 15px/1 system-ui, sans-serif; cursor: pointer; }
+  .teclado button:active { background: #7c3aed; }
+  .teclado button.usada { opacity: .32; }
+  .teclado button.novo { grid-column: span 9; background: #f7df1e; color: #1b1b1b; border: 0; padding: 11px 0; }
+  .barra { color: #a1a1aa; font-size: 12px; text-align: center; }
+  body.demo { padding: 0; background: #fdf6e3; }
+  body.demo .teclado, body.demo .barra { display: none; }
+  body.demo canvas { width: min(100vw, 100vh); border-radius: 0; box-shadow: none; }
+</style>
+</head>
+<body>
+  <canvas id="tela" width="400" height="400"></canvas>
+  <div class="teclado" id="teclado"></div>
+  <div class="barra">Use o teclado do computador ou toque nas letras</div>
+  <script src="forca.js"></script>
+  <script>
+    // Só a moldura: as letras na tela (o código do vídeo escuta o teclado) e, com ?demo=1, um piloto que joga sozinho (vitrine).
+    (function () {
+      const demo = new URLSearchParams(location.search).get('demo') === '1'
+      const aperta = (key) => document.dispatchEvent(new KeyboardEvent('keydown', { key, bubbles: true }))
+      window.addEventListener('keydown', (e) => { if (e.key === ' ' || e.key === 'Enter') e.preventDefault() }, { passive: false })
+      if (demo) {
+        document.body.classList.add('demo')
+        const ordem = () => [...'AEOSRINTMCLDUPGVXZQW'].sort(() => Math.random() - 0.45)
+        let fila = ordem(), parado = 0
+        setInterval(() => {
+          const fim = erros === 6 || ganhou()
+          if (fim) { if (++parado > 3) { parado = 0; fila = ordem(); aperta('Enter') } return }
+          aperta(fila.shift() || 'A')
+        }, 750)
+        return
+      }
+      const el = document.getElementById('teclado')
+      for (const l of 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') { const b = document.createElement('button'); b.type = 'button'; b.textContent = l; b.dataset.l = l; el.appendChild(b) }
+      const novoB = document.createElement('button'); novoB.type = 'button'; novoB.className = 'novo'; novoB.textContent = '↻ Outra palavra'; novoB.hidden = true; el.appendChild(novoB)
+      const pinta = () => { const fim = erros === 6 || ganhou(); el.querySelectorAll('[data-l]').forEach((b) => b.classList.toggle('usada', letras.includes(b.dataset.l))); novoB.hidden = !fim }
+      el.addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; aperta(b.dataset.l || 'Enter'); pinta() })
+      document.addEventListener('keydown', () => setTimeout(pinta, 0))
+      pinta()
+    })()
+  </script>
+</body>
+</html>

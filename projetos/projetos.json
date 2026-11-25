@@ -1,6 +1,79 @@
 {
  "projetos": [
   {
+   "slug": "forca",
+   "titulo": "Jogo da forca",
+   "emoji": "🪢",
+   "linguagem": "JavaScript",
+   "linhas": 58,
+   "publicado": "25/11",
+   "curto": "A forca com o boneco desenhado pedaço por pedaço, em 58 linhas de JavaScript.",
+   "altura": 660,
+   "passos": 8,
+   "tipo": "Jogo",
+   "cor": "#f7df1e",
+   "icone": "javascript",
+   "trilha": {
+    "nome": "JavaScript",
+    "img": "assets/learn/javascript.webp",
+    "neon": "js"
+   },
+   "arquivos": [
+    {
+     "nome": "index.html",
+     "de": "pagina.html",
+     "lang": "html"
+    },
+    {
+     "nome": "forca.js",
+     "de": "forca.js",
+     "lang": "js"
+    }
+   ],
+   "como": "Cria uma pasta, salva os dois arquivos com esses nomes e abre o <b>index.html</b> no navegador.",
+   "completa": [
+    "Teclado clicável na tela",
+    "Dica da palavra",
+    "Categorias de palavras",
+    "Placar de vitórias e derrotas",
+    "Palavras com acento"
+   ]
+  },
+  {
+   "slug": "cinco-letras",
+   "titulo": "Jogo das cinco letras",
+   "emoji": "🟩",
+   "linguagem": "Python",
+   "linhas": 32,
+   "publicado": "26/11",
+   "curto": "Adivinhe a palavra em seis tentativas, no estilo Termo, com o terminal pintado, em 32 linhas de Python.",
+   "altura": 560,
+   "passos": 7,
+   "tipo": "Jogo",
+   "cor": "#4b8bbe",
+   "icone": "python",
+   "trilha": {
+    "nome": "Python",
+    "img": "assets/learn/python.webp",
+    "neon": "py"
+   },
+   "arquivos": [
+    {
+     "nome": "termo.py",
+     "de": "termo.py",
+     "lang": "py"
+    }
+   ],
+   "como": "Com o Python instalado, salva o arquivo e roda <b>python termo.py</b> no terminal. Não precisa instalar mais nada.",
+   "completa": [
+    "Letras descartadas na tela",
+    "Lista grande de palavras em arquivo",
+    "Só aceitar palavra que existe",
+    "Placar de sequência de vitórias",
+    "Palavras com acento"
+   ]
+  },
+  {
    "slug": "passarinho",
    "titulo": "Jogo do passarinho",
    "emoji": "🐤",
