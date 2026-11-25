@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<title>Jogo do passarinho</title>
+<style>
+  /* Moldura do jogo do passarinho. O passaro.js é o mesmo do vídeo, sem mudar uma linha. */
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: #0d0b14; color: #f8fafc; font-family: 'Poppins', system-ui, sans-serif; -webkit-tap-highlight-color: transparent; }
+  body { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 10px; user-select: none; -webkit-user-select: none; }
+  .tela-jogo { position: relative; width: min(600px, 100%); line-height: 0; }
+  canvas { display: block; width: 100%; height: auto; border-radius: 10px; background: #8fd3ff; box-shadow: 0 0 0 1px #2a2438, 0 18px 40px -18px #000, 0 0 28px -8px rgba(247,223,30,.45); touch-action: manipulation; cursor: pointer; }
+  .comecar { position: absolute; inset: 0; margin: auto; width: 150px; height: 56px; border: 0; border-radius: 16px; background: #7c3aed; color: #fff; font: 700 18px/1 'Poppins', system-ui, sans-serif; cursor: pointer; box-shadow: 0 12px 30px -10px rgb(124 58 237 / .9); }
+  body.rodando .comecar, body.demo .comecar, body.demo .barra { display: none; }
+  .barra { color: #a1a1aa; font-size: 13px; text-align: center; line-height: 1.4; }
+  .barra b { color: #f7df1e; }
+  body.demo { padding: 0; background: #8fd3ff; }
+  body.demo canvas { border-radius: 0; box-shadow: none; }
+</style>
+</head>
+<body>
+  <div class="tela-jogo">
+    <canvas id="tela" width="600" height="324"></canvas>
+    <button class="comecar" id="comecar" type="button">▶ Jogar</button>
+  </div>
+  <div class="barra"><b>Espaço</b> ou toque na tela pra bater asa. Bateu? Toque de novo pra recomeçar.</div>
+  <script src="../inicio.js"></script>
+  <script src="passaro.js"></script>
+  <script>
+    // Só a moldura: segura o jogo até o "Jogar" e, com ?demo=1, um piloto que aperta o espaço sozinho (vitrine).
+    (function () {
+      const demo = new URLSearchParams(location.search).get('demo') === '1'
+      const comeca = () => { if (window.__comecar) window.__comecar() }
+      window.addEventListener('keydown', (e) => { if (e.code === 'Space') { e.preventDefault(); comeca() } }, { passive: false })
+      if (!demo) {
+        document.getElementById('comecar').addEventListener('click', comeca)
+        document.getElementById('tela').addEventListener('pointerdown', comeca)
+        return
+      }
+      document.body.classList.add('demo')
+      const espaco = () => document.dispatchEvent(new KeyboardEvent('keydown', { code: 'Space', bubbles: true }))
+      let morto = 0
+      setInterval(() => {
+        if (!vivo) { if (++morto > 70) { morto = 0; espaco() } return }
+        const c = canos.find((c) => c.x + LARG > X - R)
+        const alvo = c ? c.topo + VAO / 2 : A / 2
+        if (y > alvo + 12 && vel > -1) espaco()
+      }, 16)
+    })()
+  </script>
+</body>
+</html>

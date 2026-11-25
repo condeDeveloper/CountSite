@@ -1,6 +1,45 @@
 {
  "projetos": [
   {
+   "slug": "passarinho",
+   "titulo": "Jogo do passarinho",
+   "emoji": "🐤",
+   "linguagem": "JavaScript",
+   "linhas": 71,
+   "publicado": "24/11",
+   "curto": "O passarinho que desvia dos canos, no estilo Flappy Bird, em 71 linhas de JavaScript.",
+   "altura": 430,
+   "passos": 8,
+   "tipo": "Jogo",
+   "cor": "#f7df1e",
+   "icone": "javascript",
+   "trilha": {
+    "nome": "JavaScript",
+    "img": "assets/learn/javascript.webp",
+    "neon": "js"
+   },
+   "arquivos": [
+    {
+     "nome": "index.html",
+     "de": "pagina.html",
+     "lang": "html"
+    },
+    {
+     "nome": "passaro.js",
+     "de": "passaro.js",
+     "lang": "js"
+    }
+   ],
+   "como": "Cria uma pasta, salva os dois arquivos com esses nomes e abre o <b>index.html</b> no navegador.",
+   "completa": [
+    "Recorde salvo",
+    "Velocidade que sobe com os pontos",
+    "Passarinho que inclina ao subir e cair",
+    "Chão e nuvens andando",
+    "Som no pulo e na batida"
+   ]
+  },
+  {
    "slug": "dinossauro",
    "titulo": "Jogo do dinossauro",
    "emoji": "🦖",
